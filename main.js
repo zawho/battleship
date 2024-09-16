@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n//# sourceURL=webpack://battleship/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _ship_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ship.js */ \"./src/ship.js\");\n\n\n\n(0,_ship_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('hello');\n\n//# sourceURL=webpack://battleship/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/ship.js":
+/*!*********************!*\
+  !*** ./src/ship.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction capitalize(string) {\n\tconst firstLetter = string.charAt(0).toUpperCase();\n    console.log(firstLetter + string.slice(1));\n\treturn firstLetter + string.slice(1);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (capitalize);\n\n//# sourceURL=webpack://battleship/./src/ship.js?");
 
 /***/ })
 
