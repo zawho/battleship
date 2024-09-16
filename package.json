@@ -1,21 +1,26 @@
 {
-  "name": "battleship",
-  "version": "1.0.0",
-  "description": "September 16, 2024 - I am now beginning the Battleship project as a part of The Odin Project's Javascript track. I will be making a version of the Battleship board game. One of the major goals of this project will be to implement Test Driven Development, including mocking if need be.",
-  "main": "index.js",
-  "private": "true",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^7.1.2",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
-  }
+	"name": "battleship",
+	"version": "1.0.0",
+	"description": "September 16, 2024 - I am now beginning the Battleship project as a part of The Odin Project's Javascript track. I will be making a version of the Battleship board game. One of the major goals of this project will be to implement Test Driven Development, including mocking if need be.",
+	"main": "index.js",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack",
+		"watch": "webpack --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@eslint/js": "^9.10.0",
+		"css-loader": "^7.1.2",
+		"eslint": "^9.10.0",
+		"eslint-config-prettier": "^9.1.0",
+		"globals": "^15.9.0",
+		"prettier": "3.3.3",
+		"style-loader": "^4.0.0",
+		"webpack": "^5.94.0",
+		"webpack-cli": "^5.1.4"
+	}
 }
