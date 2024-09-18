@@ -1,5 +1,5 @@
-import capitalize from "../ship.js";
+import carrier from "../index.js";
 
-test('capitalizes "hello" as "Hello"', () => {
-	expect(capitalize('hello')).toBe('Hello');
+test('object assignment', () => {
+	expect(carrier).toEqual({length: 5, hits: 0, sunk: false});
 });

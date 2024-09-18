@@ -1,7 +1,9 @@
-function capitalize(string) {
-	const firstLetter = string.charAt(0).toUpperCase();
-    console.log(firstLetter + string.slice(1));
-	return firstLetter + string.slice(1);
+class Ship {
+    constructor(length) {
+        this.length = length;
+        this.hits = 0;
+        this.sunk = false;
+    }
 }
 
-export default capitalize;
+export default Ship;
