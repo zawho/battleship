@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Ship {\n\tconstructor(length) {\n\t\tthis.length = length;\n\t\tthis.hits = 0;\n\t\tthis.sunk = false;\n\t}\n\n\thit() {\n\t\tthis.hits += 1;\n\t\treturn this;\n\t}\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);\n\n\n//# sourceURL=webpack://battleship/./src/ship.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Ship {\n\tconstructor(length) {\n\t\tthis.length = length;\n\t\tthis.hits = 0;\n\t\tthis.sunk = false;\n\t}\n\n\thit() {\n\t\tthis.hits += 1;\n\t\treturn this;\n\t}\n\n\tisSunk() {\n\t\tif (this.hits >= this.length) {\n\t\t\tthis.sunk = true;\n\t\t}\n\t\treturn this;\n\t}\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);\n\n\n//# sourceURL=webpack://battleship/./src/ship.js?");
 
 /***/ })
 
