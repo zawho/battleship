@@ -1,5 +1,9 @@
-import carrier from "../index.js";
+import Ship from '../ship.js';
 
-test('object assignment', () => {
-	expect(carrier).toEqual({length: 5, hits: 0, sunk: false});
+test('new ship with length of 5', () => {
+	expect(new Ship(5)).toEqual({ length: 5, hits: 0, sunk: false });
+});
+
+test('add 1 hit', () => {
+	expect(new Ship(5).hit()).toEqual({ length: 5, hits: 1, sunk: false });
 });
