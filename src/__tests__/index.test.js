@@ -1,25 +1,31 @@
 import Ship from '../ship.js';
 
-test('create new ship object with length of 5', () => {
-	expect(new Ship(5)).toEqual({ length: 5, hits: 0, sunk: false });
-});
-
-test('add 1 hit to ship', () => {
+describe('test ship', () => {
 	const testShip = new Ship(5);
 
-	testShip.hit();
+	test('create new ship object with length of 5', () => {
+		expect(testShip).toEqual({ length: 5, hits: 0, sunk: false });
+	});
 
-	expect(testShip.hits).toBe(1);
-});
-
-test('sink the ship', () => {
-	const testShip = new Ship(5);
-
-	for (let i = 0; i < 5; i++) {
+	test('add 1 hit to ship', () => {
 		testShip.hit();
-	}
 
-	testShip.isSunk();
+		expect(testShip.hits).toBe(1);
+	});
 
-	expect(testShip.sunk).toBe(true);
+	test('ship is not sunk', () => {
+		testShip.isSunk();
+
+		expect(testShip.sunk).toBe(false);
+	});
+
+	test('ship is sunk', () => {
+		for (let i = 0; i < 4; i++) {
+			testShip.hit();
+		}
+
+		testShip.isSunk();
+
+		expect(testShip.sunk).toBe(true);
+	});
 });
