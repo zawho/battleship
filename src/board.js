@@ -29,6 +29,16 @@ class Board {
 			}
 		}
 	}
+
+	placeHorizontal(start, ship) {
+		const shipLoc = [];
+
+		for (let i = 0; i <= ship.length; i++) {
+			shipLoc.push(start++);
+		}
+
+		return shipLoc;
+	}
 }
 
 export default Board;

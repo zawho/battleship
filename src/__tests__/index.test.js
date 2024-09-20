@@ -35,7 +35,7 @@ describe('test game board', () => {
 	const testBoard = new Board();
 
 	test('create 2D game board array with length 100', () => {
-		expect(testBoard.list.length).toEqual(100);
+		expect(testBoard.list.length).toBe(100);
 	});
 
 	test('board array at index 0 equals [1, 10]', () => {
@@ -48,5 +48,21 @@ describe('test game board', () => {
 
 	test('board array at index 99 equals [89, 98]', () => {
 		expect(testBoard.list[99]).toEqual([89, 98]);
+	});
+});
+
+describe('test ship placement', () => {
+	const placeBoard = new Board();
+	const placeShip = new Ship(5);
+
+	test('return spaces for horizontal placement of length 5 ship', () => {
+		expect(placeBoard.placeHorizontal(10, placeShip)).toEqual([
+			10, 11, 12, 13, 14, 15,
+		]);
+	});
+
+	test('return undefined if ship does not fit in row', () => {
+		// This is next
+		expect(placeBoard.placeHorizontal(16, placeShip)).toBe(undefined);
 	});
 });
