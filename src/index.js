@@ -1,5 +1,6 @@
 import './style.css';
 import Ship from './ship.js';
+import Board from './board.js';
 
 const carrier = new Ship(5);
 const battleship = new Ship(4);
