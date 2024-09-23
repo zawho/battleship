@@ -32,9 +32,17 @@ class Board {
 
 	placeHorizontal(start, ship) {
 		const shipLoc = [];
+		const remainder = start % 10;
+		const rowEnd = start - remainder + 9;
 
-		for (let i = 0; i <= ship.length; i++) {
+		for (let i = 0; i < ship.length; i++) {
 			shipLoc.push(start++);
+		}
+
+		for (let i = 0; i <= shipLoc.length; i++) {
+			if (shipLoc[i] === rowEnd && i != shipLoc.length - 1) {
+				return undefined;
+			}
 		}
 
 		return shipLoc;

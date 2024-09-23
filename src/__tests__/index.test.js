@@ -57,12 +57,11 @@ describe('test ship placement', () => {
 
 	test('return spaces for horizontal placement of length 5 ship', () => {
 		expect(placeBoard.placeHorizontal(10, placeShip)).toEqual([
-			10, 11, 12, 13, 14, 15,
+			10, 11, 12, 13, 14,
 		]);
 	});
 
-	test('return undefined if ship does not fit in row', () => {
-		// This is next
+	test('ship does not fit in row, returns undefined', () => {
 		expect(placeBoard.placeHorizontal(16, placeShip)).toBe(undefined);
 	});
 });
