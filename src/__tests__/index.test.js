@@ -74,5 +74,14 @@ describe('test ship placement', () => {
 	test('ship does not fit in column, returns undefined', () => {
 		expect(placeBoard.placeVertical(62, placeShip)).toBe(undefined);
 	});
+});
 
+describe('test attacks on board', () => {
+	const attackBoard = new Board();
+	const attackShip = new Ship(5);
+	attackBoard.placeHorizontal(10, attackShip);
+
+	test('ship is attacked', () => {
+		expect(attackBoard.receiveAttack(12)).toBe(true);
+	});
 });

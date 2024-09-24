@@ -48,24 +48,24 @@ class Board {
 		return shipLoc;
 	}
 
-    placeVertical(start, ship) {
-        const shipLoc = [];
+	placeVertical(start, ship) {
+		const shipLoc = [];
 
-        shipLoc.push(start);
+		shipLoc.push(start);
 
-        for (let i = 0; i < (ship.length - 1); i++) {
-            start += 10;
+		for (let i = 0; i < ship.length - 1; i++) {
+			start += 10;
 			shipLoc.push(start);
 		}
 
-        for (let i = 0; i <= shipLoc.length; i++) {
+		for (let i = 0; i <= shipLoc.length; i++) {
 			if (shipLoc[i] - (shipLoc[i] % 10) === 90 && i != shipLoc.length - 1) {
 				return undefined;
 			}
 		}
 
-        return shipLoc;
-    }
+		return shipLoc;
+	}
 }
 
 export default Board;
