@@ -47,6 +47,19 @@ class Board {
 
 		return shipLoc;
 	}
+
+    placeVertical(start, ship) {
+        const shipLoc = [];
+
+        shipLoc.push(start);
+
+        for (let i = 0; i < (ship.length - 1); i++) {
+            start += 10;
+			shipLoc.push(start);
+		}
+
+        return shipLoc;
+    }
 }
 
 export default Board;
