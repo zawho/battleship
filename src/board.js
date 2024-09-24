@@ -58,6 +58,12 @@ class Board {
 			shipLoc.push(start);
 		}
 
+        for (let i = 0; i <= shipLoc.length; i++) {
+			if (shipLoc[i] - (shipLoc[i] % 10) === 90 && i != shipLoc.length - 1) {
+				return undefined;
+			}
+		}
+
         return shipLoc;
     }
 }

@@ -71,4 +71,8 @@ describe('test ship placement', () => {
 		]);
 	});
 
+	test('ship does not fit in column, returns undefined', () => {
+		expect(placeBoard.placeVertical(62, placeShip)).toBe(undefined);
+	});
+
 });
