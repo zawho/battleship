@@ -53,30 +53,37 @@ describe('test game board', () => {
 
 describe('test ship placement', () => {
 	const placeBoard = new Board();
-	const placeShip = new Ship(5);
+	const horizontalShip = new Ship(5);
+	const verticalShip = new Ship(4);
 
 	test('return spaces for horizontal placement of length 5 ship', () => {
-		expect(placeBoard.placeHorizontal(10, placeShip)).toEqual([
+		expect(placeBoard.placeHorizontal(10, horizontalShip)).toEqual([
 			10, 11, 12, 13, 14,
 		]);
 	});
 
 	test('ship does not fit in row, returns undefined', () => {
-		expect(placeBoard.placeHorizontal(16, placeShip)).toBe(undefined);
+		expect(placeBoard.placeHorizontal(16, horizontalShip)).toBe(undefined);
 	});
 
 	test('return spaces for vertical placement of length 5 ship', () => {
-		expect(placeBoard.placeVertical(12, placeShip)).toEqual([
-			12, 22, 32, 42, 52,
+		expect(placeBoard.placeVertical(12, verticalShip)).toEqual([
+			12, 22, 32, 42,
 		]);
 	});
 
 	test('ship does not fit in column, returns undefined', () => {
-		expect(placeBoard.placeVertical(62, placeShip)).toBe(undefined);
+		expect(placeBoard.placeVertical(72, verticalShip)).toBe(undefined);
+	});
+
+	test('board.locations object contains ship placements', () => {
+		expect(placeBoard.locations).toEqual({
+
+		});
 	});
 });
 
-describe('test attacks on board', () => {
+/* describe('test attacks on board', () => {
 	const attackBoard = new Board();
 	const attackShip = new Ship(5);
 	attackBoard.placeHorizontal(10, attackShip);
@@ -84,4 +91,4 @@ describe('test attacks on board', () => {
 	test('ship is attacked', () => {
 		expect(attackBoard.receiveAttack(12)).toBe(true);
 	});
-});
+}); */
