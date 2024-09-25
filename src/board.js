@@ -69,6 +69,17 @@ class Board {
 		this.locations[ship.name] = shipLoc;
 		return shipLoc;
 	}
+
+	receiveAttack(coords) {
+		for (let [key, value] of Object.entries(this.locations)) {
+			for (let i = 0; i < value.length; i++) {
+				if (value[i] === coords) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
 
 export default Board;

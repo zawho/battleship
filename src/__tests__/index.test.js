@@ -72,7 +72,7 @@ describe('test ship placement', () => {
 	});
 
 	test('return spaces for vertical placement of length 5 ship', () => {
-		expect(placeBoard.placeVertical(12, vertShip)).toEqual([12, 22, 32, 42]);
+		expect(placeBoard.placeVertical(25, vertShip)).toEqual([25, 35, 45, 55]);
 	});
 
 	test('ship does not fit in column, returns undefined', () => {
@@ -82,17 +82,27 @@ describe('test ship placement', () => {
 	test('board.locations object contains ship placements', () => {
 		expect(placeBoard.locations).toEqual({
 			horizShip: [10, 11, 12, 13, 14],
-			vertShip: [12, 22, 32, 42],
+			vertShip: [25, 35, 45, 55],
 		});
 	});
 });
 
-/* describe('test attacks on board', () => {
+describe('test attacks on board', () => {
 	const attackBoard = new Board();
-	const attackShip = new Ship(5);
+	const attackShip = new Ship('attackShip', 5);
+	const secondAttackShip = new Ship('secondAttackShip', 4);
 	attackBoard.placeHorizontal(10, attackShip);
+	attackBoard.placeVertical(25, secondAttackShip);
 
-	test('ship is attacked', () => {
+	test('horizontal ship is attacked', () => {
 		expect(attackBoard.receiveAttack(12)).toBe(true);
 	});
-}); */
+
+	test('vertical ship is attacked', () => {
+		expect(attackBoard.receiveAttack(45)).toBe(true);
+	});
+
+	test('attack missed', () => {
+		expect(attackBoard.receiveAttack(15)).toBe(false);
+	});
+});
