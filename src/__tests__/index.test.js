@@ -2,10 +2,15 @@ import Ship from '../ship.js';
 import Board from '../board.js';
 
 describe('test ship', () => {
-	const testShip = new Ship(5);
+	const testShip = new Ship('testShip', 5);
 
 	test('create new ship object with length of 5', () => {
-		expect(testShip).toEqual({ length: 5, hits: 0, sunk: false });
+		expect(testShip).toEqual({
+			name: 'testShip',
+			length: 5,
+			hits: 0,
+			sunk: false,
+		});
 	});
 
 	test('add 1 hit to ship', () => {
@@ -53,32 +58,31 @@ describe('test game board', () => {
 
 describe('test ship placement', () => {
 	const placeBoard = new Board();
-	const horizontalShip = new Ship(5);
-	const verticalShip = new Ship(4);
+	const horizShip = new Ship('horizShip', 5);
+	const vertShip = new Ship('vertShip', 4);
 
 	test('return spaces for horizontal placement of length 5 ship', () => {
-		expect(placeBoard.placeHorizontal(10, horizontalShip)).toEqual([
+		expect(placeBoard.placeHorizontal(10, horizShip)).toEqual([
 			10, 11, 12, 13, 14,
 		]);
 	});
 
 	test('ship does not fit in row, returns undefined', () => {
-		expect(placeBoard.placeHorizontal(16, horizontalShip)).toBe(undefined);
+		expect(placeBoard.placeHorizontal(16, horizShip)).toBe(undefined);
 	});
 
 	test('return spaces for vertical placement of length 5 ship', () => {
-		expect(placeBoard.placeVertical(12, verticalShip)).toEqual([
-			12, 22, 32, 42,
-		]);
+		expect(placeBoard.placeVertical(12, vertShip)).toEqual([12, 22, 32, 42]);
 	});
 
 	test('ship does not fit in column, returns undefined', () => {
-		expect(placeBoard.placeVertical(72, verticalShip)).toBe(undefined);
+		expect(placeBoard.placeVertical(72, vertShip)).toBe(undefined);
 	});
 
 	test('board.locations object contains ship placements', () => {
 		expect(placeBoard.locations).toEqual({
-
+			horizShip: [10, 11, 12, 13, 14],
+			vertShip: [12, 22, 32, 42],
 		});
 	});
 });

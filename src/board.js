@@ -1,6 +1,7 @@
 class Board {
 	constructor() {
 		this.list = [];
+		this.locations = {};
 
 		for (let i = 0; i < 100; i++) {
 			this.list.push([]);
@@ -45,6 +46,7 @@ class Board {
 			}
 		}
 
+		this.locations[ship.name] = shipLoc;
 		return shipLoc;
 	}
 
@@ -64,6 +66,7 @@ class Board {
 			}
 		}
 
+		this.locations[ship.name] = shipLoc;
 		return shipLoc;
 	}
 }
