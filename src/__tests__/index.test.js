@@ -85,9 +85,16 @@ describe('test ship placement', () => {
 			vertShip: [25, 35, 45, 55],
 		});
 	});
+
+	test('board.placedShips object contains ship placements', () => {
+		expect(placeBoard.placedShips).toEqual({
+			horizShip: horizShip,
+			vertShip: vertShip,
+		});
+	});
 });
 
-describe('test attacks on board', () => {
+describe('test attacks', () => {
 	const attackBoard = new Board();
 	const attackShip = new Ship('attackShip', 5);
 	const secondAttackShip = new Ship('secondAttackShip', 4);
@@ -105,4 +112,8 @@ describe('test attacks on board', () => {
 	test('attack missed', () => {
 		expect(attackBoard.receiveAttack(15)).toBe(false);
 	});
+
+	/* test('attacked ship accrues 1 hit', () => {
+		expect(attackShip.hits).toBe(1);
+	}); */
 });
