@@ -11,5 +11,6 @@ const patrol = new Ship('patrol', 2);
 const testBoard = new Board();
 
 testBoard.placeHorizontal(10, carrier);
+testBoard.placeVertical(22, battleship);
 
-console.log(testBoard.locations);
+testBoard.findShip('carrier');

@@ -1,8 +1,10 @@
+import Ship from './ship.js';
+
 class Board {
 	constructor() {
 		this.list = [];
 		this.locations = {};
-        this.placedShips = {};
+		this.placedShips = {};
 
 		for (let i = 0; i < 100; i++) {
 			this.list.push([]);
@@ -47,7 +49,7 @@ class Board {
 			}
 		}
 
-        this.placedShips[ship.name] = ship;
+		this.placedShips[ship.name] = ship;
 		this.locations[ship.name] = shipLoc;
 		return shipLoc;
 	}
@@ -68,15 +70,26 @@ class Board {
 			}
 		}
 
-        this.placedShips[ship.name] = ship;
+		this.placedShips[ship.name] = ship;
 		this.locations[ship.name] = shipLoc;
 		return shipLoc;
 	}
 
+	findShip(shipName) {
+		for (let [key, value] of Object.entries(this.placedShips)) {
+			if (value.name === shipName) {
+				return value;
+			}
+		}
+	}
+
 	receiveAttack(coords) {
+		let hitShip;
 		for (let [key, value] of Object.entries(this.locations)) {
 			for (let i = 0; i < value.length; i++) {
 				if (value[i] === coords) {
+					hitShip = this.findShip(key);
+					hitShip.hit();
 					return true;
 				}
 			}

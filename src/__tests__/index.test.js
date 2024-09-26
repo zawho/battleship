@@ -113,7 +113,7 @@ describe('test attacks', () => {
 		expect(attackBoard.receiveAttack(15)).toBe(false);
 	});
 
-	/* test('attacked ship accrues 1 hit', () => {
+	test('attacked ship accrues 1 hit', () => {
 		expect(attackShip.hits).toBe(1);
-	}); */
+	});
 });
