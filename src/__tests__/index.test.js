@@ -124,4 +124,8 @@ describe('test attacks', () => {
 	test('missed attack is logged', () => {
 		expect(attackBoard.missed).toBe(2);
 	});
+
+	test('missed attack coords are logged', () => {
+		expect(attackBoard.missedCoords).toEqual([15, 2]);
+	});
 });
