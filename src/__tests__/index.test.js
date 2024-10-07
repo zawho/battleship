@@ -113,7 +113,15 @@ describe('test attacks', () => {
 		expect(attackBoard.receiveAttack(15)).toBe(false);
 	});
 
+	test('attack missed', () => {
+		expect(attackBoard.receiveAttack(2)).toBe(false);
+	});
+
 	test('attacked ship accrues 1 hit', () => {
 		expect(attackShip.hits).toBe(1);
+	});
+
+	test('missed attack is logged', () => {
+		expect(attackBoard.missed).toBe(2);
 	});
 });

@@ -5,6 +5,7 @@ class Board {
 		this.list = [];
 		this.locations = {};
 		this.placedShips = {};
+		this.missed = 0;
 
 		for (let i = 0; i < 100; i++) {
 			this.list.push([]);
@@ -94,6 +95,7 @@ class Board {
 				}
 			}
 		}
+		this.missed += 1;
 		return false;
 	}
 }
