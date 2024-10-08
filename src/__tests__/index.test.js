@@ -129,3 +129,26 @@ describe('test attacks', () => {
 		expect(attackBoard.missedCoords).toEqual([15, 2]);
 	});
 });
+
+describe('test for all ships sunk', () => {
+	const sunkBoard = new Board();
+	const sunkShip = new Ship('sunkShip', 5);
+	const secondSunkShip = new Ship('secondSunkShip', 4);
+	sunkBoard.placeHorizontal(10, sunkShip);
+	sunkBoard.placeVertical(25, secondSunkShip);
+
+	sunkBoard.receiveAttack(10);
+	sunkBoard.receiveAttack(11);
+	sunkBoard.receiveAttack(12);
+	sunkBoard.receiveAttack(13);
+	sunkBoard.receiveAttack(14);
+
+	sunkBoard.receiveAttack(25);
+	sunkBoard.receiveAttack(35);
+	sunkBoard.receiveAttack(45);
+	sunkBoard.receiveAttack(55);
+
+	test('All ships sunk returns true', () => {
+		expect(sunkBoard.checkSunk()).toBe(true);
+	});
+});

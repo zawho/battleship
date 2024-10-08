@@ -92,6 +92,7 @@ class Board {
 				if (value[i] === coords) {
 					hitShip = this.findShip(key);
 					hitShip.hit();
+					hitShip.isSunk();
 					return true;
 				}
 			}
@@ -99,6 +100,15 @@ class Board {
 		this.missed += 1;
 		this.missedCoords.push(coords);
 		return false;
+	}
+
+	checkSunk() {
+		for (let [key, value] of Object.entries(this.placedShips)) {
+			if (value.sunk === false) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
 
