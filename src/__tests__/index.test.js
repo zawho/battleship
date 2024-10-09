@@ -1,5 +1,6 @@
 import Ship from '../ship.js';
 import Board from '../board.js';
+import Player from '../player.js';
 
 describe('test ship', () => {
 	const testShip = new Ship('testShip', 5);
@@ -150,5 +151,24 @@ describe('test for all ships sunk', () => {
 
 	test('All ships sunk returns true', () => {
 		expect(sunkBoard.checkSunk()).toBe(true);
+	});
+});
+
+describe('test player', () => {
+	const testHuman = new Player('human');
+	const testComputer = new Player('computer');
+
+	test('create new human player', () => {
+		expect(testHuman).toEqual({
+			type: 'human',
+			gameboard: new Board(),
+		});
+	});
+
+	test('create new computer player', () => {
+		expect(testComputer).toEqual({
+			type: 'computer',
+			gameboard: new Board(),
+		});
 	});
 });
