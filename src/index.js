@@ -1,16 +1,33 @@
 import './style.css';
 import Ship from './ship.js';
-import Board from './board.js';
+import Player from './player.js';
 
-const carrier = new Ship('carrier', 5);
-const battleship = new Ship('battleship', 4);
-const destroyer = new Ship('destroyer', 3);
-const submarine = new Ship('submarine', 3);
-const patrol = new Ship('patrol', 2);
+const humanPlayer = new Player('human');
+const pcPlayer = new Player('computer');
 
-const testBoard = new Board();
+const humanCarrier = new Ship('humanCarrier', 5);
+const humanBattleship = new Ship('humanBattleship', 4);
+const humanDestroyer = new Ship('humanDestroyer', 3);
+const humanSubmarine = new Ship('humanSubmarine', 3);
+const humanPatrol = new Ship('humanPatrol', 2);
 
-testBoard.placeHorizontal(10, carrier);
-testBoard.placeVertical(22, battleship);
+const pcCarrier = new Ship('pcCarrier', 5);
+const pcBattleship = new Ship('pcBattleship', 4);
+const pcDestroyer = new Ship('pcDestroyer', 3);
+const pcSubmarine = new Ship('pcSubmarine', 3);
+const pcPatrol = new Ship('pcPatrol', 2);
 
-testBoard.findShip('carrier');
+humanPlayer.gameboard.placeHorizontal(0, humanPatrol);
+humanPlayer.gameboard.placeVertical(8, humanSubmarine);
+humanPlayer.gameboard.placeHorizontal(12, humanDestroyer);
+humanPlayer.gameboard.placeVertical(20, humanBattleship);
+humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
+
+pcPlayer.gameboard.placeVertical(50, pcPatrol);
+pcPlayer.gameboard.placeHorizontal(54, pcSubmarine);
+pcPlayer.gameboard.placeVertical(67, pcDestroyer);
+pcPlayer.gameboard.placeHorizontal(72, pcBattleship);
+pcPlayer.gameboard.placeVertical(8, pcCarrier);
+
+console.log(humanPlayer.gameboard.locations);
+console.log(pcPlayer.gameboard.locations);
