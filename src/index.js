@@ -1,6 +1,10 @@
 import './style.css';
 import Ship from './ship.js';
 import Player from './player.js';
+import createBoardUI from './ui.js';
+
+createBoardUI('player-board');
+createBoardUI('comp-board');
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
@@ -29,5 +33,5 @@ pcPlayer.gameboard.placeVertical(67, pcDestroyer);
 pcPlayer.gameboard.placeHorizontal(72, pcBattleship);
 pcPlayer.gameboard.placeVertical(8, pcCarrier);
 
-console.log(humanPlayer.gameboard.locations);
-console.log(pcPlayer.gameboard.locations);
+// console.log(humanPlayer.gameboard.locations);
+// console.log(pcPlayer.gameboard.locations);
