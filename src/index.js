@@ -1,10 +1,7 @@
 import './style.css';
 import Ship from './ship.js';
 import Player from './player.js';
-import createBoardUI from './ui.js';
-
-createBoardUI('player-board', 'player');
-createBoardUI('comp-board', 'computer');
+import { createBoardUI, getShipLocs, highlightShips }from './ui.js';
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
@@ -32,6 +29,18 @@ pcPlayer.gameboard.placeHorizontal(54, pcSubmarine);
 pcPlayer.gameboard.placeVertical(67, pcDestroyer);
 pcPlayer.gameboard.placeHorizontal(72, pcBattleship);
 pcPlayer.gameboard.placeVertical(8, pcCarrier);
+
+
+// UI stuff
+
+createBoardUI('player-board', 'player');
+createBoardUI('comp-board', 'computer');
+
+const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
+const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
+
+highlightShips('.player-board', playerShipLocs);
+highlightShips('.comp-board', compShipLocs);
 
 // console.log(humanPlayer.gameboard.locations);
 // console.log(pcPlayer.gameboard.locations);
