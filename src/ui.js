@@ -8,6 +8,7 @@ function createBoardUI(classText) {
     for (let i = 0; i < 100; i++) {
         const boardSpace = document.createElement('div');
         boardSpace.className = 'board-space';
+        boardSpace.id = i;
         board.appendChild(boardSpace);
     }
 }
