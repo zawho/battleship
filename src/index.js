@@ -3,8 +3,8 @@ import Ship from './ship.js';
 import Player from './player.js';
 import createBoardUI from './ui.js';
 
-createBoardUI('player-board');
-createBoardUI('comp-board');
+createBoardUI('player-board', 'player');
+createBoardUI('comp-board', 'computer');
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
