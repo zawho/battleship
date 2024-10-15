@@ -156,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst boardDiv = document.querySelector('.board-div');\n\n\nfunction createBoardUI(classText) {\n    const board = document.createElement('div');\n    board.className = classText;\n    boardDiv.appendChild(board);\n    for (let i = 0; i < 100; i++) {\n        const boardSpace = document.createElement('div');\n        boardSpace.className = 'board-space';\n        board.appendChild(boardSpace);\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createBoardUI);\n\n//# sourceURL=webpack://battleship/./src/ui.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst boardDiv = document.querySelector('.board-div');\n\n\nfunction createBoardUI(classText) {\n    const board = document.createElement('div');\n    board.className = classText;\n    boardDiv.appendChild(board);\n    for (let i = 0; i < 100; i++) {\n        const boardSpace = document.createElement('div');\n        boardSpace.className = 'board-space';\n        boardSpace.id = i;\n        board.appendChild(boardSpace);\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createBoardUI);\n\n//# sourceURL=webpack://battleship/./src/ui.js?");
 
 /***/ })
 
