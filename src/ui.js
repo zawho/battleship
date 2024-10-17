@@ -19,38 +19,28 @@ function highlightCompShips() {
     }
 }
 
-function createPlayerBoardUI() {
-	const boardLabel = document.createElement('div');
-	boardLabel.className = 'board-label';
-	boardLabel.innerText = 'player';
-	const board = document.createElement('div');
-	board.className = 'player-board';
-	boardDiv.appendChild(boardLabel);
-	boardDiv.appendChild(board);
-	for (let i = 0; i < 100; i++) {
-		const boardSpace = document.createElement('div');
-		boardSpace.className = 'board-space';
-		boardSpace.id = i;
-		board.appendChild(boardSpace);
-	}
+function addCompListeners(space, locArr) {
+        space.locationArray = locArr;
+        space.addEventListener('mouseover', highlightSpace);
+        space.addEventListener('mouseout', unHighlightSpace);
+        space.addEventListener('click', highlightCompShips);
 }
 
-function createCompBoardUI(locArr) {
+function createBoardUI(labelText, classText, locArr) {
     const boardLabel = document.createElement('div');
 	boardLabel.className = 'board-label';
-	boardLabel.innerText = 'computer';
+	boardLabel.innerText = labelText;
 	const board = document.createElement('div');
-	board.className = 'comp-board';
+	board.className = classText;
 	boardDiv.appendChild(boardLabel);
 	boardDiv.appendChild(board);
 	for (let i = 0; i < 100; i++) {
 		const boardSpace = document.createElement('div');
 		boardSpace.className = 'board-space';
 		boardSpace.id = i;
-        boardSpace.locationArray = locArr;
-        boardSpace.addEventListener('mouseover', highlightSpace);
-        boardSpace.addEventListener('mouseout', unHighlightSpace);
-        boardSpace.addEventListener('click', highlightCompShips);
+        if (classText === 'comp-board') {
+            addCompListeners(boardSpace, locArr);
+        }
 		board.appendChild(boardSpace);
 	}
 }
@@ -78,4 +68,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createPlayerBoardUI, createCompBoardUI, getShipLocs, highlightPlayerShips };
+export { createBoardUI, getShipLocs, highlightPlayerShips };

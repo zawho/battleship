@@ -1,7 +1,7 @@
 import './style.css';
 import Ship from './ship.js';
 import Player from './player.js';
-import { createPlayerBoardUI, createCompBoardUI, getShipLocs, highlightPlayerShips } from './ui.js';
+import { createBoardUI, getShipLocs, highlightPlayerShips } from './ui.js';
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
@@ -38,7 +38,7 @@ pcPlayer.gameboard.placeVertical(8, pcCarrier);
 const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
 const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
 
-createPlayerBoardUI();
-createCompBoardUI(compShipLocs);
+createBoardUI('player', 'player-board', playerShipLocs);
+createBoardUI('computer', 'comp-board', compShipLocs);
 
 highlightPlayerShips('.player-board', playerShipLocs);
