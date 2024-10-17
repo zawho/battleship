@@ -14,23 +14,37 @@ function highlightCompShips() {
 	this.removeEventListener('mouseout', unHighlightSpace);
 }
 
-function createBoardUI(classText, labelText) {
+function createPlayerBoardUI() {
 	const boardLabel = document.createElement('div');
 	boardLabel.className = 'board-label';
-	boardLabel.innerText = labelText;
+	boardLabel.innerText = 'player';
 	const board = document.createElement('div');
-	board.className = classText;
+	board.className = 'player-board';
 	boardDiv.appendChild(boardLabel);
 	boardDiv.appendChild(board);
 	for (let i = 0; i < 100; i++) {
 		const boardSpace = document.createElement('div');
 		boardSpace.className = 'board-space';
 		boardSpace.id = i;
-		if (classText === 'comp-board') {
-			boardSpace.addEventListener('mouseover', highlightSpace);
-			boardSpace.addEventListener('mouseout', unHighlightSpace);
-            boardSpace.addEventListener('click', highlightCompShips);
-		}
+		board.appendChild(boardSpace);
+	}
+}
+
+function createCompBoardUI(locArr) {
+    const boardLabel = document.createElement('div');
+	boardLabel.className = 'board-label';
+	boardLabel.innerText = 'computer';
+	const board = document.createElement('div');
+	board.className = 'comp-board';
+	boardDiv.appendChild(boardLabel);
+	boardDiv.appendChild(board);
+	for (let i = 0; i < 100; i++) {
+		const boardSpace = document.createElement('div');
+		boardSpace.className = 'board-space';
+		boardSpace.id = i;
+        boardSpace.addEventListener('mouseover', highlightSpace);
+        boardSpace.addEventListener('mouseout', unHighlightSpace);
+        boardSpace.addEventListener('click', highlightCompShips);
 		board.appendChild(boardSpace);
 	}
 }
@@ -58,4 +72,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createBoardUI, getShipLocs, highlightPlayerShips };
+export { createPlayerBoardUI, createCompBoardUI, getShipLocs, highlightPlayerShips };
