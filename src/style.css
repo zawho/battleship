@@ -1,17 +1,18 @@
 .board-div {
-    display: grid;
-    gap: 10px;
+	display: grid;
+	gap: 10px;
 }
 
-.player-board, .comp-board {
-    display: grid;
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-columns: repeat(10, 1fr);
-    height: 300px;
-    width: 300px;
-    border: 1px solid black;
+.player-board,
+.comp-board {
+	display: grid;
+	grid-template-rows: repeat(10, 1fr);
+	grid-template-columns: repeat(10, 1fr);
+	height: 300px;
+	width: 300px;
+	border: 1px solid black;
 }
 
 .board-space {
-    border: 1px solid black;
+	border: 1px solid black;
 }
