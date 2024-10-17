@@ -9,9 +9,14 @@ function unHighlightSpace() {
 }
 
 function highlightCompShips() {
-    this.style.backgroundColor = 'red';
+    this.style.backgroundColor = 'green';
     this.removeEventListener('mouseover', highlightSpace);
 	this.removeEventListener('mouseout', unHighlightSpace);
+    for (let i = 0; i < this.locationArray.length; i++) {
+        if (this.id === this.locationArray[i].toString()) {
+            this.style.backgroundColor = 'red';
+        }
+    }
 }
 
 function createPlayerBoardUI() {
@@ -42,6 +47,7 @@ function createCompBoardUI(locArr) {
 		const boardSpace = document.createElement('div');
 		boardSpace.className = 'board-space';
 		boardSpace.id = i;
+        boardSpace.locationArray = locArr;
         boardSpace.addEventListener('mouseover', highlightSpace);
         boardSpace.addEventListener('mouseout', unHighlightSpace);
         boardSpace.addEventListener('click', highlightCompShips);
@@ -66,7 +72,7 @@ function highlightPlayerShips(boardClass, locArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		for (let j = 0; j < locArr.length; j++) {
 			if (boardArr[i].id === locArr[j].toString()) {
-				boardArr[i].style.backgroundColor = 'green';
+				boardArr[i].style.backgroundColor = 'red';
 			}
 		}
 	}
