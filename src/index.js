@@ -39,6 +39,6 @@ const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
 const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
 
 createBoardUI('player', 'player-board', playerShipLocs);
-createBoardUI('computer', 'comp-board', compShipLocs);
+createBoardUI('computer', 'comp-board', compShipLocs, pcPlayer.gameboard);
 
 highlightPlayerShips('.player-board', playerShipLocs);

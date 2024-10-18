@@ -1,5 +1,3 @@
-const boardDiv = document.querySelector('.board-div');
-
 function highlightSpace() {
 	this.style.backgroundColor = 'grey';
 }
@@ -8,39 +6,40 @@ function unHighlightSpace() {
 	this.style.backgroundColor = 'white';
 }
 
-function highlightCompShips() {
-    this.style.backgroundColor = 'green';
-    this.removeEventListener('mouseover', highlightSpace);
-	this.removeEventListener('mouseout', unHighlightSpace);
-    for (let i = 0; i < this.locationArray.length; i++) {
-        if (this.id === this.locationArray[i].toString()) {
-            this.style.backgroundColor = 'red';
-        }
-    }
+function addCompListeners(space, locArr, boardObj) {
+	space.addEventListener('mouseover', highlightSpace);
+	space.addEventListener('mouseout', unHighlightSpace);
+
+	space.addEventListener('click', () => {
+		boardObj.receiveAttack(Number(space.id));
+		space.style.backgroundColor = 'green';
+		space.removeEventListener('mouseover', highlightSpace);
+		space.removeEventListener('mouseout', unHighlightSpace);
+		for (let i = 0; i < locArr.length; i++) {
+			if (space.id === locArr[i].toString()) {
+				space.style.backgroundColor = 'red';
+			}
+		}
+	});
 }
 
-function addCompListeners(space, locArr) {
-        space.locationArray = locArr;
-        space.addEventListener('mouseover', highlightSpace);
-        space.addEventListener('mouseout', unHighlightSpace);
-        space.addEventListener('click', highlightCompShips);
-}
-
-function createBoardUI(labelText, classText, locArr) {
-    const boardLabel = document.createElement('div');
+function createBoardUI(labelText, classText, locArr, boardObj) {
+	const boardDiv = document.querySelector('.board-div');
+	const boardLabel = document.createElement('div');
 	boardLabel.className = 'board-label';
 	boardLabel.innerText = labelText;
 	const board = document.createElement('div');
 	board.className = classText;
 	boardDiv.appendChild(boardLabel);
 	boardDiv.appendChild(board);
+
 	for (let i = 0; i < 100; i++) {
 		const boardSpace = document.createElement('div');
 		boardSpace.className = 'board-space';
 		boardSpace.id = i;
-        if (classText === 'comp-board') {
-            addCompListeners(boardSpace, locArr);
-        }
+		if (classText === 'comp-board') {
+			addCompListeners(boardSpace, locArr, boardObj);
+		}
 		board.appendChild(boardSpace);
 	}
 }

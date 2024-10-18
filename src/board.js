@@ -1,5 +1,3 @@
-import Ship from './ship.js';
-
 class Board {
 	constructor() {
 		this.list = [];
