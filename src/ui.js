@@ -11,7 +11,9 @@ function addCompListeners(space, locArr, boardObj) {
 	space.addEventListener('mouseout', unHighlightSpace);
 
 	space.addEventListener('click', () => {
+        space.style.pointerEvents = 'none';
 		boardObj.receiveAttack(Number(space.id));
+        console.log(boardObj);
 		space.style.backgroundColor = 'green';
 		space.removeEventListener('mouseover', highlightSpace);
 		space.removeEventListener('mouseout', unHighlightSpace);
