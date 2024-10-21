@@ -10,17 +10,18 @@ function compTurn() {
     const playerBoard = document.querySelector('.player-board');
     const boardArr = Array.from(playerBoard.childNodes);
     const randNum = Math.floor(Math.random() * 100);
-    console.log(randNum);
 
-    for (let i = 0; i < boardArr.length; i++) {
-        if (boardArr[i].id === randNum.toString() && 
-        boardArr[i].style.backgroundColor != 'red') {
-            boardArr[i].style.backgroundColor = 'green';
-        } else if (boardArr[i].id === randNum.toString() && 
-        boardArr[i].style.backgroundColor === 'red') {
-            boardArr[i].style.backgroundColor = 'black';
+    setTimeout(() => {
+        for (let i = 0; i < boardArr.length; i++) {
+            if (boardArr[i].id === randNum.toString() && 
+            boardArr[i].style.backgroundColor != 'red') {
+                boardArr[i].style.backgroundColor = 'green';
+            } else if (boardArr[i].id === randNum.toString() && 
+            boardArr[i].style.backgroundColor === 'red') {
+                boardArr[i].style.backgroundColor = 'black';
+            }
         }
-    }
+    }, 1000);
 }
 
 function addCompListeners(space, locArr, boardObj) {
