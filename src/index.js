@@ -1,7 +1,7 @@
 import './style.css';
 import Ship from './ship.js';
 import Player from './player.js';
-import { createBoardUI, getShipLocs, highlightPlayerShips } from './ui.js';
+import { compTurn, createBoardUI, getShipLocs, highlightPlayerShips } from './ui.js';
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
