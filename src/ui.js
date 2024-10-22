@@ -44,7 +44,7 @@ function compTurn() {
 				playerBoard.playedSpaces.push(randNum);
 			}
 		}
-	}, 1);
+	}, 1000);
 }
 
 function addCompListeners(space, locArr, boardObj) {
