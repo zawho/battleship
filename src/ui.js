@@ -25,8 +25,11 @@ function getRandNum(spacesArr) {
 
 function compTurn() {
 	const playerBoard = document.querySelector('.player-board');
+    const compBoard = document.querySelector('.comp-board');
 	const boardArr = Array.from(playerBoard.childNodes);
 	const randNum = getRandNum(playerBoard.playedSpaces);
+
+    compBoard.style.pointerEvents = 'none';
 
 	setTimeout(() => {
 		for (let i = 0; i < boardArr.length; i++) {
@@ -44,6 +47,7 @@ function compTurn() {
 				playerBoard.playedSpaces.push(randNum);
 			}
 		}
+        compBoard.style.pointerEvents = 'auto';
 	}, 1000);
 }
 
@@ -111,4 +115,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createBoardUI, getShipLocs, highlightPlayerShips, compTurn };
+export { createBoardUI, getShipLocs, highlightPlayerShips };
