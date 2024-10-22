@@ -6,32 +6,56 @@ function unHighlightSpace() {
 	this.style.backgroundColor = 'white';
 }
 
-function compTurn() {
-    const playerBoard = document.querySelector('.player-board');
-    const boardArr = Array.from(playerBoard.childNodes);
-    const randNum = Math.floor(Math.random() * 100);
+function getRandNum(spacesArr) {
+	let randNum = Math.floor(Math.random() * 100);
+	let repeatedNum = false;
 
-    setTimeout(() => {
-        for (let i = 0; i < boardArr.length; i++) {
-            if (boardArr[i].id === randNum.toString() && 
-            boardArr[i].style.backgroundColor != 'red') {
-                boardArr[i].style.backgroundColor = 'green';
-            } else if (boardArr[i].id === randNum.toString() && 
-            boardArr[i].style.backgroundColor === 'red') {
-                boardArr[i].style.backgroundColor = 'black';
-            }
-        }
-    }, 1000);
+	for (let i = 0; i < spacesArr.length; i++) {
+		if (randNum === spacesArr[i]) {
+			repeatedNum = true;
+		}
+	}
+
+	if (repeatedNum === false) {
+		return randNum;
+	} else {
+		return getRandNum(spacesArr);
+	}
+}
+
+function compTurn() {
+	const playerBoard = document.querySelector('.player-board');
+	const boardArr = Array.from(playerBoard.childNodes);
+	const randNum = getRandNum(playerBoard.playedSpaces);
+
+	setTimeout(() => {
+		for (let i = 0; i < boardArr.length; i++) {
+			if (
+				boardArr[i].id === randNum.toString() &&
+				boardArr[i].style.backgroundColor != 'red'
+			) {
+				boardArr[i].style.backgroundColor = 'green';
+				playerBoard.playedSpaces.push(randNum);
+			} else if (
+				boardArr[i].id === randNum.toString() &&
+				boardArr[i].style.backgroundColor === 'red'
+			) {
+				boardArr[i].style.backgroundColor = 'black';
+				playerBoard.playedSpaces.push(randNum);
+			}
+		}
+	}, 1);
 }
 
 function addCompListeners(space, locArr, boardObj) {
+	const playerBoard = document.querySelector('.player-board');
+	playerBoard.playedSpaces = [];
 	space.addEventListener('mouseover', highlightSpace);
 	space.addEventListener('mouseout', unHighlightSpace);
-    space.addEventListener('click', compTurn);
+	space.addEventListener('click', compTurn);
 	space.addEventListener('click', () => {
-        space.style.pointerEvents = 'none';
+		space.style.pointerEvents = 'none';
 		boardObj.receiveAttack(Number(space.id));
-        console.log(boardObj);
 		space.style.backgroundColor = 'green';
 		space.removeEventListener('mouseover', highlightSpace);
 		space.removeEventListener('mouseout', unHighlightSpace);
