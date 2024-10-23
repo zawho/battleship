@@ -23,43 +23,43 @@ function getRandNum(spacesArr) {
 	}
 }
 
-function compTurn() {
+function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
 	const playerBoard = document.querySelector('.player-board');
-    const compBoard = document.querySelector('.comp-board');
-	const boardArr = Array.from(playerBoard.childNodes);
-	const randNum = getRandNum(playerBoard.playedSpaces);
-
-    compBoard.style.pointerEvents = 'none';
-
-	setTimeout(() => {
-		for (let i = 0; i < boardArr.length; i++) {
-			if (
-				boardArr[i].id === randNum.toString() &&
-				boardArr[i].style.backgroundColor != 'red'
-			) {
-				boardArr[i].style.backgroundColor = 'green';
-				playerBoard.playedSpaces.push(randNum);
-			} else if (
-				boardArr[i].id === randNum.toString() &&
-				boardArr[i].style.backgroundColor === 'red'
-			) {
-				boardArr[i].style.backgroundColor = 'black';
-				playerBoard.playedSpaces.push(randNum);
-			}
-		}
-        compBoard.style.pointerEvents = 'auto';
-	}, 1000);
-}
-
-function addCompListeners(space, locArr, boardObj) {
-	const playerBoard = document.querySelector('.player-board');
+	const compBoard = document.querySelector('.comp-board');
 	playerBoard.playedSpaces = [];
+	const boardArr = Array.from(playerBoard.childNodes);
+
 	space.addEventListener('mouseover', highlightSpace);
 	space.addEventListener('mouseout', unHighlightSpace);
-	space.addEventListener('click', compTurn);
+
+	space.addEventListener('click', () => {
+        compBoard.style.pointerEvents = 'none';
+        const randNum = getRandNum(playerBoard.playedSpaces);
+        playerBoardObj.receiveAttack(randNum);
+
+		setTimeout(() => {
+			for (let i = 0; i < boardArr.length; i++) {
+				if (
+					boardArr[i].id === randNum.toString() &&
+					boardArr[i].style.backgroundColor != 'red'
+				) {
+					boardArr[i].style.backgroundColor = 'green';
+					playerBoard.playedSpaces.push(randNum);
+				} else if (
+					boardArr[i].id === randNum.toString() &&
+					boardArr[i].style.backgroundColor === 'red'
+				) {
+					boardArr[i].style.backgroundColor = 'black';
+					playerBoard.playedSpaces.push(randNum);
+				}
+			}
+			compBoard.style.pointerEvents = 'auto';
+		}, 1);
+	});
+
 	space.addEventListener('click', () => {
 		space.style.pointerEvents = 'none';
-		boardObj.receiveAttack(Number(space.id));
+		compBoardObj.receiveAttack(Number(space.id));
 		space.style.backgroundColor = 'green';
 		space.removeEventListener('mouseover', highlightSpace);
 		space.removeEventListener('mouseout', unHighlightSpace);
@@ -71,7 +71,7 @@ function addCompListeners(space, locArr, boardObj) {
 	});
 }
 
-function createBoardUI(labelText, classText, locArr, boardObj) {
+function createBoardUI(labelText, classText, locArr, compBoardObj, playerBoardObj) {
 	const boardDiv = document.querySelector('.board-div');
 	const boardLabel = document.createElement('div');
 	boardLabel.className = 'board-label';
@@ -86,7 +86,7 @@ function createBoardUI(labelText, classText, locArr, boardObj) {
 		boardSpace.className = 'board-space';
 		boardSpace.id = i;
 		if (classText === 'comp-board') {
-			addCompListeners(boardSpace, locArr, boardObj);
+			addCompListeners(boardSpace, locArr, compBoardObj, playerBoardObj);
 		}
 		board.appendChild(boardSpace);
 	}
