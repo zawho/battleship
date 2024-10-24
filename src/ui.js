@@ -23,6 +23,49 @@ function getRandNum(spacesArr) {
 	}
 }
 
+function attackplayerBoard(
+	playerBoardObj,
+	playedSpacesArr,
+	compBoard,
+	boardArr,
+) {
+	compBoard.style.pointerEvents = 'none';
+	const randNum = getRandNum(playedSpacesArr);
+	playerBoardObj.receiveAttack(randNum);
+
+	setTimeout(() => {
+		for (let i = 0; i < boardArr.length; i++) {
+			if (
+				boardArr[i].id === randNum.toString() &&
+				boardArr[i].style.backgroundColor != 'red'
+			) {
+				boardArr[i].style.backgroundColor = 'green';
+				playedSpacesArr.push(randNum);
+			} else if (
+				boardArr[i].id === randNum.toString() &&
+				boardArr[i].style.backgroundColor === 'red'
+			) {
+				boardArr[i].style.backgroundColor = 'black';
+				playedSpacesArr.push(randNum);
+			}
+		}
+		compBoard.style.pointerEvents = 'auto';
+	}, 1);
+}
+
+function attackCompBoard(space, compBoardObj, locArr) {
+	space.style.pointerEvents = 'none';
+	compBoardObj.receiveAttack(Number(space.id));
+	space.style.backgroundColor = 'green';
+	space.removeEventListener('mouseover', highlightSpace);
+	space.removeEventListener('mouseout', unHighlightSpace);
+	for (let i = 0; i < locArr.length; i++) {
+		if (space.id === locArr[i].toString()) {
+			space.style.backgroundColor = 'red';
+		}
+	}
+}
+
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
 	const playerBoard = document.querySelector('.player-board');
 	const compBoard = document.querySelector('.comp-board');
@@ -33,45 +76,26 @@ function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
 	space.addEventListener('mouseout', unHighlightSpace);
 
 	space.addEventListener('click', () => {
-        compBoard.style.pointerEvents = 'none';
-        const randNum = getRandNum(playerBoard.playedSpaces);
-        playerBoardObj.receiveAttack(randNum);
-
-		setTimeout(() => {
-			for (let i = 0; i < boardArr.length; i++) {
-				if (
-					boardArr[i].id === randNum.toString() &&
-					boardArr[i].style.backgroundColor != 'red'
-				) {
-					boardArr[i].style.backgroundColor = 'green';
-					playerBoard.playedSpaces.push(randNum);
-				} else if (
-					boardArr[i].id === randNum.toString() &&
-					boardArr[i].style.backgroundColor === 'red'
-				) {
-					boardArr[i].style.backgroundColor = 'black';
-					playerBoard.playedSpaces.push(randNum);
-				}
-			}
-			compBoard.style.pointerEvents = 'auto';
-		}, 1);
+		attackplayerBoard(
+			playerBoardObj,
+			playerBoard.playedSpaces,
+			compBoard,
+			boardArr,
+		);
 	});
 
 	space.addEventListener('click', () => {
-		space.style.pointerEvents = 'none';
-		compBoardObj.receiveAttack(Number(space.id));
-		space.style.backgroundColor = 'green';
-		space.removeEventListener('mouseover', highlightSpace);
-		space.removeEventListener('mouseout', unHighlightSpace);
-		for (let i = 0; i < locArr.length; i++) {
-			if (space.id === locArr[i].toString()) {
-				space.style.backgroundColor = 'red';
-			}
-		}
+		attackCompBoard(space, compBoardObj, locArr);
 	});
 }
 
-function createBoardUI(labelText, classText, locArr, compBoardObj, playerBoardObj) {
+function createBoardUI(
+	labelText,
+	classText,
+	locArr,
+	compBoardObj,
+	playerBoardObj,
+) {
 	const boardDiv = document.querySelector('.board-div');
 	const boardLabel = document.createElement('div');
 	boardLabel.className = 'board-label';
