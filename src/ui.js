@@ -23,6 +23,29 @@ function getRandNum(spacesArr) {
 	}
 }
 
+function isPlayed(adjacentNum, playedSpaces) {
+	for (let i = 0; i < playedSpaces.length; i++) {
+		if (adjacentNum === playedSpaces[i]) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function getAdjacentSpace(playerBoard, playedSpaces) {
+	let adjacentNum;
+
+	for (let i = 0; i < playerBoard.length; i++) {
+		if (playerBoard[i].style.backgroundColor === 'black' && 
+			isPlayed(parseInt(playerBoard[i + 1].id), playedSpaces) === false) {
+			adjacentNum = parseInt(playerBoard[i + 1].id);
+		}
+	}
+
+	return adjacentNum;
+}
+
 function attackplayerBoard(
 	playerBoardObj,
 	playedSpacesArr,
@@ -30,23 +53,33 @@ function attackplayerBoard(
 	boardArr,
 ) {
 	compBoard.style.pointerEvents = 'none';
+
+	const adjacentNum = getAdjacentSpace(boardArr, playedSpacesArr);
 	const randNum = getRandNum(playedSpacesArr);
-	playerBoardObj.receiveAttack(randNum);
+	let spaceNum;
+
+	if (adjacentNum != undefined) {
+		spaceNum = adjacentNum;
+	} else {
+		spaceNum = randNum;
+	}
+
+	playerBoardObj.receiveAttack(spaceNum);
 
 	setTimeout(() => {
 		for (let i = 0; i < boardArr.length; i++) {
 			if (
-				boardArr[i].id === randNum.toString() &&
+				boardArr[i].id === spaceNum.toString() &&
 				boardArr[i].style.backgroundColor != 'red'
 			) {
 				boardArr[i].style.backgroundColor = 'green';
-				playedSpacesArr.push(randNum);
+				playedSpacesArr.push(spaceNum);
 			} else if (
-				boardArr[i].id === randNum.toString() &&
+				boardArr[i].id === spaceNum.toString() &&
 				boardArr[i].style.backgroundColor === 'red'
 			) {
 				boardArr[i].style.backgroundColor = 'black';
-				playedSpacesArr.push(randNum);
+				playedSpacesArr.push(spaceNum);
 			}
 		}
 		compBoard.style.pointerEvents = 'auto';
