@@ -37,9 +37,13 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 	let adjacentNum;
 
 	for (let i = 0; i < playerBoard.length; i++) {
-		if (playerBoard[i].style.backgroundColor === 'black' && 
-			isPlayed(parseInt(playerBoard[i + 1].id), playedSpaces) === false) {
-			adjacentNum = parseInt(playerBoard[i + 1].id);
+		const nextSpace = parseInt(playerBoard[i].id) + 1;
+		if (
+			nextSpace <= 99 &&
+			playerBoard[i].style.backgroundColor === 'black' &&
+			isPlayed(nextSpace, playedSpaces) === false
+		) {
+			adjacentNum = nextSpace;
 		}
 	}
 
