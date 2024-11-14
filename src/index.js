@@ -25,7 +25,7 @@ const pcPatrol = new Ship('pcPatrol', 2);
 
 humanPlayer.gameboard.placeHorizontal(0, humanPatrol);
 humanPlayer.gameboard.placeVertical(8, humanSubmarine);
-humanPlayer.gameboard.placeHorizontal(12, humanDestroyer);
+humanPlayer.gameboard.placeHorizontal(97, humanDestroyer);
 humanPlayer.gameboard.placeVertical(20, humanBattleship);
 humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
 
