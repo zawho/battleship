@@ -33,6 +33,27 @@ function isPlayed(adjacentNum, playedSpaces) {
 	return false;
 }
 
+// Next: prevent horizontal adjacent play if ship is on left or right board edge
+// Next next: factor in checking ship numbers to account for adjacent, separate ships.
+
+function checkVertHits(board, current, up, down) {
+	if ((current > 9 && board[up].style.backgroundColor === 'black') ||
+		(current < 90 && board[down].style.backgroundColor === 'black')
+	) {
+		return false;
+	}
+	return true;
+}
+
+function checkHorizHits(board, current, forward, back) {
+	if ((current < 99 && board[forward].style.backgroundColor === 'black') ||
+		(current > 0 && board[back].style.backgroundColor === 'black')
+	) {
+		return false;
+	}
+	return true;
+}
+
 function getAdjacentSpace(playerBoard, playedSpaces) {
 	let adjacentNum;
 
@@ -44,30 +65,28 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 		if (
 			nextSpace <= 99 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
+			checkVertHits(playerBoard, i, upSpace, downSpace) === true &&
 			isPlayed(nextSpace, playedSpaces) === false
 		) {
 			adjacentNum = nextSpace;
 		} else if (
 			lastSpace >= 0 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
-			isPlayed(nextSpace, playedSpaces) === true &&
+			checkVertHits(playerBoard, i, upSpace, downSpace) === true &&
 			isPlayed(lastSpace, playedSpaces) === false
 		) {
 			adjacentNum = lastSpace;
 		} else if (
 			downSpace <= 99 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
-			isPlayed(nextSpace, playedSpaces) === true &&
-			isPlayed(lastSpace, playedSpaces) === true &&
+			checkHorizHits(playerBoard, i, nextSpace, lastSpace) === true &&
 			isPlayed(downSpace, playedSpaces) === false
 		) {
 			adjacentNum = downSpace;
 		} else if (
 			upSpace >= 0 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
-			isPlayed(nextSpace, playedSpaces) === true &&
-			isPlayed(lastSpace, playedSpaces) === true &&
-			isPlayed(downSpace, playedSpaces) === true &&
+			checkHorizHits(playerBoard, i, nextSpace, lastSpace) === true &&
 			isPlayed(upSpace, playedSpaces) === false
 		) {
 			adjacentNum = upSpace;
