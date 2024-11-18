@@ -54,6 +54,16 @@ function checkHorizHits(board, current, forward, back) {
 	return true;
 }
 
+function checkLeftBoard(current) {
+	const currentString = current.toString();
+	const zeroVar = 0;
+	if (currentString.includes(zeroVar.toString())) {
+		return true;
+	}
+
+	else return false;
+}
+
 function getAdjacentSpace(playerBoard, playedSpaces) {
 	let adjacentNum;
 
@@ -73,6 +83,7 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 			lastSpace >= 0 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
 			checkVertHits(playerBoard, i, upSpace, downSpace) === true &&
+			checkLeftBoard(i) === false &&
 			isPlayed(lastSpace, playedSpaces) === false
 		) {
 			adjacentNum = lastSpace;
