@@ -32,9 +32,8 @@ function isPlayed(adjacentNum, playedSpaces) {
 
 	return false;
 }
-
-// Next: prevent horizontal adjacent play if ship is on left or right board edge
-// Next next: factor in checking ship numbers to account for adjacent, separate ships.
+// Next: test adjacent ships
+// and maybe factor in checking ship numbers to account for adjacent ships.
 
 function checkVertHits(board, current, up, down) {
 	if ((current > 9 && board[up].style.backgroundColor === 'black') ||
@@ -60,8 +59,16 @@ function checkLeftBoard(current) {
 	if (currentString.includes(zeroVar.toString())) {
 		return true;
 	}
+	return false;
+}
 
-	else return false;
+function checkRightBoard(current) {
+	const currentString = current.toString();
+	const nineVar = 9;
+	if (current === 9 || currentString.includes(nineVar.toString(), 1)) {
+		return true;
+	}
+	return false;
 }
 
 function getAdjacentSpace(playerBoard, playedSpaces) {
@@ -76,6 +83,7 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 			nextSpace <= 99 &&
 			playerBoard[i].style.backgroundColor === 'black' &&
 			checkVertHits(playerBoard, i, upSpace, downSpace) === true &&
+			checkRightBoard(i) === false &&
 			isPlayed(nextSpace, playedSpaces) === false
 		) {
 			adjacentNum = nextSpace;
