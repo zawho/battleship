@@ -113,6 +113,25 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 	return adjacentNum;
 }
 
+function checkGameOver(boardObj) {
+
+	let winnerVar;
+
+	for (const ship in boardObj.placedShips) {
+		if (ship.includes('human')) {
+			winnerVar = 'pc';
+		} else if (ship.includes('pc')) {
+			winnerVar = 'human';
+		}
+	}
+
+	if (boardObj.checkSunk() === true && winnerVar === 'pc') {
+		console.log('game over! computer wins!');
+	} else if (boardObj.checkSunk() === true && winnerVar === 'human') {
+		console.log('game over! you win!');
+	}
+}
+
 function attackplayerBoard(
 	playerBoardObj,
 	playedSpacesArr,
@@ -150,6 +169,7 @@ function attackplayerBoard(
 			}
 		}
 		compBoard.style.pointerEvents = 'auto';
+		checkGameOver(playerBoardObj);
 	}, 1);
 }
 
@@ -164,6 +184,7 @@ function attackCompBoard(space, compBoardObj, locArr) {
 			space.style.backgroundColor = 'red';
 		}
 	}
+	checkGameOver(compBoardObj);
 }
 
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
