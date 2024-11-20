@@ -112,9 +112,42 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 
 	return adjacentNum;
 }
+// Next: add reset game functionality
+
+function displayGameOver(winner) {
+	const body = document.querySelector('body');
+	const gameOverDiv = document.createElement('div');
+	const winMsg = document.createElement('div');
+	const resetButton = document.createElement('button');
+
+	gameOverDiv.className = 'game-over-div';
+	winMsg.className = 'win-msg-div';
+	resetButton.className = 'reset-btn';
+
+	gameOverDiv.style.flexDirection = 'column';
+	gameOverDiv.style.alignItems = 'center';
+	gameOverDiv.style.gap = '10px';
+
+	resetButton.type = 'button';
+	resetButton.innerText = 'play again';
+	
+	gameOverDiv.style.display = 'none';
+
+	body.appendChild(gameOverDiv);
+	gameOverDiv.appendChild(winMsg);
+	gameOverDiv.appendChild(resetButton);
+
+	if (winner === 'pc') {
+		gameOverDiv.style.display = 'flex';
+		winMsg.innerText = 'computer wins!';
+	} else if (winner === 'human') {
+		gameOverDiv.style.display = 'flex';
+		winMsg.innerText = 'you win!';
+	}
+}
 
 function checkGameOver(boardObj) {
-
+	const boardDiv = document.querySelector('.board-div');
 	let winnerVar;
 
 	for (const ship in boardObj.placedShips) {
@@ -125,10 +158,9 @@ function checkGameOver(boardObj) {
 		}
 	}
 
-	if (boardObj.checkSunk() === true && winnerVar === 'pc') {
-		console.log('game over! computer wins!');
-	} else if (boardObj.checkSunk() === true && winnerVar === 'human') {
-		console.log('game over! you win!');
+	if (boardObj.checkSunk() === true) {
+		boardDiv.style.display = 'none';
+		displayGameOver(winnerVar);
 	}
 }
 
