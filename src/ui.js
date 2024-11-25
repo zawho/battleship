@@ -112,7 +112,10 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 
 	return adjacentNum;
 }
-// Next: add reset game functionality
+
+function resetGame() {
+	location.reload();
+}
 
 function displayGameOver(winner) {
 	const body = document.querySelector('body');
@@ -130,6 +133,7 @@ function displayGameOver(winner) {
 
 	resetButton.type = 'button';
 	resetButton.innerText = 'play again';
+	resetButton.addEventListener('click', resetGame);
 	
 	gameOverDiv.style.display = 'none';
 
