@@ -223,6 +223,33 @@ function attackCompBoard(space, compBoardObj, locArr) {
 	checkGameOver(compBoardObj);
 }
 
+// Next: add second ship placement and prevent overlapping placement
+
+function getRandSpace(patrol, direction) {
+	let randNum = Math.floor(Math.random() * 100);
+	const remainder = randNum % 10;
+	const midLimit = (randNum - remainder) + 9;
+	const upperLimit = (patrol.length - 1) * 10;
+
+	if (direction === 0 && (randNum + patrol.length) > midLimit) {
+		return getRandSpace(patrol, direction);
+	} else if (direction === 1 && randNum + upperLimit >= 100) {
+		return getRandSpace(patrol, direction);
+	}
+	return randNum;
+}
+
+function placeCompShips(pcPlayerVar, patrol) {
+	const directionNum = Math.floor(Math.random() * 2);
+	const startSpace = getRandSpace(patrol, directionNum);
+
+	if (directionNum === 0) {
+		pcPlayerVar.gameboard.placeHorizontal(startSpace, patrol);
+	} else if (directionNum === 1) {
+		pcPlayerVar.gameboard.placeVertical(startSpace, patrol);
+	}
+}
+
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
 	const playerBoard = document.querySelector('.player-board');
 	const compBoard = document.querySelector('.comp-board');
@@ -296,4 +323,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createBoardUI, getShipLocs, highlightPlayerShips };
+export { createBoardUI, getShipLocs, highlightPlayerShips, placeCompShips };
