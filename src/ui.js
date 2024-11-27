@@ -34,7 +34,8 @@ function isPlayed(adjacentNum, playedSpaces) {
 }
 
 function checkVertHits(board, current, up, down) {
-	if ((current > 9 && board[up].style.backgroundColor === 'black') ||
+	if (
+		(current > 9 && board[up].style.backgroundColor === 'black') ||
 		(current < 90 && board[down].style.backgroundColor === 'black')
 	) {
 		return true;
@@ -43,7 +44,8 @@ function checkVertHits(board, current, up, down) {
 }
 
 function checkHorizHits(board, current, forward, back) {
-	if ((current < 99 && board[forward].style.backgroundColor === 'black') ||
+	if (
+		(current < 99 && board[forward].style.backgroundColor === 'black') ||
 		(current > 0 && board[back].style.backgroundColor === 'black')
 	) {
 		return true;
@@ -134,7 +136,7 @@ function displayGameOver(winner) {
 	resetButton.type = 'button';
 	resetButton.innerText = 'play again';
 	resetButton.addEventListener('click', resetGame);
-	
+
 	gameOverDiv.style.display = 'none';
 
 	body.appendChild(gameOverDiv);
@@ -223,31 +225,36 @@ function attackCompBoard(space, compBoardObj, locArr) {
 	checkGameOver(compBoardObj);
 }
 
-// Next: add second ship placement and prevent overlapping placement
+// Next: prevent overlapping placement
 
-function getRandSpace(patrol, direction) {
+function getRandSpace(ship, direction) {
 	let randNum = Math.floor(Math.random() * 100);
 	const remainder = randNum % 10;
-	const midLimit = (randNum - remainder) + 9;
-	const upperLimit = (patrol.length - 1) * 10;
+	const midLimit = randNum - remainder + 9;
+	const upperLimit = (ship.length - 1) * 10;
 
-	if (direction === 0 && (randNum + patrol.length) > midLimit) {
-		return getRandSpace(patrol, direction);
+	if (direction === 0 && randNum + ship.length > midLimit) {
+		return getRandSpace(ship, direction);
 	} else if (direction === 1 && randNum + upperLimit >= 100) {
-		return getRandSpace(patrol, direction);
+		return getRandSpace(ship, direction);
 	}
 	return randNum;
 }
 
-function placeCompShips(pcPlayerVar, patrol) {
+function placeCompShip(pcPlayer, ship) {
 	const directionNum = Math.floor(Math.random() * 2);
-	const startSpace = getRandSpace(patrol, directionNum);
+	const startSpace = getRandSpace(ship, directionNum);
 
 	if (directionNum === 0) {
-		pcPlayerVar.gameboard.placeHorizontal(startSpace, patrol);
+		pcPlayer.gameboard.placeHorizontal(startSpace, ship);
 	} else if (directionNum === 1) {
-		pcPlayerVar.gameboard.placeVertical(startSpace, patrol);
+		pcPlayer.gameboard.placeVertical(startSpace, ship);
 	}
+}
+
+function placeAllCompShips(pcPlayer, patrol, submarine) {
+	placeCompShip(pcPlayer, patrol);
+	placeCompShip(pcPlayer, submarine);
 }
 
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
@@ -323,4 +330,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createBoardUI, getShipLocs, highlightPlayerShips, placeCompShips };
+export { createBoardUI, getShipLocs, highlightPlayerShips, placeAllCompShips };

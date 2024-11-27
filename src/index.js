@@ -5,7 +5,7 @@ import {
 	createBoardUI,
 	getShipLocs,
 	highlightPlayerShips,
-	placeCompShips
+	placeAllCompShips,
 } from './ui.js';
 
 const humanPlayer = new Player('human');
@@ -37,7 +37,7 @@ humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
 // UI stuff
 
 //temp
-placeCompShips(pcPlayer, pcPatrol);
+placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine);
 
 const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
 const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
