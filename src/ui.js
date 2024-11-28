@@ -225,25 +225,44 @@ function attackCompBoard(space, compBoardObj, locArr) {
 	checkGameOver(compBoardObj);
 }
 
-// Next: prevent overlapping placement
+// Next: ensure placeArr generates correctly for each ship, separately and together
 
-function getRandSpace(ship, direction) {
+function checkCollisions(pcPlayer, ship, randNum, direction) {
+	let placeArr = [];
+	let index = randNum;
+	if (direction === 0) {
+		for (let i = 0; i < ship.length; i++) {
+			placeArr.push(index++);
+		}
+	} else if (direction === 1) {
+		placeArr.push(index);
+		for (let i = 0; i < ship.length - 1; i++) {
+			index += 10;
+			placeArr.push(index);
+		}
+	}
+	console.log(placeArr);
+}
+
+function getRandSpace(pcPlayer, ship, direction) {
 	let randNum = Math.floor(Math.random() * 100);
 	const remainder = randNum % 10;
 	const midLimit = randNum - remainder + 9;
 	const upperLimit = (ship.length - 1) * 10;
 
 	if (direction === 0 && randNum + ship.length > midLimit) {
-		return getRandSpace(ship, direction);
+		return getRandSpace(pcPlayer, ship, direction);
 	} else if (direction === 1 && randNum + upperLimit >= 100) {
-		return getRandSpace(ship, direction);
+		return getRandSpace(pcPlayer, ship, direction);
 	}
+
+	checkCollisions(pcPlayer, ship, randNum, direction);
 	return randNum;
 }
 
 function placeCompShip(pcPlayer, ship) {
 	const directionNum = Math.floor(Math.random() * 2);
-	const startSpace = getRandSpace(ship, directionNum);
+	const startSpace = getRandSpace(pcPlayer, ship, directionNum);
 
 	if (directionNum === 0) {
 		pcPlayer.gameboard.placeHorizontal(startSpace, ship);
@@ -252,9 +271,13 @@ function placeCompShip(pcPlayer, ship) {
 	}
 }
 
-function placeAllCompShips(pcPlayer, patrol, submarine) {
+function placeAllCompShips(pcPlayer, patrol, submarine, destroyer, battleship, carrier) {
+	console.log(pcPlayer.gameboard.locations);
 	placeCompShip(pcPlayer, patrol);
-	placeCompShip(pcPlayer, submarine);
+	// placeCompShip(pcPlayer, submarine);
+	// placeCompShip(pcPlayer, destroyer);
+	// placeCompShip(pcPlayer, battleship);
+	// placeCompShip(pcPlayer, carrier);
 }
 
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {

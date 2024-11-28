@@ -29,15 +29,10 @@ humanPlayer.gameboard.placeHorizontal(97, humanDestroyer);
 humanPlayer.gameboard.placeVertical(20, humanBattleship);
 humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
 
-// pcPlayer.gameboard.placeHorizontal(54, pcSubmarine);
-// pcPlayer.gameboard.placeVertical(67, pcDestroyer);
-// pcPlayer.gameboard.placeHorizontal(72, pcBattleship);
-// pcPlayer.gameboard.placeVertical(8, pcCarrier);
-
 // UI stuff
 
 //temp
-placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine);
+placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine, pcDestroyer, pcBattleship, pcCarrier);
 
 const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
 const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
