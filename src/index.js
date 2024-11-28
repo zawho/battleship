@@ -31,7 +31,6 @@ humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
 
 // UI stuff
 
-//temp
 placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine, pcDestroyer, pcBattleship, pcCarrier);
 
 const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
@@ -47,6 +46,3 @@ createBoardUI(
 );
 
 highlightPlayerShips('.player-board', playerShipLocs);
-
-//temp
-highlightPlayerShips('.comp-board', compShipLocs);

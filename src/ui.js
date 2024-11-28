@@ -225,11 +225,11 @@ function attackCompBoard(space, compBoardObj, locArr) {
 	checkGameOver(compBoardObj);
 }
 
-// Next: ensure placeArr generates correctly for each ship, separately and together
-
 function checkCollisions(pcPlayer, ship, randNum, direction) {
 	let placeArr = [];
 	let index = randNum;
+	let collisionVar = false;
+
 	if (direction === 0) {
 		for (let i = 0; i < ship.length; i++) {
 			placeArr.push(index++);
@@ -241,7 +241,16 @@ function checkCollisions(pcPlayer, ship, randNum, direction) {
 			placeArr.push(index);
 		}
 	}
-	console.log(placeArr);
+
+	for (let [key, value] of Object.entries(pcPlayer.gameboard.locations)) {
+			value.filter((element) => {
+				if (placeArr.includes(element)) {
+					collisionVar = true;
+				}
+			}) 
+	}
+
+	return collisionVar;
 }
 
 function getRandSpace(pcPlayer, ship, direction) {
@@ -256,7 +265,10 @@ function getRandSpace(pcPlayer, ship, direction) {
 		return getRandSpace(pcPlayer, ship, direction);
 	}
 
-	checkCollisions(pcPlayer, ship, randNum, direction);
+	if (checkCollisions(pcPlayer, ship, randNum, direction)) {
+		return getRandSpace(pcPlayer, ship, direction);
+	}
+
 	return randNum;
 }
 
@@ -272,12 +284,11 @@ function placeCompShip(pcPlayer, ship) {
 }
 
 function placeAllCompShips(pcPlayer, patrol, submarine, destroyer, battleship, carrier) {
-	console.log(pcPlayer.gameboard.locations);
 	placeCompShip(pcPlayer, patrol);
-	// placeCompShip(pcPlayer, submarine);
-	// placeCompShip(pcPlayer, destroyer);
-	// placeCompShip(pcPlayer, battleship);
-	// placeCompShip(pcPlayer, carrier);
+	placeCompShip(pcPlayer, submarine);
+	placeCompShip(pcPlayer, destroyer);
+	placeCompShip(pcPlayer, battleship);
+	placeCompShip(pcPlayer, carrier);
 }
 
 function addCompListeners(space, locArr, compBoardObj, playerBoardObj) {
