@@ -341,6 +341,24 @@ function createBoardUI(
 	}
 }
 
+function createSetup() {
+	const setupDiv = document.querySelector('.setup-div');
+	const setupLabel = document.createElement('div');
+	setupLabel.className = 'setup-label';
+	setupLabel.innerText = 'place your ships';
+	const setupBoard = document.createElement('div');
+	setupBoard.className = 'setup-board';
+	setupDiv.appendChild(setupLabel);
+	setupDiv.appendChild(setupBoard);
+
+	for (let i = 0; i < 100; i++) {
+		const setupSpace = document.createElement('div');
+		setupSpace.className = 'setup-space';
+		setupSpace.id = i;
+		setupBoard.appendChild(setupSpace);
+	}
+}
+
 function getShipLocs(shipLocations) {
 	const locationArr = [];
 	for (let [key, value] of Object.entries(shipLocations)) {
@@ -364,4 +382,4 @@ function highlightPlayerShips(boardClass, locArr) {
 	}
 }
 
-export { createBoardUI, getShipLocs, highlightPlayerShips, placeAllCompShips };
+export { createSetup, createBoardUI, getShipLocs, highlightPlayerShips, placeAllCompShips };

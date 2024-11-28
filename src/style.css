@@ -1,8 +1,10 @@
+.setup-div,
 .board-div {
 	display: grid;
 	gap: 10px;
 }
 
+.setup-board,
 .player-board,
 .comp-board {
 	display: grid;
@@ -13,6 +15,7 @@
 	border: 1px solid black;
 }
 
+.setup-space,
 .board-space {
 	border: 1px solid black;
 }
