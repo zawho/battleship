@@ -341,15 +341,54 @@ function createBoardUI(
 	}
 }
 
+// patrol - 2
+// submarine - 3
+// destroyer - 3
+// battleship - 4
+// carrier - 5
+
+function createSetupShips(shipSetup) {
+	const patrolDiv = document.createElement('div');
+	patrolDiv.className = 'patrol-div';
+
+	const patrolLabel = document.createElement('div');
+	patrolLabel.className = 'patrol-label';
+	patrolLabel.innerText = 'patrol';
+
+	const patrolShip = document.createElement('div');
+	patrolShip.className = 'patrol-ship';
+	patrolShip.id = 'length-2';
+
+	for (let i = 0; i < 2; i++) {
+		const shipSpace = document.createElement('div');
+		shipSpace.className = 'ship-space';
+		shipSpace.id = i;
+		patrolShip.appendChild(shipSpace);
+	}
+
+	patrolDiv.appendChild(patrolLabel);
+	patrolDiv.appendChild(patrolShip);
+	shipSetup.appendChild(patrolDiv);
+}
+
 function createSetup() {
 	const setupDiv = document.querySelector('.setup-div');
 	const setupLabel = document.createElement('div');
+
 	setupLabel.className = 'setup-label';
 	setupLabel.innerText = 'place your ships';
+
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';
+
+	const shipSetup = document.createElement('div');
+	shipSetup.className = 'ship-setup';
+
 	setupDiv.appendChild(setupLabel);
 	setupDiv.appendChild(setupBoard);
+	setupDiv.appendChild(shipSetup);
+
+	createSetupShips(shipSetup);
 
 	for (let i = 0; i < 100; i++) {
 		const setupSpace = document.createElement('div');

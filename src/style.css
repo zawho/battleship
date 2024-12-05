@@ -1,7 +1,20 @@
 .setup-div,
-.board-div {
+.board-div,
+.patrol-div {
 	display: grid;
 	gap: 10px;
+}
+
+.ship-setup {
+	padding-top: 50px;
+}
+
+.patrol-ship {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	height: 60px;
+	width: 30px;
+	border: 1px solid black;
 }
 
 .setup-board,
@@ -16,6 +29,7 @@
 }
 
 .setup-space,
-.board-space {
+.board-space,
+.ship-space {
 	border: 1px solid black;
 }
