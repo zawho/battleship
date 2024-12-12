@@ -341,34 +341,57 @@ function createBoardUI(
 	}
 }
 
+// IDEA: for rotation should have buttons under board for: 
+// rotate, confirm, cancel, clear
+
 // patrol - 2
 // submarine - 3
 // destroyer - 3
 // battleship - 4
 // carrier - 5
 
-function createSetupShips(shipSetup) {
-	const patrolDiv = document.createElement('div');
-	patrolDiv.className = 'patrol-div';
+function fillShips(ship) {
+	const shipLength = parseInt(ship.id.charAt(ship.id.length - 1));
 
-	const patrolLabel = document.createElement('div');
-	patrolLabel.className = 'patrol-label';
-	patrolLabel.innerText = 'patrol';
-
-	const patrolShip = document.createElement('div');
-	patrolShip.className = 'patrol-ship';
-	patrolShip.id = 'length-2';
-
-	for (let i = 0; i < 2; i++) {
+	for (let i = 0; i < shipLength; i++) {
 		const shipSpace = document.createElement('div');
 		shipSpace.className = 'ship-space';
-		shipSpace.id = i;
-		patrolShip.appendChild(shipSpace);
+		shipSpace.id = `${ship.className}-${i}`;
+		ship.appendChild(shipSpace);
 	}
+
+}
+
+function createSetupShips(shipSetup) {
+	const patrolDiv = document.createElement('div');
+	const subDiv = document.createElement('div');
+	patrolDiv.className = 'patrol-div';
+	subDiv.className = 'sub-div';
+
+	const patrolLabel = document.createElement('div');
+	const subLabel = document.createElement('div');
+	patrolLabel.className = 'patrol-label';
+	patrolLabel.innerText = 'patrol';
+	subLabel.className = 'sub-label';
+	subLabel.innerText = 'submarine';
+
+	const patrolShip = document.createElement('div');
+	const subShip = document.createElement('div');
+	patrolShip.className = 'patrol-ship';
+	patrolShip.id = 'length-2';
+	subShip.className = 'sub-ship';
+	subShip.id = 'length-3';
+
+	fillShips(patrolShip);
+	fillShips(subShip);
 
 	patrolDiv.appendChild(patrolLabel);
 	patrolDiv.appendChild(patrolShip);
+	subDiv.appendChild(subLabel);
+	subDiv.appendChild(subShip);
+
 	shipSetup.appendChild(patrolDiv);
+	shipSetup.appendChild(subDiv);
 }
 
 function createSetup() {
