@@ -1,20 +1,31 @@
 .setup-div,
 .board-div,
 .patrol-div,
-.sub-div {
+.sub-div,
+.destroy-div,
+.battle-div,
+.carrier-div {
 	display: grid;
 	gap: 10px;
+}
+
+.setup-div {
+	justify-items: center;
 }
 
 .ship-setup {
 	display: grid;
 	grid-template-rows: repeat(1, 1fr);
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	padding-top: 50px;
+	gap: 20px;
 }
 
 .patrol-ship,
-.sub-ship {
+.sub-ship,
+.destroy-ship,
+.battle-ship,
+.carrier-ship {
 	display: grid;
 	border: 1px solid black;
 }
@@ -28,6 +39,24 @@
 .sub-ship {
 	grid-template-rows: repeat(3, 1fr);
 	height: 90px;
+	width: 30px;
+}
+
+.destroy-ship {
+	grid-template-rows: repeat(3, 1fr);
+	height: 90px;
+	width: 30px;
+}
+
+.battle-ship {
+	grid-template-rows: repeat(4, 1fr);
+	height: 120px;
+	width: 30px;
+}
+
+.carrier-ship {
+	grid-template-rows: repeat(5, 1fr);
+	height: 150px;
 	width: 30px;
 }
 

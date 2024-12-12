@@ -344,12 +344,6 @@ function createBoardUI(
 // IDEA: for rotation should have buttons under board for: 
 // rotate, confirm, cancel, clear
 
-// patrol - 2
-// submarine - 3
-// destroyer - 3
-// battleship - 4
-// carrier - 5
-
 function fillShips(ship) {
 	const shipLength = parseInt(ship.id.charAt(ship.id.length - 1));
 
@@ -365,33 +359,75 @@ function fillShips(ship) {
 function createSetupShips(shipSetup) {
 	const patrolDiv = document.createElement('div');
 	const subDiv = document.createElement('div');
+	const destroyDiv = document.createElement('div');
+	const battleDiv = document.createElement('div');
+	const carrierDiv = document.createElement('div');
+
 	patrolDiv.className = 'patrol-div';
 	subDiv.className = 'sub-div';
+	destroyDiv.className = 'destroy-div';
+	battleDiv.className = 'battle-div';
+	carrierDiv.className = 'carrier-div';
 
 	const patrolLabel = document.createElement('div');
 	const subLabel = document.createElement('div');
+	const destroyLabel = document.createElement('div');
+	const battleLabel = document.createElement('div');
+	const carrierLabel = document.createElement('div');
+
 	patrolLabel.className = 'patrol-label';
-	patrolLabel.innerText = 'patrol';
 	subLabel.className = 'sub-label';
+	destroyLabel.className = 'destroy-label';
+	battleLabel.className = 'battle-label';
+	carrierLabel.className = 'carrier-label';
+
+	patrolLabel.innerText = 'patrol';
 	subLabel.innerText = 'submarine';
+	destroyLabel.innerText = 'destroyer';
+	battleLabel.innerText = 'battleship';
+	carrierLabel.innerText = 'carrier';
 
 	const patrolShip = document.createElement('div');
 	const subShip = document.createElement('div');
+	const destroyShip = document.createElement('div');
+	const battleShip = document.createElement('div');
+	const carrierShip = document.createElement('div');
+
 	patrolShip.className = 'patrol-ship';
-	patrolShip.id = 'length-2';
 	subShip.className = 'sub-ship';
+	destroyShip.className = 'destroy-ship';
+	battleShip.className = 'battle-ship';
+	carrierShip.className = 'carrier-ship';
+
+	patrolShip.id = 'length-2';
 	subShip.id = 'length-3';
+	destroyShip.id = 'length-3';
+	battleShip.id = 'length-4';
+	carrierShip.id = 'length-5';
 
 	fillShips(patrolShip);
 	fillShips(subShip);
+	fillShips(destroyShip);
+	fillShips(battleShip);
+	fillShips(carrierShip);
 
 	patrolDiv.appendChild(patrolLabel);
-	patrolDiv.appendChild(patrolShip);
 	subDiv.appendChild(subLabel);
+	destroyDiv.appendChild(destroyLabel);
+	battleDiv.appendChild(battleLabel);
+	carrierDiv.appendChild(carrierLabel);
+
+	patrolDiv.appendChild(patrolShip);
 	subDiv.appendChild(subShip);
+	destroyDiv.appendChild(destroyShip);
+	battleDiv.appendChild(battleShip);
+	carrierDiv.appendChild(carrierShip);
 
 	shipSetup.appendChild(patrolDiv);
 	shipSetup.appendChild(subDiv);
+	shipSetup.appendChild(destroyDiv);
+	shipSetup.appendChild(battleDiv);
+	shipSetup.appendChild(carrierDiv);
 }
 
 function createSetup() {
