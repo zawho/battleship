@@ -341,17 +341,37 @@ function createBoardUI(
 	}
 }
 
-// IDEA: for rotation should have buttons under board for: 
-// rotate, confirm, cancel, clear
+// Next: Figure out drag n drop
 
-// Next: add placement buttons UI
+function menuBtnHelper(button, setupMenu) {
+	const btnName = button.className.slice(0, -4);
+	button.innerText = btnName;
+	setupMenu.appendChild(button);
+}
+
+function createMenuButtons(setupMenu) {
+	const rotateBtn = document.createElement('button');
+	const confirmBtn = document.createElement('button');
+	const cancelBtn = document.createElement('button');
+	const clearBtn = document.createElement('button');
+
+	rotateBtn.className = 'rotate-btn';
+	confirmBtn.className = 'confirm-btn';
+	cancelBtn.className = 'cancel-btn';
+	clearBtn.className = 'clear-btn';
+
+	menuBtnHelper(rotateBtn, setupMenu);
+	menuBtnHelper(confirmBtn, setupMenu);
+	menuBtnHelper(cancelBtn, setupMenu);
+	menuBtnHelper(clearBtn, setupMenu);
+}
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
 	const shipName = shipDiv.className.slice(0, -4);
 	const shipLabel = document.createElement('div');
 
 	shipLabel.className = `${shipName}-label`;
-	shipLabel.innerText = `${shipName}`;
+	shipLabel.innerText = shipName;
 
 	const ship = document.createElement('div');
 
@@ -400,13 +420,18 @@ function createSetup() {
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';
 
+	const setupMenu = document.createElement('div');
+	setupMenu.className = 'setup-menu';
+
 	const shipSetup = document.createElement('div');
 	shipSetup.className = 'ship-setup';
 
 	setupDiv.appendChild(setupLabel);
 	setupDiv.appendChild(setupBoard);
+	setupDiv.appendChild(setupMenu);
 	setupDiv.appendChild(shipSetup);
 
+	createMenuButtons(setupMenu);
 	createSetupShips(shipSetup);
 
 	for (let i = 0; i < 100; i++) {

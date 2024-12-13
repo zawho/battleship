@@ -1,5 +1,6 @@
 .setup-div,
 .board-div,
+.setup-menu,
 .patrol-div,
 .submarine-div,
 .destroyer-div,
@@ -13,11 +14,17 @@
 	justify-items: center;
 }
 
+.setup-menu {
+	grid-template-rows: repeat(1, 1fr);
+	grid-template-columns: repeat(4, 1fr);
+	padding-top: 25px;
+}
+
 .ship-setup {
 	display: grid;
 	grid-template-rows: repeat(1, 1fr);
 	grid-template-columns: repeat(5, 1fr);
-	padding-top: 50px;
+	padding-top: 25px;
 	gap: 20px;
 }
 
