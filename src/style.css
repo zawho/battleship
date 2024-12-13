@@ -1,9 +1,9 @@
 .setup-div,
 .board-div,
 .patrol-div,
-.sub-div,
-.destroy-div,
-.battle-div,
+.submarine-div,
+.destroyer-div,
+.battleship-div,
 .carrier-div {
 	display: grid;
 	gap: 10px;
@@ -22,9 +22,9 @@
 }
 
 .patrol-ship,
-.sub-ship,
-.destroy-ship,
-.battle-ship,
+.submarine-ship,
+.destroyer-ship,
+.battleship-ship,
 .carrier-ship {
 	display: grid;
 	border: 1px solid black;
@@ -36,19 +36,19 @@
 	width: 30px;
 }
 
-.sub-ship {
+.submarine-ship {
 	grid-template-rows: repeat(3, 1fr);
 	height: 90px;
 	width: 30px;
 }
 
-.destroy-ship {
+.destroyer-ship {
 	grid-template-rows: repeat(3, 1fr);
 	height: 90px;
 	width: 30px;
 }
 
-.battle-ship {
+.battleship-ship {
 	grid-template-rows: repeat(4, 1fr);
 	height: 120px;
 	width: 30px;
