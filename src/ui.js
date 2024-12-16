@@ -341,8 +341,6 @@ function createBoardUI(
 	}
 }
 
-// Next: Figure out drag n drop
-
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
 	button.innerText = btnName;
@@ -366,6 +364,8 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(clearBtn, setupMenu);
 }
 
+// Next: Figure out drag n drop
+
 function shipSetupHelper(shipDiv, length, shipSetup) {
 	const shipName = shipDiv.className.slice(0, -4);
 	const shipLabel = document.createElement('div');
@@ -377,6 +377,7 @@ function shipSetupHelper(shipDiv, length, shipSetup) {
 
 	ship.className = `${shipName}-ship`;
 	ship.id = `length-${length}`;
+	ship.draggable = true;
 
 	for (let i = 0; i < length; i++) {
 		const shipSpace = document.createElement('div');
@@ -408,6 +409,7 @@ function createSetupShips(shipSetup) {
 	shipSetupHelper(destroyDiv, 3, shipSetup);
 	shipSetupHelper(battleDiv, 4, shipSetup);
 	shipSetupHelper(carrierDiv, 5, shipSetup);
+
 }
 
 function createSetup() {
