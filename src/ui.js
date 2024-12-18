@@ -424,32 +424,41 @@ function createSetup() {
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';
 
+	setupBoard.addEventListener('dragover', (e) => {
+		e.preventDefault();
+	});
+
 	setupBoard.addEventListener('drop', (e) => {
 		e.preventDefault();
-
 		const data = e.dataTransfer.getData('text/plain');
-
 		e.target.appendChild(document.getElementById(data));
 
 		const boardArr = Array.from(setupBoard.childNodes);
-		let nextSpaceID;
-		let nextSpace;
+
+		const shipLength = parseInt(data.charAt(data.length - 1));
+		const shipArr = [];
+		let shipSpace = parseInt(e.target.id);
+		shipArr.push(shipSpace);
+		
+
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
+			shipArr.push(shipSpace);
+		}
 
 		e.target.style.backgroundColor = 'red';
 
 		for (let i = 0; i < boardArr.length; i++) {
-			if (boardArr[i].id === e.target.id) {
-				nextSpaceID = parseInt(boardArr[i].id) + 10;
-				nextSpace = document.getElementById(nextSpaceID);
-				nextSpace.style.backgroundColor = 'red';
+
+			for (let j = 0; j < shipArr.length; j++) {
+				if (parseInt(boardArr[i].id) === shipArr[j]) {
+					const nextSpace = document.getElementById(shipArr[j]);
+					nextSpace.style.backgroundColor = 'red';
+				}
 			}
 		}
 
 		e.target.removeChild(document.getElementById(data));
-	});
-
-	setupBoard.addEventListener('dragover', (e) => {
-		e.preventDefault();
 	});
 
 	const setupMenu = document.createElement('div');
