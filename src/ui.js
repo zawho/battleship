@@ -364,8 +364,6 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(clearBtn, setupMenu);
 }
 
-// Next: Figure out drag n drop
-
 function shipSetupHelper(shipDiv, length, shipSetup) {
 	const shipName = shipDiv.className.slice(0, -4);
 	const shipLabel = document.createElement('div');
@@ -385,6 +383,10 @@ function shipSetupHelper(shipDiv, length, shipSetup) {
 		shipSpace.id = `${ship.className}-${i}`;
 		ship.appendChild(shipSpace);
 	}
+
+	ship.addEventListener('dragstart', (e) => {
+		e.dataTransfer.setData('text/plain', e.target.id);
+	});
 
 	shipDiv.appendChild(shipLabel);
 	shipDiv.appendChild(ship);
@@ -421,6 +423,16 @@ function createSetup() {
 
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';
+
+	setupBoard.addEventListener('drop', (e) => {
+		e.preventDefault();
+		const data = e.dataTransfer.getData('text/plain');
+		e.target.appendChild(document.getElementById(data));
+	});
+
+	setupBoard.addEventListener('dragover', (e) => {
+		e.preventDefault();
+	});
 
 	const setupMenu = document.createElement('div');
 	setupMenu.className = 'setup-menu';
