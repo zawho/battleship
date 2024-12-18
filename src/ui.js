@@ -426,8 +426,26 @@ function createSetup() {
 
 	setupBoard.addEventListener('drop', (e) => {
 		e.preventDefault();
+
 		const data = e.dataTransfer.getData('text/plain');
+
 		e.target.appendChild(document.getElementById(data));
+
+		const boardArr = Array.from(setupBoard.childNodes);
+		let nextSpaceID;
+		let nextSpace;
+
+		e.target.style.backgroundColor = 'red';
+
+		for (let i = 0; i < boardArr.length; i++) {
+			if (boardArr[i].id === e.target.id) {
+				nextSpaceID = parseInt(boardArr[i].id) + 10;
+				nextSpace = document.getElementById(nextSpaceID);
+				nextSpace.style.backgroundColor = 'red';
+			}
+		}
+
+		e.target.removeChild(document.getElementById(data));
 	});
 
 	setupBoard.addEventListener('dragover', (e) => {
