@@ -73,6 +73,39 @@ function createSetupShips(shipSetup) {
 
 }
 
+function dropHandler(event) {
+    event.preventDefault();
+		const data = event.dataTransfer.getData('text/plain');
+		event.target.appendChild(document.getElementById(data));
+
+		const boardArr = Array.from(this.childNodes);
+
+		const shipLength = parseInt(data.charAt(data.length - 1));
+		const shipArr = [];
+		let shipSpace = parseInt(event.target.id);
+		shipArr.push(shipSpace);
+		
+
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
+			shipArr.push(shipSpace);
+		}
+
+		event.target.style.backgroundColor = 'red';
+
+		for (let i = 0; i < boardArr.length; i++) {
+
+			for (let j = 0; j < shipArr.length; j++) {
+				if (parseInt(boardArr[i].id) === shipArr[j]) {
+					const nextSpace = document.getElementById(shipArr[j]);
+					nextSpace.style.backgroundColor = 'red';
+				}
+			}
+		}
+
+		event.target.removeChild(document.getElementById(data));
+}
+
 function createSetup() {
 	const setupDiv = document.querySelector('.setup-div');
 	const setupLabel = document.createElement('div');
@@ -87,38 +120,7 @@ function createSetup() {
 		e.preventDefault();
 	});
 
-	setupBoard.addEventListener('drop', (e) => {
-		e.preventDefault();
-		const data = e.dataTransfer.getData('text/plain');
-		e.target.appendChild(document.getElementById(data));
-
-		const boardArr = Array.from(setupBoard.childNodes);
-
-		const shipLength = parseInt(data.charAt(data.length - 1));
-		const shipArr = [];
-		let shipSpace = parseInt(e.target.id);
-		shipArr.push(shipSpace);
-		
-
-		for (let i = 0; i < shipLength - 1; i++) {
-			shipSpace += 10;
-			shipArr.push(shipSpace);
-		}
-
-		e.target.style.backgroundColor = 'red';
-
-		for (let i = 0; i < boardArr.length; i++) {
-
-			for (let j = 0; j < shipArr.length; j++) {
-				if (parseInt(boardArr[i].id) === shipArr[j]) {
-					const nextSpace = document.getElementById(shipArr[j]);
-					nextSpace.style.backgroundColor = 'red';
-				}
-			}
-		}
-
-		e.target.removeChild(document.getElementById(data));
-	});
+	setupBoard.addEventListener('drop', dropHandler);
 
 	const setupMenu = document.createElement('div');
 	setupMenu.className = 'setup-menu';
