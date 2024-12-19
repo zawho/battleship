@@ -1,13 +1,14 @@
 import './style.css';
 import Ship from './ship.js';
 import Player from './player.js';
+import createSetup from './setup-ui.js';
 import {
-	createSetup,
 	createBoardUI,
 	getShipLocs,
 	highlightPlayerShips,
 	placeAllCompShips,
 } from './ui.js';
+
 
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
