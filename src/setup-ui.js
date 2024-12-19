@@ -1,5 +1,3 @@
-// Next: prevent ship placements overflowing board
-
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
 	button.innerText = btnName;
@@ -70,40 +68,56 @@ function createSetupShips(shipSetup) {
 	shipSetupHelper(destroyDiv, 3, shipSetup);
 	shipSetupHelper(battleDiv, 4, shipSetup);
 	shipSetupHelper(carrierDiv, 5, shipSetup);
+}
 
+function allowDrag(event) {
+    const targetID = parseInt(event.target.id);
+    const data = event.dataTransfer.getData('text/plain');
+
+    const shipLength = parseInt(data.charAt(data.length - 1));
+	const shipArr = [];
+	let shipSpace = targetID;
+	shipArr.push(shipSpace);
+
+	for (let i = 0; i < shipLength - 1; i++) {
+		shipSpace += 10;
+		shipArr.push(shipSpace);
+	}
+
+    if (shipArr[shipArr.length - 1] <= 99) {
+        event.preventDefault();
+    }
 }
 
 function dropHandler(event) {
     event.preventDefault();
-		const data = event.dataTransfer.getData('text/plain');
-		event.target.appendChild(document.getElementById(data));
+	const data = event.dataTransfer.getData('text/plain');
+	event.target.appendChild(document.getElementById(data));
 
-		const boardArr = Array.from(this.childNodes);
+	const boardArr = Array.from(this.childNodes);
 
-		const shipLength = parseInt(data.charAt(data.length - 1));
-		const shipArr = [];
-		let shipSpace = parseInt(event.target.id);
+	const shipLength = parseInt(data.charAt(data.length - 1));
+	const shipArr = [];
+	let shipSpace = parseInt(event.target.id);
+	shipArr.push(shipSpace);
+
+	for (let i = 0; i < shipLength - 1; i++) {
+		shipSpace += 10;
 		shipArr.push(shipSpace);
-		
+	}
 
-		for (let i = 0; i < shipLength - 1; i++) {
-			shipSpace += 10;
-			shipArr.push(shipSpace);
-		}
+	event.target.style.backgroundColor = 'red';
 
-		event.target.style.backgroundColor = 'red';
-
-		for (let i = 0; i < boardArr.length; i++) {
-
-			for (let j = 0; j < shipArr.length; j++) {
-				if (parseInt(boardArr[i].id) === shipArr[j]) {
-					const nextSpace = document.getElementById(shipArr[j]);
-					nextSpace.style.backgroundColor = 'red';
-				}
+	for (let i = 0; i < boardArr.length; i++) {
+		for (let j = 0; j < shipArr.length; j++) {
+			if (parseInt(boardArr[i].id) === shipArr[j]) {
+				const nextSpace = document.getElementById(shipArr[j]);
+				nextSpace.style.backgroundColor = 'red';
 			}
 		}
+	}
 
-		event.target.removeChild(document.getElementById(data));
+	event.target.removeChild(document.getElementById(data));
 }
 
 function createSetup() {
@@ -116,9 +130,7 @@ function createSetup() {
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';
 
-	setupBoard.addEventListener('dragover', (e) => {
-		e.preventDefault();
-	});
+	setupBoard.addEventListener('dragover', allowDrag);
 
 	setupBoard.addEventListener('drop', dropHandler);
 

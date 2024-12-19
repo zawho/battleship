@@ -9,7 +9,6 @@ import {
 	placeAllCompShips,
 } from './ui.js';
 
-
 const humanPlayer = new Player('human');
 const pcPlayer = new Player('computer');
 

@@ -243,11 +243,11 @@ function checkCollisions(pcPlayer, ship, randNum, direction) {
 	}
 
 	for (let [key, value] of Object.entries(pcPlayer.gameboard.locations)) {
-			value.filter((element) => {
-				if (placeArr.includes(element)) {
-					collisionVar = true;
-				}
-			}) 
+		value.filter((element) => {
+			if (placeArr.includes(element)) {
+				collisionVar = true;
+			}
+		});
 	}
 
 	return collisionVar;
@@ -283,7 +283,14 @@ function placeCompShip(pcPlayer, ship) {
 	}
 }
 
-function placeAllCompShips(pcPlayer, patrol, submarine, destroyer, battleship, carrier) {
+function placeAllCompShips(
+	pcPlayer,
+	patrol,
+	submarine,
+	destroyer,
+	battleship,
+	carrier,
+) {
 	placeCompShip(pcPlayer, patrol);
 	placeCompShip(pcPlayer, submarine);
 	placeCompShip(pcPlayer, destroyer);
