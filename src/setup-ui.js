@@ -70,9 +70,14 @@ function createSetupShips(shipSetup) {
 	shipSetupHelper(carrierDiv, 5, shipSetup);
 }
 
+// Next: Fix issue where dragging from bottom of ship and placing legally is prevented
+// Possible way forward: check id of ship square clicked on
+
 function allowDrag(event) {
     const targetID = parseInt(event.target.id);
     const data = event.dataTransfer.getData('text/plain');
+
+    const boardArr = Array.from(this.childNodes);
 
     const shipLength = parseInt(data.charAt(data.length - 1));
 	const shipArr = [];
@@ -86,6 +91,16 @@ function allowDrag(event) {
 
     if (shipArr[shipArr.length - 1] <= 99) {
         event.preventDefault();
+    }
+
+    for (let i = 0; i < boardArr.length; i++) {
+        for (let j = 0; j < shipArr.length; j++) {
+            if (parseInt(boardArr[i].id) === shipArr[j] 
+            && boardArr[i].style.backgroundColor === 'red') {
+                event.target.style.pointerEvents = 'none';
+                boardArr[i].style.pointerEvents = 'none';
+            }
+        }
     }
 }
 
