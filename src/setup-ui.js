@@ -39,10 +39,21 @@ function shipSetupHelper(shipDiv, length, shipSetup) {
 		shipSpace.className = 'ship-space';
 		shipSpace.id = `${ship.className}-${i}`;
 		ship.appendChild(shipSpace);
+		shipSpace.addEventListener('mousedown', (e) => {
+			shipSpace.clicked = 'true';
+		});
 	}
 
 	ship.addEventListener('dragstart', (e) => {
-		e.dataTransfer.setData('text/plain', e.target.id);
+		const shipArr = Array.from(ship.childNodes);
+		let newID;
+		
+		for (let i = 0; i < shipArr.length; i++) {
+			if (shipArr[i].clicked === 'true') {
+				newID = shipArr[i].id + '-' + e.target.id;
+			}
+		}
+		e.dataTransfer.setData('text/plain', newID);
 	});
 
 	shipDiv.appendChild(shipLabel);
@@ -69,9 +80,6 @@ function createSetupShips(shipSetup) {
 	shipSetupHelper(battleDiv, 4, shipSetup);
 	shipSetupHelper(carrierDiv, 5, shipSetup);
 }
-
-// Next: Fix issue where dragging from bottom of ship and placing legally is prevented
-// Possible way forward: check id of ship square clicked on
 
 function allowDrag(event) {
     const targetID = parseInt(event.target.id);
@@ -107,7 +115,10 @@ function allowDrag(event) {
 function dropHandler(event) {
     event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
-	event.target.appendChild(document.getElementById(data));
+	const dataID = data.slice(-8);
+	const spaceIndex = data.at(-10);
+
+	event.target.appendChild(document.getElementById(dataID));
 
 	const boardArr = Array.from(this.childNodes);
 
@@ -132,7 +143,7 @@ function dropHandler(event) {
 		}
 	}
 
-	event.target.removeChild(document.getElementById(data));
+	event.target.removeChild(document.getElementById(dataID));
 }
 
 function createSetup() {
