@@ -84,6 +84,8 @@ function createSetupShips(shipSetup) {
 function allowDrag(event) {
     const targetID = parseInt(event.target.id);
     const data = event.dataTransfer.getData('text/plain');
+	const dataID = data.slice(-8);
+	const spaceIndex = parseInt(data.at(-10));
 
     const boardArr = Array.from(this.childNodes);
 
@@ -92,12 +94,19 @@ function allowDrag(event) {
 	let shipSpace = targetID;
 	shipArr.push(shipSpace);
 
-	for (let i = 0; i < shipLength - 1; i++) {
-		shipSpace += 10;
-		shipArr.push(shipSpace);
+	if (spaceIndex === 0) {
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
+			shipArr.push(shipSpace);
+		}
+	} else if (spaceIndex === shipLength - 1) {
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace -= 10;
+			shipArr.push(shipSpace);
+		}
 	}
 
-    if (shipArr[shipArr.length - 1] <= 99) {
+    if (shipArr[shipArr.length - 1] <= 99 && shipArr[shipArr.length - 1] >= 0) {
         event.preventDefault();
     }
 
@@ -116,7 +125,7 @@ function dropHandler(event) {
     event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
 	const dataID = data.slice(-8);
-	const spaceIndex = data.at(-10);
+	const spaceIndex = parseInt(data.at(-10));
 
 	event.target.appendChild(document.getElementById(dataID));
 
@@ -127,9 +136,16 @@ function dropHandler(event) {
 	let shipSpace = parseInt(event.target.id);
 	shipArr.push(shipSpace);
 
-	for (let i = 0; i < shipLength - 1; i++) {
-		shipSpace += 10;
-		shipArr.push(shipSpace);
+	if (spaceIndex === 0) {
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
+			shipArr.push(shipSpace);
+		}
+	} else if (spaceIndex === shipLength - 1) {
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace -= 10;
+			shipArr.push(shipSpace);
+		}
 	}
 
 	event.target.style.backgroundColor = 'red';
