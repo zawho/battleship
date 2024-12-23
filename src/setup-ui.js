@@ -92,21 +92,34 @@ function allowDrag(event) {
     const shipLength = parseInt(data.charAt(data.length - 1));
 	const shipArr = [];
 	let shipSpace = targetID;
-	shipArr.push(shipSpace);
 
 	if (spaceIndex === 0) {
+		shipArr.push(shipSpace);
 		for (let i = 0; i < shipLength - 1; i++) {
 			shipSpace += 10;
 			shipArr.push(shipSpace);
 		}
 	} else if (spaceIndex === shipLength - 1) {
+		shipArr.push(shipSpace);
 		for (let i = 0; i < shipLength - 1; i++) {
 			shipSpace -= 10;
 			shipArr.push(shipSpace);
 		}
+	} else {
+		for (let i = 0; i < spaceIndex; i++) {
+			shipSpace -= 10;
+		}
+		shipArr.push(shipSpace);
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
+			shipArr.push(shipSpace);
+		}
 	}
 
-    if (shipArr[shipArr.length - 1] <= 99 && shipArr[shipArr.length - 1] >= 0) {
+	console.log (shipArr);
+
+    if (shipArr[shipArr.length - 1] <= 99 && shipArr[shipArr.length - 1] >= 0 
+		&& shipArr[0] >= 0) {
         event.preventDefault();
     }
 
@@ -134,16 +147,27 @@ function dropHandler(event) {
 	const shipLength = parseInt(data.charAt(data.length - 1));
 	const shipArr = [];
 	let shipSpace = parseInt(event.target.id);
-	shipArr.push(shipSpace);
+	
 
 	if (spaceIndex === 0) {
+		shipArr.push(shipSpace);
 		for (let i = 0; i < shipLength - 1; i++) {
 			shipSpace += 10;
 			shipArr.push(shipSpace);
 		}
 	} else if (spaceIndex === shipLength - 1) {
+		shipArr.push(shipSpace);
 		for (let i = 0; i < shipLength - 1; i++) {
 			shipSpace -= 10;
+			shipArr.push(shipSpace);
+		}
+	} else {
+		for (let i = 0; i < spaceIndex; i++) {
+			shipSpace -= 10;
+		}
+		shipArr.push(shipSpace);
+		for (let i = 0; i < shipLength - 1; i++) {
+			shipSpace += 10;
 			shipArr.push(shipSpace);
 		}
 	}
