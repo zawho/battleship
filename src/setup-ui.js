@@ -47,7 +47,7 @@ function shipSetupHelper(shipDiv, length, shipSetup) {
 	ship.addEventListener('dragstart', (e) => {
 		const shipArr = Array.from(ship.childNodes);
 		let newID;
-		
+
 		for (let i = 0; i < shipArr.length; i++) {
 			if (shipArr[i].clicked === 'true') {
 				newID = shipArr[i].id + '-' + e.target.id;
@@ -81,18 +81,7 @@ function createSetupShips(shipSetup) {
 	shipSetupHelper(carrierDiv, 5, shipSetup);
 }
 
-function allowDrag(event) {
-    const targetID = parseInt(event.target.id);
-    const data = event.dataTransfer.getData('text/plain');
-	const dataID = data.slice(-8);
-	const spaceIndex = parseInt(data.at(-10));
-
-    const boardArr = Array.from(this.childNodes);
-
-    const shipLength = parseInt(data.charAt(data.length - 1));
-	const shipArr = [];
-	let shipSpace = targetID;
-
+function preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace) {
 	if (spaceIndex === 0) {
 		shipArr.push(shipSpace);
 		for (let i = 0; i < shipLength - 1; i++) {
@@ -115,27 +104,44 @@ function allowDrag(event) {
 			shipArr.push(shipSpace);
 		}
 	}
+}
 
-	console.log (shipArr);
+function allowDrag(event) {
+	const targetID = parseInt(event.target.id);
+	const data = event.dataTransfer.getData('text/plain');
+	const spaceIndex = parseInt(data.at(-10));
 
-    if (shipArr[shipArr.length - 1] <= 99 && shipArr[shipArr.length - 1] >= 0 
-		&& shipArr[0] >= 0) {
-        event.preventDefault();
-    }
+	const boardArr = Array.from(this.childNodes);
 
-    for (let i = 0; i < boardArr.length; i++) {
-        for (let j = 0; j < shipArr.length; j++) {
-            if (parseInt(boardArr[i].id) === shipArr[j] 
-            && boardArr[i].style.backgroundColor === 'red') {
-                event.target.style.pointerEvents = 'none';
-                boardArr[i].style.pointerEvents = 'none';
-            }
-        }
-    }
+	const shipLength = parseInt(data.charAt(data.length - 1));
+	const shipArr = [];
+	let shipSpace = targetID;
+
+	preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace);
+
+	if (
+		shipArr[shipArr.length - 1] <= 99 &&
+		shipArr[shipArr.length - 1] >= 0 &&
+		shipArr[0] >= 0
+	) {
+		event.preventDefault();
+	}
+
+	for (let i = 0; i < boardArr.length; i++) {
+		for (let j = 0; j < shipArr.length; j++) {
+			if (
+				parseInt(boardArr[i].id) === shipArr[j] &&
+				boardArr[i].style.backgroundColor === 'red'
+			) {
+				event.target.style.pointerEvents = 'none';
+				boardArr[i].style.pointerEvents = 'none';
+			}
+		}
+	}
 }
 
 function dropHandler(event) {
-    event.preventDefault();
+	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
 	const dataID = data.slice(-8);
 	const spaceIndex = parseInt(data.at(-10));
@@ -147,30 +153,8 @@ function dropHandler(event) {
 	const shipLength = parseInt(data.charAt(data.length - 1));
 	const shipArr = [];
 	let shipSpace = parseInt(event.target.id);
-	
 
-	if (spaceIndex === 0) {
-		shipArr.push(shipSpace);
-		for (let i = 0; i < shipLength - 1; i++) {
-			shipSpace += 10;
-			shipArr.push(shipSpace);
-		}
-	} else if (spaceIndex === shipLength - 1) {
-		shipArr.push(shipSpace);
-		for (let i = 0; i < shipLength - 1; i++) {
-			shipSpace -= 10;
-			shipArr.push(shipSpace);
-		}
-	} else {
-		for (let i = 0; i < spaceIndex; i++) {
-			shipSpace -= 10;
-		}
-		shipArr.push(shipSpace);
-		for (let i = 0; i < shipLength - 1; i++) {
-			shipSpace += 10;
-			shipArr.push(shipSpace);
-		}
-	}
+	preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace);
 
 	event.target.style.backgroundColor = 'red';
 
