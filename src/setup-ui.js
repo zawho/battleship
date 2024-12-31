@@ -140,6 +140,31 @@ function allowDrag(event) {
 	}
 }
 
+
+// Next next: Add ship classes? IDs? something to red spaces
+
+function highlightShip(shipSpace, shipArr) {
+	shipSpace.style.borderLeft = '3px solid black';
+	shipSpace.style.borderRight = '3px solid black';
+
+	if (shipArr[0] < shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[0]) {
+		shipSpace.style.borderTop = '3px solid black';
+	} else if (shipArr[0] > shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]) {
+			shipSpace.style.borderTop = '3px solid black';
+	}
+
+	if (shipArr[0] < shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]) {
+		shipSpace.style.borderBottom = '3px solid black';
+	} else if (shipArr[0] > shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[0]) {
+			shipSpace.style.borderBottom = '3px solid black';
+	}
+
+}
+
 function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
@@ -156,13 +181,12 @@ function dropHandler(event) {
 
 	preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace);
 
-	event.target.style.backgroundColor = 'red';
-
 	for (let i = 0; i < boardArr.length; i++) {
 		for (let j = 0; j < shipArr.length; j++) {
 			if (parseInt(boardArr[i].id) === shipArr[j]) {
 				const nextSpace = document.getElementById(shipArr[j]);
 				nextSpace.style.backgroundColor = 'red';
+				highlightShip(nextSpace, shipArr);
 			}
 		}
 	}
