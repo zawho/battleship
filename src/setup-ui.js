@@ -140,29 +140,55 @@ function allowDrag(event) {
 	}
 }
 
-
 // Next next: Add ship classes? IDs? something to red spaces
 
 function highlightShip(shipSpace, shipArr) {
 	shipSpace.style.borderLeft = '3px solid black';
 	shipSpace.style.borderRight = '3px solid black';
 
-	if (shipArr[0] < shipArr[shipArr.length - 1] &&
-		parseInt(shipSpace.id) === shipArr[0]) {
+	if (
+		shipArr[0] < shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[0]
+	) {
 		shipSpace.style.borderTop = '3px solid black';
-	} else if (shipArr[0] > shipArr[shipArr.length - 1] &&
-		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]) {
-			shipSpace.style.borderTop = '3px solid black';
+	} else if (
+		shipArr[0] > shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]
+	) {
+		shipSpace.style.borderTop = '3px solid black';
 	}
 
-	if (shipArr[0] < shipArr[shipArr.length - 1] &&
-		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]) {
+	if (
+		shipArr[0] < shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]
+	) {
 		shipSpace.style.borderBottom = '3px solid black';
-	} else if (shipArr[0] > shipArr[shipArr.length - 1] &&
-		parseInt(shipSpace.id) === shipArr[0]) {
-			shipSpace.style.borderBottom = '3px solid black';
+	} else if (
+		shipArr[0] > shipArr[shipArr.length - 1] &&
+		parseInt(shipSpace.id) === shipArr[0]
+	) {
+		shipSpace.style.borderBottom = '3px solid black';
 	}
+}
 
+function removeHighlight(boardArr) {
+	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].style.borderTopWidth === '3px') {
+			boardArr[i].style.borderTop = '1px solid black';
+		}
+
+		if (boardArr[i].style.borderLeftWidth === '3px') {
+			boardArr[i].style.borderLeft = '1px solid black';
+		}
+
+		if (boardArr[i].style.borderBottomWidth === '3px') {
+			boardArr[i].style.borderBottom = '1px solid black';
+		}
+
+		if (boardArr[i].style.borderRightWidth === '3px') {
+			boardArr[i].style.borderRight = '1px solid black';
+		}
+	}
 }
 
 function dropHandler(event) {
@@ -174,6 +200,8 @@ function dropHandler(event) {
 	event.target.appendChild(document.getElementById(dataID));
 
 	const boardArr = Array.from(this.childNodes);
+
+	removeHighlight(boardArr);
 
 	const shipLength = parseInt(data.charAt(data.length - 1));
 	const shipArr = [];
