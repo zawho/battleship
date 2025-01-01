@@ -1,3 +1,15 @@
+function rotateShip() {
+	const board = document.querySelector('.setup-board');
+	const boardArr = Array.from(board.childNodes);
+	const shipArr = [];
+
+	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].style.borderLeftWidth === '3px') {
+			shipArr.push(parseInt(boardArr[i].id));
+		}
+	}
+}
+
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
 	button.innerText = btnName;
@@ -19,6 +31,8 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(confirmBtn, setupMenu);
 	menuBtnHelper(cancelBtn, setupMenu);
 	menuBtnHelper(clearBtn, setupMenu);
+
+	rotateBtn.addEventListener('click', rotateShip);
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
@@ -139,8 +153,6 @@ function allowDrag(event) {
 		}
 	}
 }
-
-// Next next: Add ship classes? IDs? something to red spaces
 
 function highlightShip(shipSpace, shipArr) {
 	shipSpace.style.borderLeft = '3px solid black';
