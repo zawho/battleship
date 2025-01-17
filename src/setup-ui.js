@@ -1,6 +1,6 @@
-// Next: Work on rotation for patrol ship first
+// Next: Must entirely overhaul rotation, centerSpace CANNOT refer to board
 
-function rotateShip() {
+/* function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
 	const shipArr = [];
@@ -42,7 +42,7 @@ function rotateShip() {
 		topSpace.style.backgroundColor = 'red';
 	}
 
-}
+} */
 
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
@@ -66,7 +66,7 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(cancelBtn, setupMenu);
 	menuBtnHelper(clearBtn, setupMenu);
 
-	rotateBtn.addEventListener('click', rotateShip);
+	/* rotateBtn.addEventListener('click', rotateShip); */
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
@@ -264,9 +264,19 @@ function dropHandler(event) {
 			}
 		}
 	}
-
 	event.target.removeChild(document.getElementById(dataID));
 }
+
+function createShipObj() {
+	return {
+		patrol: [],
+		submarine: [],
+		destroyer: [],
+		battleship: [],
+		carrier: [],
+	}
+}
+
 
 function createSetup() {
 	const setupDiv = document.querySelector('.setup-div');
@@ -302,6 +312,7 @@ function createSetup() {
 		setupSpace.id = i;
 		setupBoard.appendChild(setupSpace);
 	}
+	setupBoard.allShips = createShipObj();
 }
 
 export default createSetup;
