@@ -237,11 +237,23 @@ function removeHighlight(boardArr) {
 	}
 }
 
+function editShipObj(allShips, shipName, shipArr) {
+	for (let [key, value] of Object.entries(allShips)) {
+		if (key === shipName) {
+			for (let i = 0; i < shipArr.length; i++) {
+				value.push(shipArr[i]);
+			}
+		}
+	}
+}
+
 function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
 	const dataID = data.slice(-8);
 	const spaceIndex = parseInt(data.at(-10));
+	const shipName = data.slice(0, -16);
+	const setupBoard = document.querySelector('.setup-board');
 
 	event.target.appendChild(document.getElementById(dataID));
 
@@ -265,6 +277,8 @@ function dropHandler(event) {
 		}
 	}
 	event.target.removeChild(document.getElementById(dataID));
+
+	editShipObj(setupBoard.allShips, shipName, shipArr);
 }
 
 function createShipObj() {
@@ -276,7 +290,6 @@ function createShipObj() {
 		carrier: [],
 	}
 }
-
 
 function createSetup() {
 	const setupDiv = document.querySelector('.setup-div');
