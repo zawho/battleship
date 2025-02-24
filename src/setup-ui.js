@@ -1,48 +1,10 @@
-// Next: Must entirely overhaul rotation, centerSpace CANNOT refer to board
-
-/* function rotateShip() {
+function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
-	const shipArr = [];
-	const rotateArr = [];
-	let topSpace;
-	let rightSpace;
-	let bottomSpace;
-	let leftSpace;
-
-	for (let i = 0; i < boardArr.length; i++) {
-		if (boardArr[i].style.borderLeftWidth === '3px') {
-			shipArr.push(parseInt(boardArr[i].id));
-		}
-	}
-
-	rotateArr.push(shipArr[0]);
-	rotateArr.push(shipArr[1] + 1);
-	rotateArr.push(shipArr[1] + 10);
-	rotateArr.push(shipArr[1] - 1);
-
-	for (let i = 0; i < boardArr.length; i++) {
-		topSpace = boardArr[rotateArr[0]];
-		rightSpace = boardArr[rotateArr[1]];
-		bottomSpace = boardArr[rotateArr[2]];
-		leftSpace = boardArr[rotateArr[3]];
-	}
-
-	if (topSpace.style.backgroundColor === 'red') {
-		topSpace.style.backgroundColor = 'white';
-		rightSpace.style.backgroundColor = 'red';
-	} else if (rightSpace.style.backgroundColor === 'red') {
-		rightSpace.style.backgroundColor = 'white';
-		bottomSpace.style.backgroundColor = 'red';
-	} else if (bottomSpace.style.backgroundColor === 'red') {
-		bottomSpace.style.backgroundColor = 'white';
-		leftSpace.style.backgroundColor = 'red';
-	} else if (leftSpace.style.backgroundColor === 'red') {
-		leftSpace.style.backgroundColor = 'white';
-		topSpace.style.backgroundColor = 'red';
-	}
-
-} */
+	const testArr = [];
+	
+	// console.log(board.allShips);
+}
 
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
@@ -66,7 +28,7 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(cancelBtn, setupMenu);
 	menuBtnHelper(clearBtn, setupMenu);
 
-	/* rotateBtn.addEventListener('click', rotateShip); */
+	rotateBtn.addEventListener('click', rotateShip);
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
@@ -246,6 +208,8 @@ function editShipObj(allShips, shipName, shipArr) {
 		}
 	}
 }
+
+// Next: Change class of setup board spaces to ship class on drag so i can ref during rotate
 
 function dropHandler(event) {
 	event.preventDefault();
