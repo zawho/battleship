@@ -80,6 +80,11 @@
 
 .setup-space,
 .board-space,
-.ship-space {
+.ship-space,
+.patrol-ship-space,
+.submarine-ship-space,
+.destroyer-ship-space,
+.battleship-ship-space,
+.carrier-ship-space {
 	border: 1px solid black;
 }

@@ -1,3 +1,7 @@
+// Next: add ship names to ship obj
+// Next next: Rewrite rotate func to use ship class and ship obj
+// Also next next maybe: Try CSS transform rotate...???
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -209,11 +213,10 @@ function editShipObj(allShips, shipName, shipArr) {
 	}
 }
 
-// Next: Change class of setup board spaces to ship class on drag so i can ref during rotate
-
 function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
+	const shipSpaceClass = `${data.slice(0, -11)}-space`;
 	const dataID = data.slice(-8);
 	const spaceIndex = parseInt(data.at(-10));
 	const shipName = data.slice(0, -16);
@@ -236,6 +239,7 @@ function dropHandler(event) {
 			if (parseInt(boardArr[i].id) === shipArr[j]) {
 				const nextSpace = document.getElementById(shipArr[j]);
 				nextSpace.style.backgroundColor = 'red';
+				nextSpace.className = shipSpaceClass;
 				highlightShip(nextSpace, shipArr);
 			}
 		}
