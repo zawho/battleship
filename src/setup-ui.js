@@ -1,13 +1,29 @@
-// Next: add ship names to ship obj
+// Next: figure out sub/destroyer placement bug
 // Next next: Rewrite rotate func to use ship class and ship obj
 // Also next next maybe: Try CSS transform rotate...???
+
+function getShipName(boardArr) {
+	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].style.borderLeftWidth === "3px" ||
+			boardArr[i].style.borderTopWidth === "3px" || 
+			boardArr[i].style.borderRightWidth === "3px" ||
+			boardArr[i].style.borderBottomWidth === "3px" 
+		) {
+			return boardArr[i].className.slice(0, -11);
+		}
+	}
+}
 
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
-	const testArr = [];
+	const shipName = getShipName(boardArr);
 	
-	// console.log(board.allShips);
+	for (let [key, value] of Object.entries(board.allShips)) {
+			if (key === shipName) {
+				console.log(value);
+			}
+	}
 }
 
 function menuBtnHelper(button, setupMenu) {
