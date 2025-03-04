@@ -1,5 +1,4 @@
-// Next: figure out sub/destroyer placement bug
-// Next next: Rewrite rotate func to use ship class and ship obj
+// Next: Rewrite rotate func to use ship class and ship obj
 // Also next next maybe: Try CSS transform rotate...???
 
 function getShipName(boardArr) {
@@ -233,12 +232,12 @@ function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
 	const shipSpaceClass = `${data.slice(0, -11)}-space`;
-	const dataID = data.slice(-8);
+	const dataClass = data.slice(0, -11);
 	const spaceIndex = parseInt(data.at(-10));
 	const shipName = data.slice(0, -16);
 	const setupBoard = document.querySelector('.setup-board');
 
-	event.target.appendChild(document.getElementById(dataID));
+	event.target.appendChild(document.querySelector(`.${dataClass}`));
 
 	const boardArr = Array.from(this.childNodes);
 
@@ -260,7 +259,7 @@ function dropHandler(event) {
 			}
 		}
 	}
-	event.target.removeChild(document.getElementById(dataID));
+	event.target.removeChild(document.querySelector(`.${dataClass}`));
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
 }
