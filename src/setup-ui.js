@@ -1,6 +1,3 @@
-// Next: Rewrite rotate func to use ship class and ship obj
-// Also next next maybe: Try CSS transform rotate...???
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (boardArr[i].style.borderLeftWidth === "3px" ||
@@ -17,11 +14,37 @@ function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
 	const shipName = getShipName(boardArr);
+	let oldSpaceID;
+	let newSpaceID;
 	
 	for (let [key, value] of Object.entries(board.allShips)) {
-			if (key === shipName) {
-				console.log(value);
-			}
+		let axis;
+
+		if (key === shipName) {
+			axis = value[0];
+			oldSpaceID = value[1];
+		}
+		if (key === shipName && axis - value[1] === 10) {
+			value[1] = axis + 1;
+		} else if (key === shipName && value[1] - axis === 1) {
+			value[1] = axis + 10;
+		} else if (key === shipName && value[1] - axis === 10) {
+			value[1] = axis - 1;
+		} else if (key === shipName && axis - value[1] === 1) {
+			value[1] = axis - 10;
+		}
+
+		if (key === shipName) {
+			newSpaceID = value[1];
+		}
+	}
+
+	for (let i = 0; i < boardArr.length; i++) {
+		if (parseInt(boardArr[i].id) === oldSpaceID) {
+			boardArr[i].style.backgroundColor = 'white';
+		} else if (parseInt(boardArr[i].id) === newSpaceID) {
+			boardArr[i].style.backgroundColor = 'red';
+		}
 	}
 }
 
@@ -223,6 +246,7 @@ function editShipObj(allShips, shipName, shipArr) {
 		if (key === shipName) {
 			for (let i = 0; i < shipArr.length; i++) {
 				value.push(shipArr[i]);
+				value.reverse();
 			}
 		}
 	}
