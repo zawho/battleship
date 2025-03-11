@@ -1,3 +1,6 @@
+// Next: work on rotation logic for sub/destroyer and other ships
+// IDEA: maybe make "oldSpaceID" and "newSpaceID" into arrays instead of variables
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (boardArr[i].style.borderLeftWidth === "3px" ||
@@ -16,6 +19,8 @@ function rotateShip() {
 	const shipName = getShipName(boardArr);
 	let oldSpaceID;
 	let newSpaceID;
+
+	console.log(board.allShips);
 	
 	for (let [key, value] of Object.entries(board.allShips)) {
 		let axis;
@@ -246,7 +251,7 @@ function editShipObj(allShips, shipName, shipArr) {
 		if (key === shipName) {
 			for (let i = 0; i < shipArr.length; i++) {
 				value.push(shipArr[i]);
-				value.reverse();
+				value.sort(function(a, b){return b - a});
 			}
 		}
 	}
@@ -286,6 +291,8 @@ function dropHandler(event) {
 	event.target.removeChild(document.querySelector(`.${dataClass}`));
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
+
+	console.log(setupBoard.allShips);
 }
 
 function createShipObj() {
