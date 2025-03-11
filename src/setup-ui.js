@@ -1,5 +1,4 @@
 // Next: work on rotation logic for sub/destroyer and other ships
-// IDEA: maybe make "oldSpaceID" and "newSpaceID" into arrays instead of variables
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -17,8 +16,8 @@ function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
 	const shipName = getShipName(boardArr);
-	let oldSpaceID;
-	let newSpaceID;
+	const oldSpaceArr = [];
+	const newSpaceArr = [];
 
 	console.log(board.allShips);
 	
@@ -27,8 +26,12 @@ function rotateShip() {
 
 		if (key === shipName) {
 			axis = value[0];
-			oldSpaceID = value[1];
+
+			for (let i = 1; i < value.length; i++) {
+				oldSpaceArr.push(value[i]);
+			}
 		}
+		
 		if (key === shipName && axis - value[1] === 10) {
 			value[1] = axis + 1;
 		} else if (key === shipName && value[1] - axis === 1) {
@@ -40,14 +43,14 @@ function rotateShip() {
 		}
 
 		if (key === shipName) {
-			newSpaceID = value[1];
+			newSpaceArr.push(value[1]);
 		}
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
-		if (parseInt(boardArr[i].id) === oldSpaceID) {
+		if (parseInt(boardArr[i].id) === oldSpaceArr[0]) {
 			boardArr[i].style.backgroundColor = 'white';
-		} else if (parseInt(boardArr[i].id) === newSpaceID) {
+		} else if (parseInt(boardArr[i].id) === newSpaceArr[0]) {
 			boardArr[i].style.backgroundColor = 'red';
 		}
 	}
