@@ -32,25 +32,19 @@ function rotateShip() {
 				oldSpaceArr.push(value[i]);
 			}
 		}
-		
-		if (key === shipName && axis - value[1] === 10) {
-			value[1] = axis + 1;
-		} else if (key === shipName && value[1] - axis === 1) {
-			value[1] = axis + 10;
-		} else if (key === shipName && value[1] - axis === 10) {
-			value[1] = axis - 1;
-		} else if (key === shipName && axis - value[1] === 1) {
-			value[1] = axis - 10;
-		}
 
-		if (key === shipName && axis - value[2] === 20) {
-			value[2] = axis + 2;
-		} else if (key === shipName && value[2] - axis === 2) {
-			value[2] = axis + 20;
-		} else if (key === shipName && value[2] - axis === 20) {
-			value[2] = axis - 2;
-		} else if (key === shipName && axis - value[2] === 2) {
-			value[2] = axis - 20;
+		for (let i = 1; i < value.length; i++) {
+
+			if (key === shipName && axis - value[i] === (10 * i)) {
+				value[i] = axis + i;
+			} else if (key === shipName && value[i] - axis === i) {
+				value[i] = axis + (10 * i);
+			} else if (key === shipName && value[i] - axis === (10 * i)) {
+				value[i] = axis - i;
+			} else if (key === shipName && axis - value[i] === i) {
+				value[i] = axis - (10 * i);
+			}
+
 		}
 
 		if (key === shipName) {
