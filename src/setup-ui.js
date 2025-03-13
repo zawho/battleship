@@ -3,10 +3,11 @@
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
-		if (boardArr[i].style.borderLeftWidth === "3px" ||
-			boardArr[i].style.borderTopWidth === "3px" || 
-			boardArr[i].style.borderRightWidth === "3px" ||
-			boardArr[i].style.borderBottomWidth === "3px" 
+		if (
+			boardArr[i].style.borderLeftWidth === '3px' ||
+			boardArr[i].style.borderTopWidth === '3px' ||
+			boardArr[i].style.borderRightWidth === '3px' ||
+			boardArr[i].style.borderBottomWidth === '3px'
 		) {
 			return boardArr[i].className.slice(0, -11);
 		}
@@ -20,8 +21,6 @@ function rotateShip() {
 	const oldSpaceArr = [];
 	const newSpaceArr = [];
 
-	console.log(board.allShips);
-	
 	for (let [key, value] of Object.entries(board.allShips)) {
 		let axis;
 
@@ -34,17 +33,15 @@ function rotateShip() {
 		}
 
 		for (let i = 1; i < value.length; i++) {
-
-			if (key === shipName && axis - value[i] === (10 * i)) {
+			if (key === shipName && axis - value[i] === 10 * i) {
 				value[i] = axis + i;
 			} else if (key === shipName && value[i] - axis === i) {
-				value[i] = axis + (10 * i);
-			} else if (key === shipName && value[i] - axis === (10 * i)) {
+				value[i] = axis + 10 * i;
+			} else if (key === shipName && value[i] - axis === 10 * i) {
 				value[i] = axis - i;
 			} else if (key === shipName && axis - value[i] === i) {
-				value[i] = axis - (10 * i);
+				value[i] = axis - 10 * i;
 			}
-
 		}
 
 		if (key === shipName) {
@@ -261,7 +258,9 @@ function editShipObj(allShips, shipName, shipArr) {
 		if (key === shipName) {
 			for (let i = 0; i < shipArr.length; i++) {
 				value.push(shipArr[i]);
-				value.sort(function(a, b){return b - a});
+				value.sort(function (a, b) {
+					return b - a;
+				});
 			}
 		}
 	}
@@ -301,8 +300,6 @@ function dropHandler(event) {
 	event.target.removeChild(document.querySelector(`.${dataClass}`));
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
-
-	console.log(setupBoard.allShips);
 }
 
 function createShipObj() {
@@ -312,7 +309,7 @@ function createShipObj() {
 		destroyer: [],
 		battleship: [],
 		carrier: [],
-	}
+	};
 }
 
 function createSetup() {
