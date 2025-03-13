@@ -1,4 +1,5 @@
-// Next: work on rotation logic for sub/destroyer and other ships
+// Next: work on rotation logic for sub/destroyer and other ships by continuing to
+// implement arrays (probably?) in the rotate func, in particular to replace value[1]
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -42,15 +43,27 @@ function rotateShip() {
 			value[1] = axis - 10;
 		}
 
+		if (key === shipName && axis - value[2] === 20) {
+			value[2] = axis + 2;
+		} else if (key === shipName && value[2] - axis === 2) {
+			value[2] = axis + 20;
+		} else if (key === shipName && value[2] - axis === 20) {
+			value[2] = axis - 2;
+		} else if (key === shipName && axis - value[2] === 2) {
+			value[2] = axis - 20;
+		}
+
 		if (key === shipName) {
-			newSpaceArr.push(value[1]);
+			for (let i = 1; i < value.length; i++) {
+				newSpaceArr.push(value[i]);
+			}
 		}
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
-		if (parseInt(boardArr[i].id) === oldSpaceArr[0]) {
+		if (oldSpaceArr.includes(parseInt(boardArr[i].id))) {
 			boardArr[i].style.backgroundColor = 'white';
-		} else if (parseInt(boardArr[i].id) === newSpaceArr[0]) {
+		} else if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
 			boardArr[i].style.backgroundColor = 'red';
 		}
 	}
