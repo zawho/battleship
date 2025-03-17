@@ -1,5 +1,5 @@
-// Next: work on rotation logic for sub/destroyer and other ships by continuing to
-// implement arrays (probably?) in the rotate func, in particular to replace value[1]
+// Next: continue working on preventRotation() to prevent out of bounds
+// Specifically try to fix error currently present in the func for bottom border
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -10,6 +10,16 @@ function getShipName(boardArr) {
 			boardArr[i].style.borderBottomWidth === '3px'
 		) {
 			return boardArr[i].className.slice(0, -11);
+		}
+	}
+}
+
+function preventRotation(shipName, axis, key, value) {
+	for (let i = 1; i < value.length; i++) {
+		if (key === shipName && axis + 10 * i > 99) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
@@ -36,7 +46,15 @@ function rotateShip() {
 			if (key === shipName && axis - value[i] === 10 * i) {
 				value[i] = axis + i;
 			} else if (key === shipName && value[i] - axis === i) {
-				value[i] = axis + 10 * i;
+
+				// danger! nested if statement! find a better way!
+				if (preventRotation(shipName, axis, key, value)) {
+					value[i] = axis - i;
+				} else {
+					value[i] = axis + 10 * i;
+				}
+				// danger! nested if statement! find a better way!
+				
 			} else if (key === shipName && value[i] - axis === 10 * i) {
 				value[i] = axis - i;
 			} else if (key === shipName && axis - value[i] === i) {
@@ -45,6 +63,8 @@ function rotateShip() {
 		}
 
 		if (key === shipName) {
+
+
 			for (let i = 1; i < value.length; i++) {
 				newSpaceArr.push(value[i]);
 			}
