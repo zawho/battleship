@@ -11,12 +11,12 @@ function getShipName(boardArr) {
 	}
 }
 
-function checkBottomBorder(shipName, axis, key, value, i) {
-		if (key === shipName && axis + 10 * (value.length - 1) > 99) {
-			return axis - i;
-		} else {
-			return axis + 10 * i;
-		}
+function checkBottomBorder(axis, value, i) {
+	if (axis + 10 * (value.length - 1) > 99) {
+		return axis - i;
+	} else {
+		return axis + 10 * i;
+	}
 }
 
 function rotateShip() {
@@ -30,29 +30,23 @@ function rotateShip() {
 		let axis;
 
 		if (key === shipName) {
+
 			axis = value[0];
 
 			for (let i = 1; i < value.length; i++) {
+
 				oldSpaceArr.push(value[i]);
-			}
-		}
 
-		for (let i = 1; i < value.length; i++) {			
-			if (key === shipName && axis - value[i] === 10 * i) {
-				value[i] = axis + i;
-			} else if (key === shipName && value[i] - axis === i) {
-				value[i] = checkBottomBorder(shipName, axis, key, value, i);
-			} else if (key === shipName && value[i] - axis === 10 * i) {
-				value[i] = axis - i;
-			} else if (key === shipName && axis - value[i] === i) {
-				value[i] = axis - 10 * i;
-			}
-		}
+				if (axis - value[i] === 10 * i) {
+					value[i] = axis + i;
+				} else if (value[i] - axis === i) {
+					value[i] = checkBottomBorder(axis, value, i);
+				} else if (value[i] - axis === 10 * i) {
+					value[i] = axis - i;
+				} else if (axis - value[i] === i) {
+					value[i] = axis - 10 * i;
+				}
 
-		if (key === shipName) {
-
-
-			for (let i = 1; i < value.length; i++) {
 				newSpaceArr.push(value[i]);
 			}
 		}
