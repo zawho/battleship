@@ -1,6 +1,3 @@
-// Next: continue working on preventRotation() to prevent out of bounds
-// Specifically try to fix error currently present in the func for bottom border
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -16,7 +13,7 @@ function getShipName(boardArr) {
 
 function preventRotation(shipName, axis, key, value) {
 	for (let i = 1; i < value.length; i++) {
-		if (key === shipName && axis + 10 * i > 99) {
+		if (key === shipName && axis + 10 * (value.length - 1) > 99) {
 			return true;
 		} else {
 			return false;
