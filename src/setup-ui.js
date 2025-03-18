@@ -19,6 +19,17 @@ function checkBottomBorder(axis, value, i) {
 	}
 }
 
+function checkLeftBorder(axis, value, i) {
+	const remainder = axis % 10;
+	const leftBorderNum = axis - remainder;
+
+	if (axis - (value.length - 1) < leftBorderNum) {
+		return axis - 10 * i;
+	} else {
+		return axis - i;
+	}
+}
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -30,11 +41,9 @@ function rotateShip() {
 		let axis;
 
 		if (key === shipName) {
-
 			axis = value[0];
 
 			for (let i = 1; i < value.length; i++) {
-
 				oldSpaceArr.push(value[i]);
 
 				if (axis - value[i] === 10 * i) {
@@ -42,7 +51,7 @@ function rotateShip() {
 				} else if (value[i] - axis === i) {
 					value[i] = checkBottomBorder(axis, value, i);
 				} else if (value[i] - axis === 10 * i) {
-					value[i] = axis - i;
+					value[i] = checkLeftBorder(axis, value, i);
 				} else if (axis - value[i] === i) {
 					value[i] = axis - 10 * i;
 				}
