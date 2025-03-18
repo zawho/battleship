@@ -11,14 +11,12 @@ function getShipName(boardArr) {
 	}
 }
 
-function preventRotation(shipName, axis, key, value) {
-	for (let i = 1; i < value.length; i++) {
+function checkBottomBorder(shipName, axis, key, value, i) {
 		if (key === shipName && axis + 10 * (value.length - 1) > 99) {
-			return true;
+			return axis - i;
 		} else {
-			return false;
+			return axis + 10 * i;
 		}
-	}
 }
 
 function rotateShip() {
@@ -39,19 +37,11 @@ function rotateShip() {
 			}
 		}
 
-		for (let i = 1; i < value.length; i++) {
+		for (let i = 1; i < value.length; i++) {			
 			if (key === shipName && axis - value[i] === 10 * i) {
 				value[i] = axis + i;
 			} else if (key === shipName && value[i] - axis === i) {
-
-				// danger! nested if statement! find a better way!
-				if (preventRotation(shipName, axis, key, value)) {
-					value[i] = axis - i;
-				} else {
-					value[i] = axis + 10 * i;
-				}
-				// danger! nested if statement! find a better way!
-				
+				value[i] = checkBottomBorder(shipName, axis, key, value, i);
 			} else if (key === shipName && value[i] - axis === 10 * i) {
 				value[i] = axis - i;
 			} else if (key === shipName && axis - value[i] === i) {
