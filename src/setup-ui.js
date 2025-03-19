@@ -11,6 +11,23 @@ function getShipName(boardArr) {
 	}
 }
 
+function checkRightBorder(axis, value, i) {
+	const remainder = axis % 10;
+	const leftBorderNum = axis - remainder;
+	const rightBorderNum = leftBorderNum + 9;
+
+	if (
+		axis + (value.length - 1) > rightBorderNum &&
+		axis + 10 * (value.length - 1) > 99
+	) {
+		return axis - i;
+	} else if (axis + (value.length - 1) > rightBorderNum) {
+		return axis + 10 * i;
+	} else {
+		return axis + i;
+	}
+}
+
 function checkBottomBorder(axis, value, i) {
 	const remainder = axis % 10;
 	const leftBorderNum = axis - remainder;
@@ -35,18 +52,6 @@ function checkLeftBorder(axis, value, i) {
 		return axis - 10 * i;
 	} else {
 		return axis - i;
-	}
-}
-
-function checkRightBorder(axis, value, i) {
-	const remainder = axis % 10;
-	const leftBorderNum = axis - remainder;
-	const rightBorderNum = leftBorderNum + 9;
-
-	if (axis + (value.length - 1) > rightBorderNum) {
-		return axis + 10 * i;
-	} else {
-		return axis + i;
 	}
 }
 
