@@ -38,6 +38,18 @@ function checkLeftBorder(axis, value, i) {
 	}
 }
 
+function checkRightBorder(axis, value, i) {
+	const remainder = axis % 10;
+	const leftBorderNum = axis - remainder;
+	const rightBorderNum = leftBorderNum + 9;
+
+	if (axis + (value.length - 1) > rightBorderNum) {
+		return axis + 10 * i;
+	} else {
+		return axis + i;
+	}
+}
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -55,7 +67,7 @@ function rotateShip() {
 				oldSpaceArr.push(value[i]);
 
 				if (axis - value[i] === 10 * i) {
-					value[i] = axis + i;
+					value[i] = checkRightBorder(axis, value, i);
 				} else if (value[i] - axis === i) {
 					value[i] = checkBottomBorder(axis, value, i);
 				} else if (value[i] - axis === 10 * i) {
