@@ -12,7 +12,15 @@ function getShipName(boardArr) {
 }
 
 function checkBottomBorder(axis, value, i) {
-	if (axis + 10 * (value.length - 1) > 99) {
+	const remainder = axis % 10;
+	const leftBorderNum = axis - remainder;
+
+	if (
+		axis + 10 * (value.length - 1) > 99 &&
+		axis - (value.length - 1) < leftBorderNum
+	) {
+		return axis - 10 * i;
+	} else if (axis + 10 * (value.length - 1) > 99) {
 		return axis - i;
 	} else {
 		return axis + 10 * i;
