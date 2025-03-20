@@ -22,11 +22,11 @@ function checkRightBorder(axis, value, i) {
 		axis + (value.length - 1) > rightBorderNum &&
 		axis + 10 * (value.length - 1) > 99
 	) {
-		return axis - i;
+		return [axis - i, 'left'];
 	} else if (axis + (value.length - 1) > rightBorderNum) {
-		return axis + 10 * i;
+		return [axis + 10 * i, 'down'];
 	} else {
-		return axis + i;
+		return [axis + i, 'right'];
 	}
 }
 
@@ -38,11 +38,11 @@ function checkBottomBorder(axis, value, i) {
 		axis + 10 * (value.length - 1) > 99 &&
 		axis - (value.length - 1) < leftBorderNum
 	) {
-		return axis - 10 * i;
+		return [axis - 10 * i, 'up'];
 	} else if (axis + 10 * (value.length - 1) > 99) {
-		return axis - i;
+		return [axis - i, 'left'];
 	} else {
-		return axis + 10 * i;
+		return [axis + 10 * i, 'down'];
 	}
 }
 
@@ -51,9 +51,9 @@ function checkLeftBorder(axis, value, i) {
 	const leftBorderNum = axis - remainder;
 
 	if (axis - (value.length - 1) < leftBorderNum) {
-		return axis - 10 * i;
+		return [axis - 10 * i, 'up'];
 	} else {
-		return axis - i;
+		return [axis - i, 'left'];
 	}
 }
 
@@ -127,6 +127,7 @@ function rotateShip() {
 	const newSpaceArr = [];
 	let axis;
 	let direction;
+	let directionArr = [];
 
 	for (let [key, value] of Object.entries(board.allShips)) {
 		if (key === shipName) {
@@ -134,14 +135,17 @@ function rotateShip() {
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
 				if (axis - value[i] === 10 * i) {
-					value[i] = checkRightBorder(axis, value, i);
-					direction = 'right';
+					directionArr = checkRightBorder(axis, value, i);
+					value[i] = directionArr[0];
+					direction = directionArr[1];
 				} else if (value[i] - axis === i) {
-					value[i] = checkBottomBorder(axis, value, i);
-					direction = 'down';
+					directionArr = checkBottomBorder(axis, value, i);
+					value[i] = directionArr[0];
+					direction = directionArr[1];
 				} else if (value[i] - axis === 10 * i) {
-					value[i] = checkLeftBorder(axis, value, i);
-					direction = 'left';
+					directionArr = checkLeftBorder(axis, value, i);
+					value[i] = directionArr[0];
+					direction = directionArr[1];
 				} else if (axis - value[i] === i) {
 					value[i] = axis - 10 * i;
 					direction = 'up';
