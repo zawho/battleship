@@ -77,7 +77,45 @@ function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 				boardArr[i].style.borderRightWidth = '3px';
 			}
 		}
-		
+	} else if (direction === 'down') {
+		axis.style.borderRightWidth = '3px';
+		axis.style.borderBottomWidth = '1px';
+
+		for (let i = 0; i < boardArr.length; i++) {
+			if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
+				boardArr[i].style.borderLeftWidth = '3px';
+				boardArr[i].style.borderRightWidth = '3px';
+			}
+			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
+				boardArr[i].style.borderBottomWidth = '3px';
+			}
+		}
+	} else if (direction === 'left') {
+		axis.style.borderBottomWidth = '3px';
+		axis.style.borderLeftWidth = '1px';
+
+		for (let i = 0; i < boardArr.length; i++) {
+			if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
+				boardArr[i].style.borderTopWidth = '3px';
+				boardArr[i].style.borderBottomWidth = '3px';
+			}
+			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
+				boardArr[i].style.borderLeftWidth = '3px';
+			}
+		}
+	} else if (direction === 'up') {
+		axis.style.borderLeftWidth = '3px';
+		axis.style.borderTopWidth = '1px';
+
+		for (let i = 0; i < boardArr.length; i++) {
+			if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
+				boardArr[i].style.borderLeftWidth = '3px';
+				boardArr[i].style.borderRightWidth = '3px';
+			}
+			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
+				boardArr[i].style.borderTopWidth = '3px';
+			}
+		}
 	}
 }
 
@@ -91,24 +129,23 @@ function rotateShip() {
 	let direction;
 
 	for (let [key, value] of Object.entries(board.allShips)) {
-
 		if (key === shipName) {
 			axis = value[0];
-
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
-
 				if (axis - value[i] === 10 * i) {
 					value[i] = checkRightBorder(axis, value, i);
 					direction = 'right';
 				} else if (value[i] - axis === i) {
 					value[i] = checkBottomBorder(axis, value, i);
+					direction = 'down';
 				} else if (value[i] - axis === 10 * i) {
 					value[i] = checkLeftBorder(axis, value, i);
+					direction = 'left';
 				} else if (axis - value[i] === i) {
 					value[i] = axis - 10 * i;
+					direction = 'up';
 				}
-
 				newSpaceArr.push(value[i]);
 			}
 		}
@@ -117,11 +154,12 @@ function rotateShip() {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (oldSpaceArr.includes(parseInt(boardArr[i].id))) {
 			boardArr[i].style.backgroundColor = 'white';
+			boardArr[i].className = 'setup-space';
 		} else if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
 			boardArr[i].style.backgroundColor = 'red';
+			boardArr[i].className = `${shipName}-ship-space`;
 		}
 	}
-	
 	highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, boardArr[axis]);
 }
 
