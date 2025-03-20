@@ -1,3 +1,5 @@
+// next: make ship highlight change with rotation
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -55,15 +57,40 @@ function checkLeftBorder(axis, value, i) {
 	}
 }
 
+function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
+	for (let i = 0; i < boardArr.length; i++) {
+		if (oldSpaceArr.includes(parseInt(boardArr[i].id))) {
+			boardArr[i].style.borderWidth = '1px';
+		}
+	}
+
+	if (direction === 'right') {
+		axis.style.borderTopWidth = '3px';
+		axis.style.borderRightWidth = '1px';
+
+		for (let i = 0; i < boardArr.length; i++) {
+			if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
+				boardArr[i].style.borderTopWidth = '3px';
+				boardArr[i].style.borderBottomWidth = '3px';
+			}
+			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
+				boardArr[i].style.borderRightWidth = '3px';
+			}
+		}
+		
+	}
+}
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
 	const shipName = getShipName(boardArr);
 	const oldSpaceArr = [];
 	const newSpaceArr = [];
+	let axis;
+	let direction;
 
 	for (let [key, value] of Object.entries(board.allShips)) {
-		let axis;
 
 		if (key === shipName) {
 			axis = value[0];
@@ -73,6 +100,7 @@ function rotateShip() {
 
 				if (axis - value[i] === 10 * i) {
 					value[i] = checkRightBorder(axis, value, i);
+					direction = 'right';
 				} else if (value[i] - axis === i) {
 					value[i] = checkBottomBorder(axis, value, i);
 				} else if (value[i] - axis === 10 * i) {
@@ -93,6 +121,8 @@ function rotateShip() {
 			boardArr[i].style.backgroundColor = 'red';
 		}
 	}
+	
+	highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, boardArr[axis]);
 }
 
 function menuBtnHelper(button, setupMenu) {
