@@ -1,5 +1,3 @@
-// next: make ship highlight change with rotation
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -86,6 +84,9 @@ function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 				boardArr[i].style.borderLeftWidth = '3px';
 				boardArr[i].style.borderRightWidth = '3px';
 			}
+			if (axis.id === boardArr[i].id) {
+				boardArr[i].style.borderTopWidth = '3px';
+			}
 			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
 				boardArr[i].style.borderBottomWidth = '3px';
 			}
@@ -99,6 +100,10 @@ function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 				boardArr[i].style.borderTopWidth = '3px';
 				boardArr[i].style.borderBottomWidth = '3px';
 			}
+			if (axis.id === boardArr[i].id) {
+				boardArr[i].style.borderRightWidth = '3px';
+				boardArr[i].style.borderTopWidth = '3px';
+			}
 			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
 				boardArr[i].style.borderLeftWidth = '3px';
 			}
@@ -110,6 +115,10 @@ function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 		for (let i = 0; i < boardArr.length; i++) {
 			if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
 				boardArr[i].style.borderLeftWidth = '3px';
+				boardArr[i].style.borderRightWidth = '3px';
+			}
+			if (axis.id === boardArr[i].id) {
+				boardArr[i].style.borderBottomWidth = '3px';
 				boardArr[i].style.borderRightWidth = '3px';
 			}
 			if (newSpaceArr[newSpaceArr.length - 1] === parseInt(boardArr[i].id)) {
