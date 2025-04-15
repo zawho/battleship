@@ -1,3 +1,5 @@
+// next: continue working on checking for other ships
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -128,6 +130,36 @@ function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 	}
 }
 
+function getShipCoords(board) {
+	const shipCoordsArr = [];
+
+	for (let [key, value] of Object.entries(board.allShips)) {
+		for (let i = 0; i < value.length; i++) {
+			shipCoordsArr.push(value[i]);
+		}
+	}
+
+	return shipCoordsArr;
+}
+
+function getShipDirection(board, axis) {
+	const allShipCoords = getShipCoords(board);
+	const up = axis - 10;
+	const right = axis + 1;
+	const down = axis + 10;
+	const left = axis - 1;
+	
+	if (allShipCoords.includes(up)) {
+		return 'up';
+	} else if (allShipCoords.includes(right)) {
+		return 'right';
+	} else if (allShipCoords.includes(down)) {
+		return 'down';
+	} else if (allShipCoords.includes(left)) {
+		return 'left';
+	}
+}
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -141,6 +173,7 @@ function rotateShip() {
 	for (let [key, value] of Object.entries(board.allShips)) {
 		if (key === shipName) {
 			axis = value[0];
+			getShipDirection(board, axis);
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
 				if (axis - value[i] === 10 * i) {
