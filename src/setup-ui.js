@@ -1,4 +1,7 @@
-// next: continue working on checking for other ships
+// next: currently trying to make checkForShips() work so that it checks for a ship
+// based on the direction of the ship being placed, and if there is one where the ship
+// will rotate next (ex. up direction to right direction) then it returns a variable
+// that will be used in the main rotateShip() for loop
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -160,6 +163,26 @@ function getShipDirection(board, axis) {
 	}
 }
 
+function checkForShips(shipDirection, axis, value, boardArr) {
+	const checkArr = [];
+
+	for (let i = 1; i < value.length; i++) {
+		if (shipDirection === 'up') {
+			checkArr.push(axis + i);
+		}
+	}
+
+	for (let i = 0; i < boardArr.length; i++) {
+		if (
+			checkArr.includes(parseInt(boardArr[i].id)) && 
+			boardArr[i].style.backgroundColor === 'red'
+		) {
+			return 'right';
+		}
+	}
+	return 'clear';
+}
+
 function rotateShip() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -173,7 +196,12 @@ function rotateShip() {
 	for (let [key, value] of Object.entries(board.allShips)) {
 		if (key === shipName) {
 			axis = value[0];
-			getShipDirection(board, axis);
+
+			const shipDirection = getShipDirection(board, axis);
+			const shipCheck = checkForShips(shipDirection, axis, value, boardArr);
+
+			console.log(shipCheck);
+
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
 				if (axis - value[i] === 10 * i) {
