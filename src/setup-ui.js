@@ -1,7 +1,9 @@
-// next: currently trying to make checkForShips() work so that it checks for a ship
-// based on the direction of the ship being placed, and if there is one where the ship
-// will rotate next (ex. up direction to right direction) then it returns a variable
-// that will be used in the main rotateShip() for loop
+// next: basic check for the up to right direction is working, now need to
+// figure out how to implement it into the existing rotateShip() for loop
+// or implement a check before the loop.
+// maybe need to write a new func that runs if checkForShips() does not return clear
+// and does the rotation prior to the existing loop. can have that func and
+// the existing loop in a if/else statement based on checkForShips()
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -204,11 +206,15 @@ function rotateShip() {
 
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
-				if (axis - value[i] === 10 * i) {
+				if (axis - value[i] === 10 * i && shipCheck === 'clear') {
 					directionArr = checkRightBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
-				} else if (value[i] - axis === i) {
+				} else if 
+				(
+					value[i] - axis === i && shipCheck === 'clear' ||
+					shipCheck === 'right'
+				) {
 					directionArr = checkBottomBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
