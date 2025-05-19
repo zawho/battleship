@@ -153,7 +153,7 @@ function getShipDirection(board, axis) {
 	const right = axis + 1;
 	const down = axis + 10;
 	const left = axis - 1;
-	
+
 	if (allShipCoords.includes(up)) {
 		return 'up';
 	} else if (allShipCoords.includes(right)) {
@@ -171,15 +171,24 @@ function checkForShips(shipDirection, axis, value, boardArr) {
 	for (let i = 1; i < value.length; i++) {
 		if (shipDirection === 'up') {
 			checkArr.push(axis + i);
+		} else if (shipDirection === 'right') {
+			checkArr.push(axis + i * 10);
 		}
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
-			checkArr.includes(parseInt(boardArr[i].id)) && 
+			shipDirection === 'up' &&
+			checkArr.includes(parseInt(boardArr[i].id)) &&
 			boardArr[i].style.backgroundColor === 'red'
 		) {
 			return 'right';
+		} else if (
+			shipDirection === 'right' &&
+			checkArr.includes(parseInt(boardArr[i].id)) &&
+			boardArr[i].style.backgroundColor === 'red'
+		) {
+			return 'down';
 		}
 	}
 	return 'clear';
@@ -210,15 +219,17 @@ function rotateShip() {
 					directionArr = checkRightBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
-				} else if 
-				(
-					value[i] - axis === i && shipCheck === 'clear' ||
+				} else if (
+					(value[i] - axis === i && shipCheck === 'clear') ||
 					shipCheck === 'right'
 				) {
 					directionArr = checkBottomBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
-				} else if (value[i] - axis === 10 * i) {
+				} else if (
+					value[i] - axis === 10 * i && shipCheck === 'clear' ||
+					shipCheck === 'down'
+				) {
 					directionArr = checkLeftBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
@@ -240,7 +251,13 @@ function rotateShip() {
 			boardArr[i].className = `${shipName}-ship-space`;
 		}
 	}
-	highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, boardArr[axis]);
+	highlightRotate(
+		boardArr,
+		oldSpaceArr,
+		newSpaceArr,
+		direction,
+		boardArr[axis],
+	);
 }
 
 function menuBtnHelper(button, setupMenu) {
