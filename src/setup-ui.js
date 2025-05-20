@@ -1,10 +1,3 @@
-// next: basic check for the up to right direction is working, now need to
-// figure out how to implement it into the existing rotateShip() for loop
-// or implement a check before the loop.
-// maybe need to write a new func that runs if checkForShips() does not return clear
-// and does the rotation prior to the existing loop. can have that func and
-// the existing loop in a if/else statement based on checkForShips()
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -166,32 +159,62 @@ function getShipDirection(board, axis) {
 }
 
 function checkForShips(shipDirection, axis, value, boardArr) {
-	const checkArr = [];
+	const checkRightArr = [];
+	const checkDownArr = [];
+	const checkLeftArr = [];
+	let rightCollision = false;
+	let downCollision = false;
 
 	for (let i = 1; i < value.length; i++) {
-		if (shipDirection === 'up') {
-			checkArr.push(axis + i);
-		} else if (shipDirection === 'right') {
-			checkArr.push(axis + i * 10);
-		}
+	checkRightArr.push(axis + i);
+	}
+
+	for (let i = 1; i < value.length; i++) {
+	checkDownArr.push(axis + i * 10);
+	}
+
+	for (let i = 1; i < value.length; i++) {
+	checkLeftArr.push(axis - i);
+	}
+
+	for (let i = 0; i < boardArr.length; i++) { 
+		if (
+			checkRightArr.includes(parseInt(boardArr[i].id)) &&
+			boardArr[i].style.backgroundColor === 'red' &&
+			!value.includes(parseInt(boardArr[i].id))
+		) {
+				rightCollision = true;
+			}
+		if (
+			checkDownArr.includes(parseInt(boardArr[i].id)) &&
+			boardArr[i].style.backgroundColor === 'red' &&
+			!value.includes(parseInt(boardArr[i].id))
+		) {
+				downCollision = true;
+			}
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
 			shipDirection === 'up' &&
-			checkArr.includes(parseInt(boardArr[i].id)) &&
-			boardArr[i].style.backgroundColor === 'red'
+			rightCollision === true &&
+			downCollision === false
 		) {
 			return 'right';
 		} else if (
 			shipDirection === 'right' &&
-			checkArr.includes(parseInt(boardArr[i].id)) &&
-			boardArr[i].style.backgroundColor === 'red'
+			downCollision === true
 		) {
 			return 'down';
+		} else if (
+			shipDirection === 'up' &&
+			rightCollision === true &&
+			downCollision === true
+		) {
+			return 'right-down';
 		}
 	}
-	return 'clear';
+	return 'clear'
 }
 
 function rotateShip() {
@@ -228,7 +251,8 @@ function rotateShip() {
 					direction = directionArr[1];
 				} else if (
 					value[i] - axis === 10 * i && shipCheck === 'clear' ||
-					shipCheck === 'down'
+					shipCheck === 'down' ||
+					shipCheck === 'right-down'
 				) {
 					directionArr = checkLeftBorder(axis, value, i);
 					value[i] = directionArr[0];
