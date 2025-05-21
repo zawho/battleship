@@ -1,5 +1,3 @@
-
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -146,8 +144,14 @@ function getShipDirection(board, axis) {
 	const boardArr = Array.from(board.childNodes);
 	const allShipCoords = getShipCoords(board);
 	const up = axis - 10;
-	const right = axis + 1;
-	const down = axis + 10;
+	let right;
+	if (axis + 1 <= 99) {
+		right = axis + 1;
+	}
+	let down;
+	if (axis + 10 <= 99) {
+		down = axis + 10;
+	}
 	const left = axis - 1;
 	let axisShip;
 	let upShip;
@@ -159,8 +163,12 @@ function getShipDirection(board, axis) {
 		if (i === axis) {
 			axisShip = boardArr[i].className;
 			upShip = boardArr[i - 10].className;
-			rightShip = boardArr[i + 1].className;
-			downShip = boardArr[i + 10].className;
+			if (i + 1 <= 99) {
+				rightShip = boardArr[i + 1].className;
+			}
+			if (i + 10 <= 99) {
+				downShip = boardArr[i + 10].className;
+			}
 			leftShip = boardArr[i - 1].className;
 		}
 	}
@@ -171,7 +179,7 @@ function getShipDirection(board, axis) {
 		return 'right';
 	} else if (allShipCoords.includes(down) && axisShip === downShip) {
 		return 'down';
-	} else if (allShipCoords.includes(left) && axisShip === leftShip) {
+	} else if (down === undefined || allShipCoords.includes(left) && axisShip === leftShip) {
 		return 'left';
 	}
 }
