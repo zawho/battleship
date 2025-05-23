@@ -1,3 +1,5 @@
+// next: finish remaining directions in ship detection during rotation
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -190,6 +192,7 @@ function checkForShips(shipDirection, axis, value, boardArr) {
 	const checkLeftArr = [];
 	let rightCollision = false;
 	let downCollision = false;
+	let leftCollision = false;
 
 	for (let i = 1; i < value.length; i++) {
 	checkRightArr.push(axis + i);
@@ -218,9 +221,14 @@ function checkForShips(shipDirection, axis, value, boardArr) {
 		) {
 				downCollision = true;
 			}
+		if (
+			checkLeftArr.includes(parseInt(boardArr[i].id)) &&
+			boardArr[i].style.backgroundColor === 'red' &&
+			!value.includes(parseInt(boardArr[i].id))
+		) {
+			leftCollision = true;
+		}
 	}
-
-	console.log(shipDirection);
 
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -230,16 +238,36 @@ function checkForShips(shipDirection, axis, value, boardArr) {
 		) {
 			return 'right';
 		} else if (
-			shipDirection === 'right' &&
-			downCollision === true
+			shipDirection === 'up' &&
+			rightCollision === true &&
+			downCollision === true &&
+			leftCollision === false
 		) {
-			return 'down';
+			return 'right-down';
 		} else if (
 			shipDirection === 'up' &&
 			rightCollision === true &&
-			downCollision === true
+			downCollision === true &&
+			leftCollision === true
 		) {
-			return 'right-down';
+			return 'right-down-left';
+		} else if (
+			shipDirection === 'right' &&
+			downCollision === true &&
+			leftCollision === false
+		) {
+			return 'down';
+		} else if (
+			shipDirection === 'right' &&
+			downCollision === true &&
+			leftCollision === true
+		) {
+			return 'down-left';
+		} else if (
+			shipDirection === 'down' &&
+			leftCollision === true
+		) {
+			return 'left';
 		}
 	}
 	return 'clear'
@@ -262,7 +290,7 @@ function rotateShip() {
 			const shipDirection = getShipDirection(board, axis);
 			const shipCheck = checkForShips(shipDirection, axis, value, boardArr);
 
-			// console.log(shipCheck);
+			console.log(shipCheck);
 
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
@@ -278,14 +306,19 @@ function rotateShip() {
 					value[i] = directionArr[0];
 					direction = directionArr[1];
 				} else if (
-					value[i] - axis === 10 * i && shipCheck === 'clear' ||
+					(value[i] - axis === 10 * i && shipCheck === 'clear') ||
 					shipCheck === 'down' ||
 					shipCheck === 'right-down'
 				) {
 					directionArr = checkLeftBorder(axis, value, i);
 					value[i] = directionArr[0];
 					direction = directionArr[1];
-				} else if (axis - value[i] === i) {
+				} else if (
+					(axis - value[i] === i && shipCheck === 'clear') ||
+					shipCheck === 'left' ||
+					shipCheck === 'down-left' ||
+					shipCheck === 'right-down-left'
+				) {
 					value[i] = axis - 10 * i;
 					direction = 'up';
 				}
