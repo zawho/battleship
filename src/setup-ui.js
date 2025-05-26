@@ -352,17 +352,14 @@ function menuBtnHelper(button, setupMenu) {
 
 function createMenuButtons(setupMenu) {
 	const rotateBtn = document.createElement('button');
-	const confirmBtn = document.createElement('button');
 	const cancelBtn = document.createElement('button');
 	const clearBtn = document.createElement('button');
 
 	rotateBtn.className = 'rotate-btn';
-	confirmBtn.className = 'confirm-btn';
 	cancelBtn.className = 'cancel-btn';
 	clearBtn.className = 'clear-btn';
 
 	menuBtnHelper(rotateBtn, setupMenu);
-	menuBtnHelper(confirmBtn, setupMenu);
 	menuBtnHelper(cancelBtn, setupMenu);
 	menuBtnHelper(clearBtn, setupMenu);
 
