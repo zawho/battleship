@@ -1,5 +1,3 @@
-// next: finish remaining directions in ship detection during rotation
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -316,11 +314,12 @@ function rotateShip() {
 				} else if (
 					(axis - value[i] === i && shipCheck === 'clear') ||
 					shipCheck === 'left' ||
-					shipCheck === 'down-left' ||
-					shipCheck === 'right-down-left'
+					shipCheck === 'down-left'
 				) {
 					value[i] = axis - 10 * i;
 					direction = 'up';
+				} else if (shipCheck === 'right-down-left') {
+					return;
 				}
 				newSpaceArr.push(value[i]);
 			}
