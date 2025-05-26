@@ -55,6 +55,20 @@ function checkLeftBorder(axis, value, i) {
 	}
 }
 
+function cancelPlacement() {
+	const board = document.querySelector('.setup-board');
+	const boardArr = Array.from(board.childNodes);
+	const shipName = getShipName(boardArr);
+
+	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].className.slice(0, -11) === shipName) {
+			boardArr[i].className = 'setup-space';
+			boardArr[i].style.borderWidth = '1px';
+			boardArr[i].style.backgroundColor = 'white';
+		}
+	}
+}
+
 function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (oldSpaceArr.includes(parseInt(boardArr[i].id))) {
@@ -288,8 +302,6 @@ function rotateShip() {
 			const shipDirection = getShipDirection(board, axis);
 			const shipCheck = checkForShips(shipDirection, axis, value, boardArr);
 
-			console.log(shipCheck);
-
 			for (let i = 1; i < value.length; i++) {
 				oldSpaceArr.push(value[i]);
 				if (axis - value[i] === 10 * i && shipCheck === 'clear') {
@@ -364,6 +376,7 @@ function createMenuButtons(setupMenu) {
 	menuBtnHelper(clearBtn, setupMenu);
 
 	rotateBtn.addEventListener('click', rotateShip);
+	cancelBtn.addEventListener('click', cancelPlacement);
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
