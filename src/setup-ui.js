@@ -59,6 +59,17 @@ function cancelPlacement() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
 	const shipName = getShipName(boardArr);
+	const shipSetup = document.querySelector('.ship-setup');
+	const setupArr = Array.from(shipSetup.childNodes);
+	const newShip = document.createElement('div');
+	let length = 0;
+	let shipDiv;
+
+	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].className.slice(0, -11) === shipName) {
+			length += 1;
+		}
+	}
 
 	for (let i = 0; i < boardArr.length; i++) {
 		if (boardArr[i].className.slice(0, -11) === shipName) {
@@ -67,6 +78,39 @@ function cancelPlacement() {
 			boardArr[i].style.backgroundColor = 'white';
 		}
 	}
+
+	for (let i = 0; i < setupArr.length; i++) {
+		if (setupArr[i].className.slice(0, -4) === shipName) {
+			shipDiv = setupArr[i];
+			newShip.className = `${shipName}-ship`;
+			shipDiv.appendChild(newShip);
+		}
+	}
+
+	newShip.id = `length-${length}`;
+	newShip.draggable = true;
+
+	for (let i = 0; i < length; i++) {
+		const shipSpace = document.createElement('div');
+		shipSpace.className = 'ship-space';
+		shipSpace.id = `${newShip.className}-${i}`;
+		newShip.appendChild(shipSpace);
+		shipSpace.addEventListener('mousedown', (e) => {
+			shipSpace.clicked = 'true';
+		});
+	}
+
+	newShip.addEventListener('dragstart', (e) => {
+		const shipArr = Array.from(newShip.childNodes);
+		let newID;
+
+		for (let i = 0; i < shipArr.length; i++) {
+			if (shipArr[i].clicked === 'true') {
+				newID = shipArr[i].id + '-' + e.target.id;
+			}
+		}
+		e.dataTransfer.setData('text/plain', newID);
+	});
 }
 
 function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
@@ -365,15 +409,15 @@ function menuBtnHelper(button, setupMenu) {
 function createMenuButtons(setupMenu) {
 	const rotateBtn = document.createElement('button');
 	const cancelBtn = document.createElement('button');
-	const clearBtn = document.createElement('button');
+	const resetBtn = document.createElement('button');
 
 	rotateBtn.className = 'rotate-btn';
 	cancelBtn.className = 'cancel-btn';
-	clearBtn.className = 'clear-btn';
+	resetBtn.className = 'reset-btn';
 
 	menuBtnHelper(rotateBtn, setupMenu);
 	menuBtnHelper(cancelBtn, setupMenu);
-	menuBtnHelper(clearBtn, setupMenu);
+	menuBtnHelper(resetBtn, setupMenu);
 
 	rotateBtn.addEventListener('click', rotateShip);
 	cancelBtn.addEventListener('click', cancelPlacement);
