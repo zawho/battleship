@@ -1,3 +1,6 @@
+// Next: UI elements react correctly to cancel func, now need to fix how board.allShips obj
+// updates after cancel and replacement
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -65,6 +68,8 @@ function cancelPlacement() {
 	let length = 0;
 	let shipDiv;
 
+	console.log(board.allShips);
+
 	for (let i = 0; i < boardArr.length; i++) {
 		if (boardArr[i].className.slice(0, -11) === shipName) {
 			length += 1;
@@ -76,6 +81,12 @@ function cancelPlacement() {
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'white';
+		}
+	}
+
+	for (let [key, value] of Object.entries(board.allShips)) {
+		if (key === shipName) {
+			value.length = 0;
 		}
 	}
 
