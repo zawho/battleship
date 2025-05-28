@@ -1,5 +1,4 @@
-// Next: UI elements react correctly to cancel func, now need to fix how board.allShips obj
-// updates after cancel and replacement
+// next: reset!
 
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
@@ -122,6 +121,17 @@ function cancelPlacement() {
 		}
 		e.dataTransfer.setData('text/plain', newID);
 	});
+}
+
+function resetAll() {
+	const board = document.querySelector('.setup-board');
+	const boardArr = Array.from(board.childNodes);
+
+	for (let i = 0; i < boardArr.length; i++) {
+			boardArr[i].className = 'setup-space';
+			boardArr[i].style.borderWidth = '1px';
+			boardArr[i].style.backgroundColor = 'white';
+	}
 }
 
 function highlightRotate(boardArr, oldSpaceArr, newSpaceArr, direction, axis) {
@@ -432,6 +442,7 @@ function createMenuButtons(setupMenu) {
 
 	rotateBtn.addEventListener('click', rotateShip);
 	cancelBtn.addEventListener('click', cancelPlacement);
+	resetBtn.addEventListener('click', resetAll);
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
