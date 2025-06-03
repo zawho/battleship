@@ -1,3 +1,6 @@
+// NEXT: rotation bug continues, trying to implement the checkBorder... funcs
+// into checkForShips()
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -184,7 +187,30 @@ function getShipDirection(board, axis) {
     }
 }
 
+function checkAllBorders(shipDirection, axis, value) {
+    let rightBorderArr = [];
+    let downBorderArr = [];
+    let leftBorderArr = [];
+    let rightBorderResult;
+    let downBorderResult;
+    let leftBorderResult;
+
+    for (let i = 0; i < value.length; i++) {
+        rightBorderArr = checkRightBorder(axis, value, i);
+        downBorderArr = checkBottomBorder(axis, value, i);
+        leftBorderArr = checkLeftBorder(axis, value, i);
+        rightBorderResult = rightBorderArr[1];
+        downBorderResult = downBorderArr[1];
+        leftBorderResult = leftBorderArr[1];
+    }
+
+    console.log(`right: ${rightBorderResult}`);
+    console.log(`down: ${downBorderResult}`);
+    console.log(`left: ${leftBorderResult}`);
+}
+
 function checkForShips(shipDirection, axis, value, boardArr) {
+    const allBorders = checkAllBorders(shipDirection, axis, value);
     const checkRightArr = [];
     const checkDownArr = [];
     const checkLeftArr = [];

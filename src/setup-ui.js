@@ -1,6 +1,3 @@
-// NEXT: rotation bug seems to be: if rotation skips edge but there is a ship in the way
-// it doesnt detect the ship. maybe try adding ship detection func to edge detection?
-
 // NEXT NEXT: keep working on resetALL(): replace ships in setup and clear board.allShips()
 
 import { getShipName, rotateShip } from "./rotate-btn";
