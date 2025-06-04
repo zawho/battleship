@@ -203,20 +203,26 @@ function checkAllBorders(shipDirection, axis, value) {
         leftBorderResult = leftBorderArr[1];
     }
 
-    /*console.log(`right: ${rightBorderResult}`);
+    console.log(`right: ${rightBorderResult}`);
     console.log(`down: ${downBorderResult}`);
-    console.log(`left: ${leftBorderResult}`); */
+    console.log(`left: ${leftBorderResult}`);
 
     if (shipDirection === 'up' && rightBorderResult === 'down') {
         return 'right-border';
     }
-
     if (
         shipDirection === 'up' && 
         rightBorderResult === 'left' && 
         downBorderResult === 'left'
     ) {
         return "right-down-border"
+    }
+    if (
+        shipDirection === 'right' && 
+        downBorderResult === 'left' && 
+        leftBorderResult === 'left'
+    ) {
+        return "down-border"
     }
 }
 
@@ -314,6 +320,13 @@ function checkForShips(shipDirection, axis, value, boardArr) {
             shipDirection === 'right' &&
             downCollision === true &&
             leftCollision === true
+        ) {
+            return 'down-left';
+        } else if (
+            shipDirection === 'right' &&
+            downCollision === false &&
+            leftCollision === true &&
+            borderCheck === 'down-border'
         ) {
             return 'down-left';
         } else if (
