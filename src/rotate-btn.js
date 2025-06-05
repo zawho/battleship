@@ -1,26 +1,3 @@
-// NEXT: invstigate below bug. seems like it happens when dragging/placing ship by
-// the edge/border
-
-/*
-Uncaught DOMException: Document.querySelector: '.' is not a valid selector
-    dropHandler webpack://battleship/./src/setup-ui.js?:299
-    createSetup webpack://battleship/./src/setup-ui.js?:348
-    <anonymous> webpack://battleship/./src/index.js?:36
-    js file:///Users/zahoo/Documents/repos/battleship/dist/main.js:129
-    __webpack_require__ file:///Users/zahoo/Documents/repos/battleship/dist/main.js:203
-    <anonymous> file:///Users/zahoo/Documents/repos/battleship/dist/main.js:260
-    <anonymous> file:///Users/zahoo/Documents/repos/battleship/dist/main.js:262
-setup-ui.js:299
-    dropHandler webpack://battleship/./src/setup-ui.js?:299
-    (Async: EventListener.handleEvent)
-    createSetup webpack://battleship/./src/setup-ui.js?:348
-    <anonymous> webpack://battleship/./src/index.js?:36
-    js file:///Users/zahoo/Documents/repos/battleship/dist/main.js:129
-    __webpack_require__ file:///Users/zahoo/Documents/repos/battleship/dist/main.js:203
-    <anonymous> file:///Users/zahoo/Documents/repos/battleship/dist/main.js:260
-    <anonymous> file:///Users/zahoo/Documents/repos/battleship/dist/main.js:262
- */
-
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
