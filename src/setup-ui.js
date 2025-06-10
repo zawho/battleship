@@ -1,4 +1,4 @@
-// NEXT NEXT: keep working on resetALL(): replace ships in setup and clear board.allShips()
+// NEXT: adding ships back to setup after reset doesnt work. seems like a loop problem?
 
 import { getShipName, rotateShip } from "./rotate-btn";
 
@@ -66,14 +66,78 @@ function cancelPlacement() {
 	});
 }
 
+function resetShipHelper(length, newShip) {
+	for (let i = 0; i < length; i++) {
+		const shipSpace = document.createElement('div');
+		shipSpace.className = 'ship-space';
+		shipSpace.id = `${newShip.className}-${i}`;
+		newShip.appendChild(shipSpace);
+		shipSpace.addEventListener('mousedown', (e) => {
+			shipSpace.clicked = 'true';
+		});
+	}
+
+	newShip.addEventListener('dragstart', (e) => {
+		const shipArr = Array.from(newShip.childNodes);
+		let newID;
+
+		for (let i = 0; i < shipArr.length; i++) {
+			if (shipArr[i].clicked === 'true') {
+				newID = shipArr[i].id + '-' + e.target.id;
+			}
+		}
+		e.dataTransfer.setData('text/plain', newID);
+	});
+}
+
 function resetAll() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
+	const shipSetup = document.querySelector('.ship-setup');
+	const setupArr = Array.from(shipSetup.childNodes);
+	const newShip = document.createElement('div');
+	let shipDiv;
+	const movedShipsArr = [];
+
+	for (let i = 0; i < setupArr.length; i++) {
+		if (setupArr[i].childNodes.length < 2) {
+			movedShipsArr.push([setupArr[i].childNodes[0].innerText]);
+		}
+	}
+
+	for (let [key, value] of Object.entries(board.allShips)) {
+		for (let i = 0; i < movedShipsArr.length; i++) {
+			if (key === movedShipsArr[i][0]) {
+				movedShipsArr[i].push(value.length);
+			}
+		}
+	}
+
+	for (let i = 0; i < setupArr.length; i++) {
+		for (let j = 0; j < movedShipsArr.length; j++) {
+			if (setupArr[i].className.slice(0, -4) === movedShipsArr[j][0]) {
+			shipDiv = setupArr[i];
+			newShip.className = `${movedShipsArr[j][0]}-ship`;
+			newShip.id = `length-${movedShipsArr[j][1]}`;
+			newShip.draggable = true;
+			shipDiv.appendChild(newShip);
+			resetShipHelper(movedShipsArr[j][1], newShip);
+		}
+		}
+	}
 
 	for (let i = 0; i < boardArr.length; i++) {
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'white';
+	}
+
+	for (let [key, value] of Object.entries(board.allShips)) {
+		for (let i = 0; i < movedShipsArr.length; i++) {
+			if (key === movedShipsArr[i][0]) {
+				value.length = 0;
+			}
+		}
 	}
 }
 
