@@ -1,3 +1,5 @@
+// Next... finally... connect setup with actual game
+
 import { getShipName, rotateShip } from "./rotate-btn";
 
 function cancelPlacement() {
@@ -132,6 +134,10 @@ function resetAll() {
 	}
 }
 
+function startGame() {
+	console.log('start!');
+}
+
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
 	button.innerText = btnName;
@@ -142,18 +148,22 @@ function createMenuButtons(setupMenu) {
 	const rotateBtn = document.createElement('button');
 	const cancelBtn = document.createElement('button');
 	const resetBtn = document.createElement('button');
+	const startBtn = document.createElement('button');
 
 	rotateBtn.className = 'rotate-btn';
 	cancelBtn.className = 'cancel-btn';
 	resetBtn.className = 'reset-btn';
+	startBtn.className = 'start-btn';
 
 	menuBtnHelper(rotateBtn, setupMenu);
 	menuBtnHelper(cancelBtn, setupMenu);
 	menuBtnHelper(resetBtn, setupMenu);
+	menuBtnHelper(startBtn, setupMenu);
 
 	rotateBtn.addEventListener('click', rotateShip);
 	cancelBtn.addEventListener('click', cancelPlacement);
 	resetBtn.addEventListener('click', resetAll);
+	startBtn.addEventListener('click', startGame);
 }
 
 function shipSetupHelper(shipDiv, length, shipSetup) {
