@@ -7,14 +7,20 @@ import {
 	placeAllCompShips,
 } from './ui.js';
 
-function getPlacementDirection(board) {
+function getPlacementDirection(board, player, patrol) {
     const boardArr = Array.from(board.childNodes);
 
+    console.log(board.allShips);
+
     for (let [key, value] of Object.entries(board.allShips)) {
-		if (value[1] === value[0] + 1 || value[1] === value[0] - 1) {
-            console.log (`${key} horizontal`);
-        } else if (value[1] === value[0] + 10 || value[1] === value[0] - 10) {
-            console.log (`${key} vertical`);
+		if (value[1] === value[0] + 1) {
+            player.gameboard.placeHorizontal(value[0], patrol);
+        } else if(value[1] === value[0] - 1) {
+            player.gameboard.placeHorizontal(value[value.length - 1], patrol);
+        }else if (value[1] === value[0] + 10) {
+            player.gameboard.placeVertical(value[0], patrol);
+        } else if (value[1] === value[0] - 10) {
+            player.gameboard.placeVertical(value[value.length - 1], patrol);
         }
 	}
 
@@ -22,11 +28,9 @@ function getPlacementDirection(board) {
 
 function startGame() {
     const setupDiv = document.querySelector('.setup-div');
-    const board = document.querySelector('.setup-board');
-    // console.log(board.allShips);
+    const setupBoard = document.querySelector('.setup-board');
+    // console.log(setupBoard.allShips);
     // setupDiv.remove();
-    
-    getPlacementDirection(board);
 
 	const humanPlayer = new Player('human');
 	const pcPlayer = new Player('computer');
@@ -43,11 +47,12 @@ function startGame() {
 	const pcSubmarine = new Ship('pcSubmarine', 3);
 	const pcPatrol = new Ship('pcPatrol', 2);
 
-	humanPlayer.gameboard.placeHorizontal(0, humanPatrol);
-	humanPlayer.gameboard.placeVertical(8, humanSubmarine);
-	humanPlayer.gameboard.placeHorizontal(97, humanDestroyer);
-	humanPlayer.gameboard.placeVertical(20, humanBattleship);
-	humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
+    getPlacementDirection(setupBoard, humanPlayer, humanPatrol);
+
+	// humanPlayer.gameboard.placeVertical(8, humanSubmarine);
+	// humanPlayer.gameboard.placeHorizontal(97, humanDestroyer);
+	// humanPlayer.gameboard.placeVertical(20, humanBattleship);
+	// humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
 
 	placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine, pcDestroyer, pcBattleship, pcCarrier);
 
