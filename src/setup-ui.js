@@ -1,6 +1,5 @@
-// Next... finally... connect setup with actual game
-
 import { getShipName, rotateShip } from "./rotate-btn";
+import startGame from "./start-btn";
 
 function cancelPlacement() {
 	const board = document.querySelector('.setup-board');
@@ -132,10 +131,6 @@ function resetAll() {
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'white';
 	}
-}
-
-function startGame() {
-	console.log('start!');
 }
 
 function menuBtnHelper(button, setupMenu) {
