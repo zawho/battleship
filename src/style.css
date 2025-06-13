@@ -1,5 +1,4 @@
 .setup-div,
-.board-div,
 .setup-menu,
 .patrol-div,
 .submarine-div,
@@ -8,6 +7,10 @@
 .carrier-div {
 	display: grid;
 	gap: 10px;
+}
+
+.board-div {
+	display: none;
 }
 
 .setup-div {

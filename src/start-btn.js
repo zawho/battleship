@@ -7,31 +7,46 @@ import {
 	placeAllCompShips,
 } from './ui.js';
 
-function getPlacementDirection(board, player, patrol) {
-    const boardArr = Array.from(board.childNodes);
-
-    console.log(board.allShips);
+function placePlayerShip(board, player, ship) {
+    const shipName = ship.name.slice(5).toLowerCase();
 
     for (let [key, value] of Object.entries(board.allShips)) {
-		if (value[1] === value[0] + 1) {
-            player.gameboard.placeHorizontal(value[0], patrol);
-        } else if(value[1] === value[0] - 1) {
-            player.gameboard.placeHorizontal(value[value.length - 1], patrol);
-        }else if (value[1] === value[0] + 10) {
-            player.gameboard.placeVertical(value[0], patrol);
-        } else if (value[1] === value[0] - 10) {
-            player.gameboard.placeVertical(value[value.length - 1], patrol);
-        }
+		if (shipName === key) {
+			if (value[1] === value[0] + 1) {
+            	player.gameboard.placeHorizontal(value[0], ship);
+        	} else if(value[1] === value[0] - 1) {
+            	player.gameboard.placeHorizontal(value[value.length - 1], ship);
+        	}else if (value[1] === value[0] + 10) {
+            	player.gameboard.placeVertical(value[0], ship);
+        	} else if (value[1] === value[0] - 10) {
+            	player.gameboard.placeVertical(value[value.length - 1], ship);
+        	}
+		}
 	}
 
 }
 
 function startGame() {
     const setupDiv = document.querySelector('.setup-div');
+	const gameDiv = document.querySelector('.board-div');
     const setupBoard = document.querySelector('.setup-board');
-    // console.log(setupBoard.allShips);
-    // setupDiv.remove();
+	 if (setupDiv.childNodes.length > 4) {
+		setupDiv.removeChild(setupDiv.lastChild);
+	 }
 
+	for (let [key, value] of Object.entries(setupBoard.allShips)) {
+		if (value.length === 0) {
+			const setupAlertDiv = document.createElement('div');
+			setupAlertDiv.className = 'setup-alert';
+			setupAlertDiv.innerText = 'place all ships!'
+			setupDiv.appendChild(setupAlertDiv);
+			return;
+		}
+		setupDiv.style.display = 'none';
+		gameDiv.style.display = 'grid';
+
+	 }
+    
 	const humanPlayer = new Player('human');
 	const pcPlayer = new Player('computer');
 
@@ -47,12 +62,11 @@ function startGame() {
 	const pcSubmarine = new Ship('pcSubmarine', 3);
 	const pcPatrol = new Ship('pcPatrol', 2);
 
-    getPlacementDirection(setupBoard, humanPlayer, humanPatrol);
-
-	// humanPlayer.gameboard.placeVertical(8, humanSubmarine);
-	// humanPlayer.gameboard.placeHorizontal(97, humanDestroyer);
-	// humanPlayer.gameboard.placeVertical(20, humanBattleship);
-	// humanPlayer.gameboard.placeHorizontal(33, humanCarrier);
+    placePlayerShip(setupBoard, humanPlayer, humanPatrol);
+	placePlayerShip(setupBoard, humanPlayer, humanSubmarine);
+	placePlayerShip(setupBoard, humanPlayer, humanDestroyer);
+	placePlayerShip(setupBoard, humanPlayer, humanBattleship);
+	placePlayerShip(setupBoard, humanPlayer, humanCarrier);
 
 	placeAllCompShips(pcPlayer, pcPatrol, pcSubmarine, pcDestroyer, pcBattleship, pcCarrier);
 
