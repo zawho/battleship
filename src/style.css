@@ -1,3 +1,16 @@
+@import url(./all-fonts/css/clash-display.css);
+
+body {
+	background-color: rgb(35, 107, 105);
+	color: rgb(127, 125, 125);
+	font-family: ClashDisplay-Bold;
+}
+
+button {
+	font-family: ClashDisplay-Bold;
+}
+
+.title-div,
 .setup-div,
 .setup-menu,
 .patrol-div,
@@ -9,11 +22,16 @@
 	gap: 10px;
 }
 
+.title-div{
+	font-size: 4em;
+	color: rgb(104, 28, 7); 
+}
+
 .board-div {
 	display: none;
 }
 
-.setup-div {
+.title-div, .setup-div {
 	justify-items: center;
 }
 
@@ -41,7 +59,7 @@
 .battleship-ship,
 .carrier-ship {
 	display: grid;
-	border: 1px solid black;
+	border: 1px solid rgb(127, 125, 125);
 }
 
 .patrol-ship {
@@ -82,7 +100,7 @@
 	grid-template-columns: repeat(10, 1fr);
 	height: 300px;
 	width: 300px;
-	border: 1px solid black;
+	border: 1px solid rgb(127, 125, 125);
 }
 
 .setup-space,
@@ -93,5 +111,5 @@
 .destroyer-ship-space,
 .battleship-ship-space,
 .carrier-ship-space {
-	border: 1px solid black;
+	border: 1px solid rgb(127, 125, 125);
 }

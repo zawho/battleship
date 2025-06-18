@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/all-fonts/css/clash-display.css":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/all-fonts/css/clash-display.css ***!
+  \***********************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);\n// Imports\n\n\n\nvar ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Extralight.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Extralight.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Extralight.woff */ \"./src/all-fonts/fonts/ClashDisplay-Extralight.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Extralight.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Extralight.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Light.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Light.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Light.woff */ \"./src/all-fonts/fonts/ClashDisplay-Light.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Light.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Light.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_6___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Regular.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Regular.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_7___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Regular.woff */ \"./src/all-fonts/fonts/ClashDisplay-Regular.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_8___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Regular.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Regular.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_9___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Medium.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Medium.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_10___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Medium.woff */ \"./src/all-fonts/fonts/ClashDisplay-Medium.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_11___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Medium.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Medium.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_12___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Semibold.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Semibold.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_13___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Semibold.woff */ \"./src/all-fonts/fonts/ClashDisplay-Semibold.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_14___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Semibold.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Semibold.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_15___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Bold.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Bold.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Bold.woff */ \"./src/all-fonts/fonts/ClashDisplay-Bold.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_17___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Bold.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Bold.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_18___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Variable.woff2 */ \"./src/all-fonts/fonts/ClashDisplay-Variable.woff2\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_19___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Variable.woff */ \"./src/all-fonts/fonts/ClashDisplay-Variable.woff\"), __webpack_require__.b);\nvar ___CSS_LOADER_URL_IMPORT_20___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/ClashDisplay-Variable.ttf */ \"./src/all-fonts/fonts/ClashDisplay-Variable.ttf\"), __webpack_require__.b);\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);\nvar ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);\nvar ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);\nvar ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);\nvar ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);\nvar ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);\nvar ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_6___);\nvar ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_7___);\nvar ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_8___);\nvar ___CSS_LOADER_URL_REPLACEMENT_9___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_9___);\nvar ___CSS_LOADER_URL_REPLACEMENT_10___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_10___);\nvar ___CSS_LOADER_URL_REPLACEMENT_11___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_11___);\nvar ___CSS_LOADER_URL_REPLACEMENT_12___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_12___);\nvar ___CSS_LOADER_URL_REPLACEMENT_13___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_13___);\nvar ___CSS_LOADER_URL_REPLACEMENT_14___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_14___);\nvar ___CSS_LOADER_URL_REPLACEMENT_15___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_15___);\nvar ___CSS_LOADER_URL_REPLACEMENT_16___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_16___);\nvar ___CSS_LOADER_URL_REPLACEMENT_17___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_17___);\nvar ___CSS_LOADER_URL_REPLACEMENT_18___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_18___);\nvar ___CSS_LOADER_URL_REPLACEMENT_19___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_19___);\nvar ___CSS_LOADER_URL_REPLACEMENT_20___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_20___);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `/**\n* @license\n*\n* Font Family: Clash Display\n* Designed by: Indian Type Foundry\n* URL: https://www.fontshare.com/fonts/clash-display\n* © 2025 Indian Type Foundry\n*\n* Clash Display Extralight \n* Clash Display Light \n* Clash Display Regular \n* Clash Display Medium \n* Clash Display Semibold \n* Clash Display Bold \n* Clash Display Variable (Variable font)\n\n*\n*/\n@font-face {\n  font-family: 'ClashDisplay-Extralight';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_1___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format('truetype');\n  font-weight: 200;\n  font-display: swap;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'ClashDisplay-Light';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format('truetype');\n  font-weight: 300;\n  font-display: swap;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'ClashDisplay-Regular';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_6___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_7___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_8___}) format('truetype');\n  font-weight: 400;\n  font-display: swap;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'ClashDisplay-Medium';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_9___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_10___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_11___}) format('truetype');\n  font-weight: 500;\n  font-display: swap;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'ClashDisplay-Semibold';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_12___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_13___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_14___}) format('truetype');\n  font-weight: 600;\n  font-display: swap;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'ClashDisplay-Bold';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_15___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_16___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_17___}) format('truetype');\n  font-weight: 700;\n  font-display: swap;\n  font-style: normal;\n}\n/**\n* This is a variable font\n* You can control variable axes as shown below:\n* font-variation-settings: wght 700.0;\n*\n* available axes:\n'wght' (range from 200.0 to 700.0\n*/\n@font-face {\n  font-family: 'ClashDisplay-Variable';\n  src: url(${___CSS_LOADER_URL_REPLACEMENT_18___}) format('woff2'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_19___}) format('woff'),\n       url(${___CSS_LOADER_URL_REPLACEMENT_20___}) format('truetype');\n  font-weight: 200 700;\n  font-display: swap;\n  font-style: normal;\n}\n\n`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://battleship/./src/all-fonts/css/clash-display.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/style.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `.setup-div,\n.setup-menu,\n.patrol-div,\n.submarine-div,\n.destroyer-div,\n.battleship-div,\n.carrier-div {\n\tdisplay: grid;\n\tgap: 10px;\n}\n\n.board-div {\n\tdisplay: none;\n}\n\n.setup-div {\n\tjustify-items: center;\n}\n\n.setup-menu {\n\tgrid-template-rows: repeat(2, 1fr);\n\tgrid-template-columns: repeat(3, 1fr);\n\tpadding-top: 25px;\n}\n\n.start-btn {\n\tgrid-column: 2 / 3;\n}\n\n.ship-setup {\n\tdisplay: grid;\n\tgrid-template-rows: repeat(1, 1fr);\n\tgrid-template-columns: repeat(5, 1fr);\n\tpadding-top: 25px;\n\tgap: 20px;\n}\n\n.patrol-ship,\n.submarine-ship,\n.destroyer-ship,\n.battleship-ship,\n.carrier-ship {\n\tdisplay: grid;\n\tborder: 1px solid black;\n}\n\n.patrol-ship {\n\tgrid-template-rows: repeat(2, 1fr);\n\theight: 60px;\n\twidth: 30px;\n}\n\n.submarine-ship {\n\tgrid-template-rows: repeat(3, 1fr);\n\theight: 90px;\n\twidth: 30px;\n}\n\n.destroyer-ship {\n\tgrid-template-rows: repeat(3, 1fr);\n\theight: 90px;\n\twidth: 30px;\n}\n\n.battleship-ship {\n\tgrid-template-rows: repeat(4, 1fr);\n\theight: 120px;\n\twidth: 30px;\n}\n\n.carrier-ship {\n\tgrid-template-rows: repeat(5, 1fr);\n\theight: 150px;\n\twidth: 30px;\n}\n\n.setup-board,\n.player-board,\n.comp-board {\n\tdisplay: grid;\n\tgrid-template-rows: repeat(10, 1fr);\n\tgrid-template-columns: repeat(10, 1fr);\n\theight: 300px;\n\twidth: 300px;\n\tborder: 1px solid black;\n}\n\n.setup-space,\n.board-space,\n.ship-space,\n.patrol-ship-space,\n.submarine-ship-space,\n.destroyer-ship-space,\n.battleship-ship-space,\n.carrier-ship-space {\n\tborder: 1px solid black;\n}\n`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://battleship/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_all_fonts_css_clash_display_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! -!../node_modules/css-loader/dist/cjs.js!./all-fonts/css/clash-display.css */ \"./node_modules/css-loader/dist/cjs.js!./src/all-fonts/css/clash-display.css\");\n// Imports\n\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_all_fonts_css_clash_display_css__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, `body {\n\tbackground-color: rgb(35, 107, 105);\n\tcolor: rgb(127, 125, 125);\n\tfont-family: ClashDisplay-Bold;\n}\n\nbutton {\n\tfont-family: ClashDisplay-Bold;\n}\n\n.title-div,\n.setup-div,\n.setup-menu,\n.patrol-div,\n.submarine-div,\n.destroyer-div,\n.battleship-div,\n.carrier-div {\n\tdisplay: grid;\n\tgap: 10px;\n}\n\n.title-div{\n\tfont-size: 4em;\n\tcolor: rgb(104, 28, 7); \n}\n\n.board-div {\n\tdisplay: none;\n}\n\n.title-div, .setup-div {\n\tjustify-items: center;\n}\n\n.setup-menu {\n\tgrid-template-rows: repeat(2, 1fr);\n\tgrid-template-columns: repeat(3, 1fr);\n\tpadding-top: 25px;\n}\n\n.start-btn {\n\tgrid-column: 2 / 3;\n}\n\n.ship-setup {\n\tdisplay: grid;\n\tgrid-template-rows: repeat(1, 1fr);\n\tgrid-template-columns: repeat(5, 1fr);\n\tpadding-top: 25px;\n\tgap: 20px;\n}\n\n.patrol-ship,\n.submarine-ship,\n.destroyer-ship,\n.battleship-ship,\n.carrier-ship {\n\tdisplay: grid;\n\tborder: 1px solid rgb(127, 125, 125);\n}\n\n.patrol-ship {\n\tgrid-template-rows: repeat(2, 1fr);\n\theight: 60px;\n\twidth: 30px;\n}\n\n.submarine-ship {\n\tgrid-template-rows: repeat(3, 1fr);\n\theight: 90px;\n\twidth: 30px;\n}\n\n.destroyer-ship {\n\tgrid-template-rows: repeat(3, 1fr);\n\theight: 90px;\n\twidth: 30px;\n}\n\n.battleship-ship {\n\tgrid-template-rows: repeat(4, 1fr);\n\theight: 120px;\n\twidth: 30px;\n}\n\n.carrier-ship {\n\tgrid-template-rows: repeat(5, 1fr);\n\theight: 150px;\n\twidth: 30px;\n}\n\n.setup-board,\n.player-board,\n.comp-board {\n\tdisplay: grid;\n\tgrid-template-rows: repeat(10, 1fr);\n\tgrid-template-columns: repeat(10, 1fr);\n\theight: 300px;\n\twidth: 300px;\n\tborder: 1px solid rgb(127, 125, 125);\n}\n\n.setup-space,\n.board-space,\n.ship-space,\n.patrol-ship-space,\n.submarine-ship-space,\n.destroyer-ship-space,\n.battleship-ship-space,\n.carrier-ship-space {\n\tborder: 1px solid rgb(127, 125, 125);\n}\n`, \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://battleship/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -27,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module) => {
 
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\nmodule.exports = function (cssWithMappingToString) {\n  var list = [];\n\n  // return the list of modules as css string\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n      content += cssWithMappingToString(item);\n      if (needLayer) {\n        content += \"}\";\n      }\n      if (item[2]) {\n        content += \"}\";\n      }\n      if (item[4]) {\n        content += \"}\";\n      }\n      return content;\n    }).join(\"\");\n  };\n\n  // import a list of modules into the list\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n    var alreadyImportedModules = {};\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n      list.push(item);\n    }\n  };\n  return list;\n};\n\n//# sourceURL=webpack://battleship/./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    options = {};\n  }\n  if (!url) {\n    return url;\n  }\n  url = String(url.__esModule ? url.default : url);\n\n  // If url is already wrapped in quotes, remove them\n  if (/^['\"].*['\"]$/.test(url)) {\n    url = url.slice(1, -1);\n  }\n  if (options.hash) {\n    url += options.hash;\n  }\n\n  // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n  if (/[\"'() \\t\\n]|(%20)/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, \"\\\\n\"), \"\\\"\");\n  }\n  return url;\n};\n\n//# sourceURL=webpack://battleship/./node_modules/css-loader/dist/runtime/getUrl.js?");
 
 /***/ }),
 
@@ -126,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _setup_ui_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setup-ui.js */ \"./src/setup-ui.js\");\n\n\n\n(0,_setup_ui_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n\n//# sourceURL=webpack://battleship/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _setup_ui_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setup-ui.js */ \"./src/setup-ui.js\");\n// Next... finally... style...\n\n\n\n\n(0,_setup_ui_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n\n//# sourceURL=webpack://battleship/./src/index.js?");
 
 /***/ }),
 
@@ -188,6 +208,216 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createBoardUI: () => (/* binding */ createBoardUI),\n/* harmony export */   getShipLocs: () => (/* binding */ getShipLocs),\n/* harmony export */   highlightPlayerShips: () => (/* binding */ highlightPlayerShips),\n/* harmony export */   placeAllCompShips: () => (/* binding */ placeAllCompShips)\n/* harmony export */ });\nfunction highlightSpace() {\n\tthis.style.backgroundColor = 'grey';\n}\n\nfunction unHighlightSpace() {\n\tthis.style.backgroundColor = 'white';\n}\n\nfunction getRandNum(spacesArr) {\n\tlet randNum = Math.floor(Math.random() * 100);\n\tlet repeatedNum = false;\n\n\tfor (let i = 0; i < spacesArr.length; i++) {\n\t\tif (randNum === spacesArr[i]) {\n\t\t\trepeatedNum = true;\n\t\t}\n\t}\n\n\tif (repeatedNum === false) {\n\t\treturn randNum;\n\t} else {\n\t\treturn getRandNum(spacesArr);\n\t}\n}\n\nfunction isPlayed(adjacentNum, playedSpaces) {\n\tfor (let i = 0; i < playedSpaces.length; i++) {\n\t\tif (adjacentNum === playedSpaces[i]) {\n\t\t\treturn true;\n\t\t}\n\t}\n\n\treturn false;\n}\n\nfunction checkVertHits(board, current, up, down) {\n\tif (\n\t\t(current > 9 && board[up].style.backgroundColor === 'black') ||\n\t\t(current < 90 && board[down].style.backgroundColor === 'black')\n\t) {\n\t\treturn true;\n\t}\n\treturn false;\n}\n\nfunction checkHorizHits(board, current, forward, back) {\n\tif (\n\t\t(current < 99 && board[forward].style.backgroundColor === 'black') ||\n\t\t(current > 0 && board[back].style.backgroundColor === 'black')\n\t) {\n\t\treturn true;\n\t}\n\treturn false;\n}\n\nfunction checkLeftBoard(current) {\n\tconst currentString = current.toString();\n\tconst zeroVar = 0;\n\tif (currentString.includes(zeroVar.toString())) {\n\t\treturn true;\n\t}\n\treturn false;\n}\n\nfunction checkRightBoard(current) {\n\tconst currentString = current.toString();\n\tconst nineVar = 9;\n\tif (current === 9 || currentString.includes(nineVar.toString(), 1)) {\n\t\treturn true;\n\t}\n\treturn false;\n}\n\nfunction getAdjacentSpace(playerBoard, playedSpaces) {\n\tlet adjacentNum;\n\n\tfor (let i = 0; i < playerBoard.length; i++) {\n\t\tconst nextSpace = parseInt(playerBoard[i].id) + 1;\n\t\tconst lastSpace = parseInt(playerBoard[i].id) - 1;\n\t\tconst downSpace = parseInt(playerBoard[i].id) + 10;\n\t\tconst upSpace = parseInt(playerBoard[i].id) - 10;\n\t\tif (\n\t\t\tnextSpace <= 99 &&\n\t\t\tplayerBoard[i].style.backgroundColor === 'black' &&\n\t\t\tcheckVertHits(playerBoard, i, upSpace, downSpace) === false &&\n\t\t\tcheckRightBoard(i) === false &&\n\t\t\tisPlayed(nextSpace, playedSpaces) === false\n\t\t) {\n\t\t\tadjacentNum = nextSpace;\n\t\t} else if (\n\t\t\tlastSpace >= 0 &&\n\t\t\tplayerBoard[i].style.backgroundColor === 'black' &&\n\t\t\tcheckVertHits(playerBoard, i, upSpace, downSpace) === false &&\n\t\t\tcheckLeftBoard(i) === false &&\n\t\t\tisPlayed(lastSpace, playedSpaces) === false\n\t\t) {\n\t\t\tadjacentNum = lastSpace;\n\t\t} else if (\n\t\t\tdownSpace <= 99 &&\n\t\t\tplayerBoard[i].style.backgroundColor === 'black' &&\n\t\t\tcheckHorizHits(playerBoard, i, nextSpace, lastSpace) === false &&\n\t\t\tisPlayed(downSpace, playedSpaces) === false\n\t\t) {\n\t\t\tadjacentNum = downSpace;\n\t\t} else if (\n\t\t\tupSpace >= 0 &&\n\t\t\tplayerBoard[i].style.backgroundColor === 'black' &&\n\t\t\tcheckHorizHits(playerBoard, i, nextSpace, lastSpace) === false &&\n\t\t\tisPlayed(upSpace, playedSpaces) === false\n\t\t) {\n\t\t\tadjacentNum = upSpace;\n\t\t}\n\t}\n\n\treturn adjacentNum;\n}\n\nfunction resetGame() {\n\tlocation.reload();\n}\n\nfunction displayGameOver(winner) {\n\tconst body = document.querySelector('body');\n\tconst gameOverDiv = document.createElement('div');\n\tconst winMsg = document.createElement('div');\n\tconst resetButton = document.createElement('button');\n\n\tgameOverDiv.className = 'game-over-div';\n\twinMsg.className = 'win-msg-div';\n\tresetButton.className = 'reset-btn';\n\n\tgameOverDiv.style.flexDirection = 'column';\n\tgameOverDiv.style.alignItems = 'center';\n\tgameOverDiv.style.gap = '10px';\n\n\tresetButton.type = 'button';\n\tresetButton.innerText = 'play again';\n\tresetButton.addEventListener('click', resetGame);\n\n\tgameOverDiv.style.display = 'none';\n\n\tbody.appendChild(gameOverDiv);\n\tgameOverDiv.appendChild(winMsg);\n\tgameOverDiv.appendChild(resetButton);\n\n\tif (winner === 'pc') {\n\t\tgameOverDiv.style.display = 'flex';\n\t\twinMsg.innerText = 'computer wins!';\n\t} else if (winner === 'human') {\n\t\tgameOverDiv.style.display = 'flex';\n\t\twinMsg.innerText = 'you win!';\n\t}\n}\n\nfunction checkGameOver(boardObj) {\n\tconst boardDiv = document.querySelector('.board-div');\n\tlet winnerVar;\n\n\tfor (const ship in boardObj.placedShips) {\n\t\tif (ship.includes('human')) {\n\t\t\twinnerVar = 'pc';\n\t\t} else if (ship.includes('pc')) {\n\t\t\twinnerVar = 'human';\n\t\t}\n\t}\n\n\tif (boardObj.checkSunk() === true) {\n\t\tboardDiv.style.display = 'none';\n\t\tdisplayGameOver(winnerVar);\n\t}\n}\n\nfunction attackplayerBoard(\n\tplayerBoardObj,\n\tplayedSpacesArr,\n\tcompBoard,\n\tboardArr,\n) {\n\tcompBoard.style.pointerEvents = 'none';\n\n\tconst adjacentNum = getAdjacentSpace(boardArr, playedSpacesArr);\n\tconst randNum = getRandNum(playedSpacesArr);\n\tlet spaceNum;\n\n\tif (adjacentNum != undefined) {\n\t\tspaceNum = adjacentNum;\n\t} else {\n\t\tspaceNum = randNum;\n\t}\n\n\tplayerBoardObj.receiveAttack(spaceNum);\n\n\tsetTimeout(() => {\n\t\tfor (let i = 0; i < boardArr.length; i++) {\n\t\t\tif (\n\t\t\t\tboardArr[i].id === spaceNum.toString() &&\n\t\t\t\tboardArr[i].style.backgroundColor != 'red'\n\t\t\t) {\n\t\t\t\tboardArr[i].style.backgroundColor = 'green';\n\t\t\t\tplayedSpacesArr.push(spaceNum);\n\t\t\t} else if (\n\t\t\t\tboardArr[i].id === spaceNum.toString() &&\n\t\t\t\tboardArr[i].style.backgroundColor === 'red'\n\t\t\t) {\n\t\t\t\tboardArr[i].style.backgroundColor = 'black';\n\t\t\t\tplayedSpacesArr.push(spaceNum);\n\t\t\t}\n\t\t}\n\t\tcompBoard.style.pointerEvents = 'auto';\n\t\tcheckGameOver(playerBoardObj);\n\t}, 1);\n}\n\nfunction attackCompBoard(space, compBoardObj, locArr) {\n\tspace.style.pointerEvents = 'none';\n\tcompBoardObj.receiveAttack(Number(space.id));\n\tspace.style.backgroundColor = 'green';\n\tspace.removeEventListener('mouseover', highlightSpace);\n\tspace.removeEventListener('mouseout', unHighlightSpace);\n\tfor (let i = 0; i < locArr.length; i++) {\n\t\tif (space.id === locArr[i].toString()) {\n\t\t\tspace.style.backgroundColor = 'red';\n\t\t}\n\t}\n\tcheckGameOver(compBoardObj);\n}\n\nfunction checkCollisions(pcPlayer, ship, randNum, direction) {\n\tlet placeArr = [];\n\tlet index = randNum;\n\tlet collisionVar = false;\n\n\tif (direction === 0) {\n\t\tfor (let i = 0; i < ship.length; i++) {\n\t\t\tplaceArr.push(index++);\n\t\t}\n\t} else if (direction === 1) {\n\t\tplaceArr.push(index);\n\t\tfor (let i = 0; i < ship.length - 1; i++) {\n\t\t\tindex += 10;\n\t\t\tplaceArr.push(index);\n\t\t}\n\t}\n\n\tfor (let [key, value] of Object.entries(pcPlayer.gameboard.locations)) {\n\t\tvalue.filter((element) => {\n\t\t\tif (placeArr.includes(element)) {\n\t\t\t\tcollisionVar = true;\n\t\t\t}\n\t\t});\n\t}\n\n\treturn collisionVar;\n}\n\nfunction getRandSpace(pcPlayer, ship, direction) {\n\tlet randNum = Math.floor(Math.random() * 100);\n\tconst remainder = randNum % 10;\n\tconst midLimit = randNum - remainder + 9;\n\tconst upperLimit = (ship.length - 1) * 10;\n\n\tif (direction === 0 && randNum + ship.length > midLimit) {\n\t\treturn getRandSpace(pcPlayer, ship, direction);\n\t} else if (direction === 1 && randNum + upperLimit >= 100) {\n\t\treturn getRandSpace(pcPlayer, ship, direction);\n\t}\n\n\tif (checkCollisions(pcPlayer, ship, randNum, direction)) {\n\t\treturn getRandSpace(pcPlayer, ship, direction);\n\t}\n\n\treturn randNum;\n}\n\nfunction placeCompShip(pcPlayer, ship) {\n\tconst directionNum = Math.floor(Math.random() * 2);\n\tconst startSpace = getRandSpace(pcPlayer, ship, directionNum);\n\n\tif (directionNum === 0) {\n\t\tpcPlayer.gameboard.placeHorizontal(startSpace, ship);\n\t} else if (directionNum === 1) {\n\t\tpcPlayer.gameboard.placeVertical(startSpace, ship);\n\t}\n}\n\nfunction placeAllCompShips(\n\tpcPlayer,\n\tpatrol,\n\tsubmarine,\n\tdestroyer,\n\tbattleship,\n\tcarrier,\n) {\n\tplaceCompShip(pcPlayer, patrol);\n\tplaceCompShip(pcPlayer, submarine);\n\tplaceCompShip(pcPlayer, destroyer);\n\tplaceCompShip(pcPlayer, battleship);\n\tplaceCompShip(pcPlayer, carrier);\n}\n\nfunction addCompListeners(space, locArr, compBoardObj, playerBoardObj) {\n\tconst playerBoard = document.querySelector('.player-board');\n\tconst compBoard = document.querySelector('.comp-board');\n\tplayerBoard.playedSpaces = [];\n\tconst boardArr = Array.from(playerBoard.childNodes);\n\n\tspace.addEventListener('mouseover', highlightSpace);\n\tspace.addEventListener('mouseout', unHighlightSpace);\n\n\tspace.addEventListener('click', () => {\n\t\tattackplayerBoard(\n\t\t\tplayerBoardObj,\n\t\t\tplayerBoard.playedSpaces,\n\t\t\tcompBoard,\n\t\t\tboardArr,\n\t\t);\n\t});\n\n\tspace.addEventListener('click', () => {\n\t\tattackCompBoard(space, compBoardObj, locArr);\n\t});\n}\n\nfunction createBoardUI(\n\tlabelText,\n\tclassText,\n\tlocArr,\n\tcompBoardObj,\n\tplayerBoardObj,\n) {\n\tconst boardDiv = document.querySelector('.board-div');\n\tconst boardLabel = document.createElement('div');\n\tboardLabel.className = 'board-label';\n\tboardLabel.innerText = labelText;\n\tconst board = document.createElement('div');\n\tboard.className = classText;\n\tboardDiv.appendChild(boardLabel);\n\tboardDiv.appendChild(board);\n\n\tfor (let i = 0; i < 100; i++) {\n\t\tconst boardSpace = document.createElement('div');\n\t\tboardSpace.className = 'board-space';\n\t\tboardSpace.id = i;\n\t\tif (classText === 'comp-board') {\n\t\t\taddCompListeners(boardSpace, locArr, compBoardObj, playerBoardObj);\n\t\t}\n\t\tboard.appendChild(boardSpace);\n\t}\n}\n\nfunction getShipLocs(shipLocations) {\n\tconst locationArr = [];\n\tfor (let [key, value] of Object.entries(shipLocations)) {\n\t\tfor (let i = 0; i < value.length; i++) {\n\t\t\tlocationArr.push(value[i]);\n\t\t}\n\t}\n\treturn locationArr;\n}\n\nfunction highlightPlayerShips(boardClass, locArr) {\n\tconst playerBoard = document.querySelector(boardClass);\n\tconst boardArr = Array.from(playerBoard.childNodes);\n\n\tfor (let i = 0; i < boardArr.length; i++) {\n\t\tfor (let j = 0; j < locArr.length; j++) {\n\t\t\tif (boardArr[i].id === locArr[j].toString()) {\n\t\t\t\tboardArr[i].style.backgroundColor = 'red';\n\t\t\t}\n\t\t}\n\t}\n}\n\n\n\n\n//# sourceURL=webpack://battleship/./src/ui.js?");
 
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Bold.ttf":
+/*!***************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Bold.ttf ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"476ca58563829751989f.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Bold.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Bold.woff":
+/*!****************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Bold.woff ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"ae5f509371f2e91d237c.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Bold.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Bold.woff2":
+/*!*****************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Bold.woff2 ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"e2f8628a6f360f644a76.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Bold.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Extralight.ttf":
+/*!*********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Extralight.ttf ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"4b744d1b1e49894d8db2.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Extralight.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Extralight.woff":
+/*!**********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Extralight.woff ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"698f5feb7b168e80bc3b.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Extralight.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Extralight.woff2":
+/*!***********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Extralight.woff2 ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"8f792be62d02ca420577.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Extralight.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Light.ttf":
+/*!****************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Light.ttf ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"65f6b9963b2bc29f88d0.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Light.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Light.woff":
+/*!*****************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Light.woff ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"2d96b3662f1262b6c456.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Light.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Light.woff2":
+/*!******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Light.woff2 ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"2ad87a1106f296704c85.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Light.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Medium.ttf":
+/*!*****************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Medium.ttf ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"a55835c0e75979b02fcb.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Medium.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Medium.woff":
+/*!******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Medium.woff ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"d059aba57d21630bbeb1.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Medium.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Medium.woff2":
+/*!*******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Medium.woff2 ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"88a32cc8fc026d95af05.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Medium.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Regular.ttf":
+/*!******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Regular.ttf ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"810c6b29f523c5d0ad44.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Regular.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Regular.woff":
+/*!*******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Regular.woff ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"bddfbdc9d46fb063a682.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Regular.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Regular.woff2":
+/*!********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Regular.woff2 ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"98b52bdf102085f28108.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Semibold.ttf":
+/*!*******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Semibold.ttf ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"fe7b20eb73776202f79f.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Semibold.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Semibold.woff":
+/*!********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Semibold.woff ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"52ec5aaabca80f39cd4d.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Semibold.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Semibold.woff2":
+/*!*********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Semibold.woff2 ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"aafc18ae9600df8496dc.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Semibold.woff2?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Variable.ttf":
+/*!*******************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Variable.ttf ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"e7f67b72cbf79f80c9c7.ttf\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Variable.ttf?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Variable.woff":
+/*!********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Variable.woff ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"d2735542013ee4bde5ad.woff\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Variable.woff?");
+
+/***/ }),
+
+/***/ "./src/all-fonts/fonts/ClashDisplay-Variable.woff2":
+/*!*********************************************************!*\
+  !*** ./src/all-fonts/fonts/ClashDisplay-Variable.woff2 ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"27b50dcdd5ced9f74da0.woff2\";\n\n//# sourceURL=webpack://battleship/./src/all-fonts/fonts/ClashDisplay-Variable.woff2?");
+
 /***/ })
 
 /******/ 	});
@@ -216,6 +446,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -241,6 +474,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -255,6 +500,55 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
