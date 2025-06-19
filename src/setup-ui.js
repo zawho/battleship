@@ -135,7 +135,7 @@ function resetAll() {
 
 function menuBtnHelper(button, setupMenu) {
 	const btnName = button.className.slice(0, -4);
-	button.innerText = btnName;
+	button.innerText = btnName.toUpperCase();
 	setupMenu.appendChild(button);
 }
 
@@ -166,7 +166,7 @@ function shipSetupHelper(shipDiv, length, shipSetup) {
 	const shipLabel = document.createElement('div');
 
 	shipLabel.className = `${shipName}-label`;
-	shipLabel.innerText = shipName;
+	shipLabel.innerText = shipName.toUpperCase();
 
 	const ship = document.createElement('div');
 
@@ -393,7 +393,7 @@ function createSetup() {
 	const setupLabel = document.createElement('div');
 
 	setupLabel.className = 'setup-label';
-	setupLabel.innerText = 'place your ships';
+	setupLabel.innerText = 'PLACE YOUR SHIPS';
 
 	const setupBoard = document.createElement('div');
 	setupBoard.className = 'setup-board';

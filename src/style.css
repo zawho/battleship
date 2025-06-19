@@ -8,6 +8,11 @@ body {
 
 button {
 	font-family: ClashDisplay-Bold;
+	background-color: transparent;
+	color: rgb(127, 125, 125);
+	border: 3px solid rgb(127, 125, 125);
+	padding: 5px 15px;
+	font-size: 1em;
 }
 
 .title-div,
