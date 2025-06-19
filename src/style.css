@@ -15,16 +15,27 @@ button {
 	font-size: 1em;
 }
 
+.start-btn {
+	color: rgb(104, 28, 7);
+	border: 3px solid rgb(104, 28, 7);
+}
+
 .title-div,
 .setup-div,
-.setup-menu,
+.setup-menu {
+	display: grid;
+	gap: 10px;
+}
+
 .patrol-div,
 .submarine-div,
 .destroyer-div,
 .battleship-div,
 .carrier-div {
 	display: grid;
-	gap: 10px;
+	justify-items: center;
+	align-content: start;
+	gap: 5px;
 }
 
 .title-div{
@@ -43,7 +54,7 @@ button {
 .setup-menu {
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-columns: repeat(3, 1fr);
-	padding-top: 25px;
+	padding-top: 5px;
 }
 
 .start-btn {
@@ -53,9 +64,8 @@ button {
 .ship-setup {
 	display: grid;
 	grid-template-rows: repeat(1, 1fr);
-	grid-template-columns: repeat(5, 1fr);
-	padding-top: 25px;
-	gap: 20px;
+	grid-template-columns: repeat(5, auto);
+	gap: 10px;
 }
 
 .patrol-ship,
@@ -117,4 +127,9 @@ button {
 .battleship-ship-space,
 .carrier-ship-space {
 	border: 1px solid rgb(127, 125, 125);
+}
+
+.setup-alert{
+	color: rgb(104, 28, 7); 
+	font-size: 2em;
 }

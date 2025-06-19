@@ -38,7 +38,7 @@ function startGame() {
 		if (value.length === 0) {
 			const setupAlertDiv = document.createElement('div');
 			setupAlertDiv.className = 'setup-alert';
-			setupAlertDiv.innerText = 'place all ships!'
+			setupAlertDiv.innerText = 'FINISH SHIP PLACEMENT'
 			setupDiv.appendChild(setupAlertDiv);
 			return;
 		}
