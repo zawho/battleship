@@ -1,3 +1,5 @@
+// NEXT: fix reset ship setup replacement bug. ships dont reappear on reset...
+
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
 
@@ -21,7 +23,7 @@ function cancelPlacement() {
 		if (boardArr[i].className.slice(0, -11) === shipName) {
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
-			boardArr[i].style.backgroundColor = 'white';
+			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 		}
 	}
 
@@ -129,7 +131,7 @@ function resetAll() {
 	for (let i = 0; i < boardArr.length; i++) {
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
-			boardArr[i].style.backgroundColor = 'white';
+			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 	}
 }
 
@@ -271,7 +273,7 @@ function allowDrag(event) {
 		for (let j = 0; j < shipArr.length; j++) {
 			if (
 				parseInt(boardArr[i].id) === shipArr[j] &&
-				boardArr[i].style.backgroundColor === 'red'
+				boardArr[i].style.backgroundColor === 'rgb(104, 28, 7)'
 			) {
 				event.target.style.pointerEvents = 'none';
 				boardArr[i].style.pointerEvents = 'none';
@@ -281,50 +283,50 @@ function allowDrag(event) {
 }
 
 function highlightShip(shipSpace, shipArr) {
-	shipSpace.style.borderLeft = '3px solid black';
-	shipSpace.style.borderRight = '3px solid black';
+	shipSpace.style.borderLeft = '3px solid rgb(127, 125, 125)';
+	shipSpace.style.borderRight = '3px solid rgb(127, 125, 125)';
 
 	if (
 		shipArr[0] < shipArr[shipArr.length - 1] &&
 		parseInt(shipSpace.id) === shipArr[0]
 	) {
-		shipSpace.style.borderTop = '3px solid black';
+		shipSpace.style.borderTop = '3px solid rgb(127, 125, 125)';
 	} else if (
 		shipArr[0] > shipArr[shipArr.length - 1] &&
 		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]
 	) {
-		shipSpace.style.borderTop = '3px solid black';
+		shipSpace.style.borderTop = '3px solid rgb(127, 125, 125)';
 	}
 
 	if (
 		shipArr[0] < shipArr[shipArr.length - 1] &&
 		parseInt(shipSpace.id) === shipArr[shipArr.length - 1]
 	) {
-		shipSpace.style.borderBottom = '3px solid black';
+		shipSpace.style.borderBottom = '3px solid rgb(127, 125, 125)';
 	} else if (
 		shipArr[0] > shipArr[shipArr.length - 1] &&
 		parseInt(shipSpace.id) === shipArr[0]
 	) {
-		shipSpace.style.borderBottom = '3px solid black';
+		shipSpace.style.borderBottom = '3px solid rgb(127, 125, 125)';
 	}
 }
 
 function removeHighlight(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (boardArr[i].style.borderTopWidth === '3px') {
-			boardArr[i].style.borderTop = '1px solid black';
+			boardArr[i].style.borderTop = '1px solid rgb(127, 125, 125)';
 		}
 
 		if (boardArr[i].style.borderLeftWidth === '3px') {
-			boardArr[i].style.borderLeft = '1px solid black';
+			boardArr[i].style.borderLeft = '1px solid rgb(127, 125, 125)';
 		}
 
 		if (boardArr[i].style.borderBottomWidth === '3px') {
-			boardArr[i].style.borderBottom = '1px solid black';
+			boardArr[i].style.borderBottom = '1px solid rgb(127, 125, 125)';
 		}
 
 		if (boardArr[i].style.borderRightWidth === '3px') {
-			boardArr[i].style.borderRight = '1px solid black';
+			boardArr[i].style.borderRight = '1px solid rgb(127, 125, 125)';
 		}
 	}
 }
@@ -367,7 +369,7 @@ function dropHandler(event) {
 		for (let j = 0; j < shipArr.length; j++) {
 			if (parseInt(boardArr[i].id) === shipArr[j]) {
 				const nextSpace = document.getElementById(shipArr[j]);
-				nextSpace.style.backgroundColor = 'red';
+				nextSpace.style.backgroundColor = 'rgb(104, 28, 7)';
 				nextSpace.className = shipSpaceClass;
 				highlightShip(nextSpace, shipArr);
 			}

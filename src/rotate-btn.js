@@ -252,21 +252,21 @@ function checkForShips(shipDirection, axis, value, boardArr) {
     for (let i = 0; i < boardArr.length; i++) { 
         if (
             checkRightArr.includes(parseInt(boardArr[i].id)) &&
-            boardArr[i].style.backgroundColor === 'red' &&
+            boardArr[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
             !value.includes(parseInt(boardArr[i].id))
         ) {
                 rightCollision = true;
             }
         if (
             checkDownArr.includes(parseInt(boardArr[i].id)) &&
-            boardArr[i].style.backgroundColor === 'red' &&
+            boardArr[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
             !value.includes(parseInt(boardArr[i].id))
         ) {
                 downCollision = true;
             }
         if (
             checkLeftArr.includes(parseInt(boardArr[i].id)) &&
-            boardArr[i].style.backgroundColor === 'red' &&
+            boardArr[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
             !value.includes(parseInt(boardArr[i].id))
         ) {
             leftCollision = true;
@@ -410,10 +410,10 @@ function rotateShip() {
 
 	for (let i = 0; i < boardArr.length; i++) {
 		if (oldSpaceArr.includes(parseInt(boardArr[i].id))) {
-			boardArr[i].style.backgroundColor = 'white';
+			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 			boardArr[i].className = 'setup-space';
 		} else if (newSpaceArr.includes(parseInt(boardArr[i].id))) {
-			boardArr[i].style.backgroundColor = 'red';
+			boardArr[i].style.backgroundColor = 'rgb(104, 28, 7)';
 			boardArr[i].className = `${shipName}-ship-space`;
 		}
 	}
