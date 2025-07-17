@@ -143,6 +143,10 @@ button {
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-columns: repeat(3, auto);
 	}
+
+	.setup-alert {
+		font-size: 1em;
+	}
 }
 
 @media only screen and (max-width: 360px) {
