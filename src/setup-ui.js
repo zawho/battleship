@@ -1,5 +1,3 @@
-// NEXT: fix reset ship setup replacement bug. ships dont reappear on reset...
-
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
 
@@ -100,7 +98,7 @@ function resetAll() {
 
 	for (let i = 0; i < setupArr.length; i++) {
 		if (setupArr[i].childNodes.length < 2) {
-			movedShipsArr.push([setupArr[i].childNodes[0].innerText]);
+			movedShipsArr.push([setupArr[i].childNodes[0].innerText.toLowerCase()]);
 		}
 	}
 
@@ -116,6 +114,7 @@ function resetAll() {
 	for (let i = 0; i < setupArr.length; i++) {
 		for (let j = 0; j < movedShipsArr.length; j++) {
 			if (setupArr[i].className.slice(0, -4) === movedShipsArr[j][0]) {
+				// console.log('hey');
 				const shipDiv = setupArr[i];
 				const newShip = document.createElement('div');
 				newShip.className = `${movedShipsArr[j][0]}-ship`;
