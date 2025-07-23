@@ -118,6 +118,10 @@ button {
 	border: 1px solid rgb(127, 125, 125);
 }
 
+.player-board {
+	margin-bottom: 20px;
+}
+
 .setup-space,
 .board-space,
 .ship-space,

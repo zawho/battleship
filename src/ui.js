@@ -127,6 +127,7 @@ function displayGameOver(winner) {
 
 	gameOverDiv.className = 'game-over-div';
 	winMsg.className = 'win-msg-div';
+	winMsg.style.fontSize = '2em';
 	resetButton.className = 'reset-btn';
 
 	gameOverDiv.style.flexDirection = 'column';
@@ -134,7 +135,7 @@ function displayGameOver(winner) {
 	gameOverDiv.style.gap = '10px';
 
 	resetButton.type = 'button';
-	resetButton.innerText = 'play again';
+	resetButton.innerText = 'PLAY AGAIN';
 	resetButton.addEventListener('click', resetGame);
 
 	gameOverDiv.style.display = 'none';
@@ -145,10 +146,10 @@ function displayGameOver(winner) {
 
 	if (winner === 'pc') {
 		gameOverDiv.style.display = 'flex';
-		winMsg.innerText = 'computer wins!';
+		winMsg.innerText = 'COMPUTER WINS';
 	} else if (winner === 'human') {
 		gameOverDiv.style.display = 'flex';
-		winMsg.innerText = 'you win!';
+		winMsg.innerText = 'YOU WIN';
 	}
 }
 

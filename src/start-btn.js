@@ -44,7 +44,7 @@ function startGame() {
 		}
 		setupDiv.style.display = 'none';
 		gameDiv.style.display = 'grid';
-
+		gameDiv.style.justifyItems = 'center';
 	 }
     
 	const humanPlayer = new Player('human');
@@ -73,9 +73,9 @@ function startGame() {
 	const playerShipLocs = getShipLocs(humanPlayer.gameboard.locations);
 	const compShipLocs = getShipLocs(pcPlayer.gameboard.locations);
 
-	createBoardUI('player', 'player-board', playerShipLocs);
+	createBoardUI('PLAYER', 'player-board', playerShipLocs);
 	createBoardUI(
-	'computer',
+	'COMPUTER',
 	'comp-board',
 	compShipLocs,
 	pcPlayer.gameboard,
