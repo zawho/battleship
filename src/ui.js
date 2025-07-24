@@ -35,8 +35,8 @@ function isPlayed(adjacentNum, playedSpaces) {
 
 function checkVertHits(board, current, up, down) {
 	if (
-		(current > 9 && board[up].style.backgroundColor === 'black') ||
-		(current < 90 && board[down].style.backgroundColor === 'black')
+		(current > 9 && board[up].style.backgroundColor === 'rgb(104, 28, 7)') ||
+		(current < 90 && board[down].style.backgroundColor === 'rgb(104, 28, 7)')
 	) {
 		return true;
 	}
@@ -45,8 +45,8 @@ function checkVertHits(board, current, up, down) {
 
 function checkHorizHits(board, current, forward, back) {
 	if (
-		(current < 99 && board[forward].style.backgroundColor === 'black') ||
-		(current > 0 && board[back].style.backgroundColor === 'black')
+		(current < 99 && board[forward].style.backgroundColor === 'rgb(104, 28, 7)') ||
+		(current > 0 && board[back].style.backgroundColor === 'rgb(104, 28, 7)')
 	) {
 		return true;
 	}
@@ -81,7 +81,7 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 		const upSpace = parseInt(playerBoard[i].id) - 10;
 		if (
 			nextSpace <= 99 &&
-			playerBoard[i].style.backgroundColor === 'black' &&
+			playerBoard[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
 			checkVertHits(playerBoard, i, upSpace, downSpace) === false &&
 			checkRightBoard(i) === false &&
 			isPlayed(nextSpace, playedSpaces) === false
@@ -89,7 +89,7 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 			adjacentNum = nextSpace;
 		} else if (
 			lastSpace >= 0 &&
-			playerBoard[i].style.backgroundColor === 'black' &&
+			playerBoard[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
 			checkVertHits(playerBoard, i, upSpace, downSpace) === false &&
 			checkLeftBoard(i) === false &&
 			isPlayed(lastSpace, playedSpaces) === false
@@ -97,14 +97,14 @@ function getAdjacentSpace(playerBoard, playedSpaces) {
 			adjacentNum = lastSpace;
 		} else if (
 			downSpace <= 99 &&
-			playerBoard[i].style.backgroundColor === 'black' &&
+			playerBoard[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
 			checkHorizHits(playerBoard, i, nextSpace, lastSpace) === false &&
 			isPlayed(downSpace, playedSpaces) === false
 		) {
 			adjacentNum = downSpace;
 		} else if (
 			upSpace >= 0 &&
-			playerBoard[i].style.backgroundColor === 'black' &&
+			playerBoard[i].style.backgroundColor === 'rgb(104, 28, 7)' &&
 			checkHorizHits(playerBoard, i, nextSpace, lastSpace) === false &&
 			isPlayed(upSpace, playedSpaces) === false
 		) {
@@ -195,15 +195,15 @@ function attackplayerBoard(
 		for (let i = 0; i < boardArr.length; i++) {
 			if (
 				boardArr[i].id === spaceNum.toString() &&
-				boardArr[i].style.backgroundColor != 'red'
+				boardArr[i].style.backgroundColor != 'rgb(82, 82, 82)'
 			) {
 				boardArr[i].style.backgroundColor = 'green';
 				playedSpacesArr.push(spaceNum);
 			} else if (
 				boardArr[i].id === spaceNum.toString() &&
-				boardArr[i].style.backgroundColor === 'red'
+				boardArr[i].style.backgroundColor === 'rgb(82, 82, 82)'
 			) {
-				boardArr[i].style.backgroundColor = 'black';
+				boardArr[i].style.backgroundColor = 'rgb(104, 28, 7)';
 				playedSpacesArr.push(spaceNum);
 			}
 		}
@@ -220,7 +220,7 @@ function attackCompBoard(space, compBoardObj, locArr) {
 	space.removeEventListener('mouseout', unHighlightSpace);
 	for (let i = 0; i < locArr.length; i++) {
 		if (space.id === locArr[i].toString()) {
-			space.style.backgroundColor = 'red';
+			space.style.backgroundColor = 'rgb(104, 28, 7)';
 		}
 	}
 	checkGameOver(compBoardObj);
@@ -366,7 +366,7 @@ function highlightPlayerShips(boardClass, locArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		for (let j = 0; j < locArr.length; j++) {
 			if (boardArr[i].id === locArr[j].toString()) {
-				boardArr[i].style.backgroundColor = 'red';
+				boardArr[i].style.backgroundColor = 'rgb(82, 82, 82)';
 			}
 		}
 	}
