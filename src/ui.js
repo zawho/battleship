@@ -197,7 +197,7 @@ function attackplayerBoard(
 				boardArr[i].id === spaceNum.toString() &&
 				boardArr[i].style.backgroundColor != 'rgb(82, 82, 82)'
 			) {
-				boardArr[i].style.backgroundColor = 'green';
+				boardArr[i].style.backgroundColor = 'rgb(127, 125, 125)';
 				playedSpacesArr.push(spaceNum);
 			} else if (
 				boardArr[i].id === spaceNum.toString() &&
@@ -215,7 +215,7 @@ function attackplayerBoard(
 function attackCompBoard(space, compBoardObj, locArr) {
 	space.style.pointerEvents = 'none';
 	compBoardObj.receiveAttack(Number(space.id));
-	space.style.backgroundColor = 'green';
+	space.style.backgroundColor = 'rgb(127, 125, 125)';
 	space.removeEventListener('mouseover', highlightSpace);
 	space.removeEventListener('mouseout', unHighlightSpace);
 	for (let i = 0; i < locArr.length; i++) {
