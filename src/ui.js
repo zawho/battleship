@@ -1,9 +1,9 @@
 function highlightSpace() {
-	this.style.backgroundColor = 'grey';
+	this.style.backgroundColor = 'rgb(127, 125, 125)';
 }
 
 function unHighlightSpace() {
-	this.style.backgroundColor = 'white';
+	this.style.backgroundColor = 'rgb(16, 45, 43)';
 }
 
 function getRandNum(spacesArr) {
