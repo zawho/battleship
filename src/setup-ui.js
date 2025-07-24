@@ -272,7 +272,7 @@ function allowDrag(event) {
 		for (let j = 0; j < shipArr.length; j++) {
 			if (
 				parseInt(boardArr[i].id) === shipArr[j] &&
-				boardArr[i].style.backgroundColor === 'rgb(104, 28, 7)'
+				boardArr[i].style.backgroundColor === 'rgba(82, 82, 82, 1)'
 			) {
 				event.target.style.pointerEvents = 'none';
 				boardArr[i].style.pointerEvents = 'none';
@@ -368,7 +368,7 @@ function dropHandler(event) {
 		for (let j = 0; j < shipArr.length; j++) {
 			if (parseInt(boardArr[i].id) === shipArr[j]) {
 				const nextSpace = document.getElementById(shipArr[j]);
-				nextSpace.style.backgroundColor = 'rgb(104, 28, 7)';
+				nextSpace.style.backgroundColor = 'rgba(82, 82, 82, 1)';
 				nextSpace.className = shipSpaceClass;
 				highlightShip(nextSpace, shipArr);
 			}
