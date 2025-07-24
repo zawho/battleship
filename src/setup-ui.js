@@ -343,6 +343,14 @@ function editShipObj(allShips, shipName, shipArr) {
 	}
 }
 
+function removeAlert() {
+	const alertDiv = document.querySelector('.setup-alert');
+
+	if (alertDiv.style.display != 'none') {
+		alertDiv.style.display = 'none';
+	}
+}
+
 function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
@@ -377,6 +385,8 @@ function dropHandler(event) {
 	event.target.removeChild(document.querySelector(`.${dataClass}`));
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
+
+	removeAlert();
 }
 
 function createShipObj() {
