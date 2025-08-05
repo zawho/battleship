@@ -1,6 +1,4 @@
-// NEXT: Fix alert removal bug, seems to be an issue with the selector
-// maybe use an array and check last child or something
-// NEXT NEXT: There seems to be some bug with placement and colors etc not working
+// NEXT: There seems to be some bug with placement and colors etc not working
 // properly? First step here is to get it to repeat and find the cause
 
 import { getShipName, rotateShip } from "./rotate-btn";
@@ -94,6 +92,17 @@ function resetShipHelper(length, newShip) {
 	});
 }
 
+function removeAlert() {
+	const setupDiv = document.querySelector('.setup-div');
+	
+	const setupArr = setupDiv.childNodes;
+
+	if (setupArr[setupArr.length - 1].className === 'setup-alert') {
+		const alertDiv = document.querySelector('.setup-alert');
+		alertDiv.style.display = 'none';
+	}
+}
+
 function resetAll() {
 	const board = document.querySelector('.setup-board');
 	const boardArr = Array.from(board.childNodes);
@@ -137,6 +146,8 @@ function resetAll() {
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 	}
+
+	removeAlert();
 }
 
 function menuBtnHelper(button, setupMenu) {
@@ -348,14 +359,6 @@ function editShipObj(allShips, shipName, shipArr) {
 	}
 }
 
-function removeAlert() {
-	const alertDiv = document.querySelector('.setup-alert');
-
-	if (alertDiv.style.display != 'none') {
-		alertDiv.style.display = 'none';
-	}
-}
-
 function dropHandler(event) {
 	event.preventDefault();
 	const data = event.dataTransfer.getData('text/plain');
@@ -391,7 +394,7 @@ function dropHandler(event) {
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
 
-	// removeAlert();
+	removeAlert();
 }
 
 function createShipObj() {
