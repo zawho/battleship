@@ -30,22 +30,31 @@ function startGame() {
     const setupDiv = document.querySelector('.setup-div');
 	const gameDiv = document.querySelector('.board-div');
     const setupBoard = document.querySelector('.setup-board');
-	 if (setupDiv.childNodes.length > 4) {
-		setupDiv.removeChild(setupDiv.lastChild);
-	 }
+	const startTestArr = [];
 
-	for (let [key, value] of Object.entries(setupBoard.allShips)) {
-		if (value.length === 0) {
-			const setupAlertDiv = document.createElement('div');
-			setupAlertDiv.className = 'setup-alert';
-			setupAlertDiv.innerText = 'FINISH SHIP PLACEMENT'
-			setupDiv.appendChild(setupAlertDiv);
-			return;
+	if (setupDiv.childNodes.length > 4) {
+		setupDiv.removeChild(setupDiv.lastChild);
+	}
+
+	for (let [key, value] of Object.entries(setupBoard.allShips)) { 
+		if (value.length > 0) {
+			startTestArr.push(value);
 		}
-		setupDiv.style.display = 'none';
-		gameDiv.style.display = 'grid';
-		gameDiv.style.justifyItems = 'center';
-	 }
+	}
+
+	
+	if (startTestArr.length < 5) {
+		const setupAlertDiv = document.createElement('div');
+		setupAlertDiv.className = 'setup-alert';
+		setupAlertDiv.innerText = 'FINISH SHIP PLACEMENT'
+		setupDiv.appendChild(setupAlertDiv);
+		return;
+	}
+
+	setupDiv.style.display = 'none';
+	gameDiv.style.display = 'grid';
+	gameDiv.style.justifyItems = 'center';
+	
     
 	const humanPlayer = new Player('human');
 	const pcPlayer = new Player('computer');

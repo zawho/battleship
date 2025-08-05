@@ -1,3 +1,8 @@
+// NEXT: Fix alert removal bug, seems to be an issue with the selector
+// maybe use an array and check last child or something
+// NEXT NEXT: There seems to be some bug with placement and colors etc not working
+// properly? First step here is to get it to repeat and find the cause
+
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
 
@@ -386,7 +391,7 @@ function dropHandler(event) {
 
 	editShipObj(setupBoard.allShips, shipName, shipArr);
 
-	removeAlert();
+	// removeAlert();
 }
 
 function createShipObj() {
