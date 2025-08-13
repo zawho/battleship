@@ -3,8 +3,6 @@
 // might be caused by weird selector thing that seems to happen mainly (only?)
 // on borders but idk
 
-//ALSO NEXT: Need to reset pointer events on cancel/reset, could be cause of above bug?
-
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
 
@@ -152,6 +150,11 @@ function resetAll() {
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
+		
+		if (boardArr[i].style.pointerEvents === 'none') {
+			boardArr[i].style.pointerEvents = 'auto';
+		}
+
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
