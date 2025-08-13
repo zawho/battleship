@@ -1,5 +1,9 @@
-// NEXT: There seems to be some bug with placement and colors etc not working
+// NEXT: There seems to be some bug with placement not working
 // properly? First step here is to get it to repeat and find the cause
+// might be caused by weird selector thing that seems to happen mainly (only?)
+// on borders but idk
+
+//ALSO NEXT: Need to reset pointer events on cancel/reset, could be cause of above bug?
 
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
@@ -21,11 +25,17 @@ function cancelPlacement() {
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
+		if (boardArr[i].className.slice(0, -11) === shipName &&
+			boardArr[i].style.pointerEvents === 'none') {
+			boardArr[i].style.pointerEvents = 'auto';
+		}
+
 		if (boardArr[i].className.slice(0, -11) === shipName) {
 			boardArr[i].className = 'setup-space';
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 		}
+
 	}
 
 	for (let [key, value] of Object.entries(board.allShips)) {
@@ -264,6 +274,7 @@ function preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace) {
 }
 
 function allowDrag(event) {
+	
 	const targetID = parseInt(event.target.id);
 	const data = event.dataTransfer.getData('text/plain');
 	const spaceIndex = parseInt(data.at(-10));
