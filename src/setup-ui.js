@@ -1,8 +1,3 @@
-// NEXT: There seems to be some bug with placement not working
-// properly? First step here is to get it to repeat and find the cause
-// might be caused by weird selector thing that seems to happen mainly (only?)
-// on borders but idk
-
 import { getShipName, rotateShip } from "./rotate-btn";
 import startGame from "./start-btn";
 
@@ -150,7 +145,7 @@ function resetAll() {
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
-		
+
 		if (boardArr[i].style.pointerEvents === 'none') {
 			boardArr[i].style.pointerEvents = 'auto';
 		}

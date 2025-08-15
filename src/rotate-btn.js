@@ -1,3 +1,7 @@
+// NEXT: bug is when a ship is surrounded by either right or left border
+// and a ship at the botton and opposite side. left border, the ship partially
+// disappears on rotate, right border, the ship overlaps other ship on rotate
+
 function getShipName(boardArr) {
 	for (let i = 0; i < boardArr.length; i++) {
 		if (
@@ -297,6 +301,15 @@ function checkForShips(shipDirection, axis, value, boardArr) {
             leftCollision === false &&
             borderCheck === 'down-left-border'
         ) {
+            return 'right-down-left';
+        } else if (
+            shipDirection === 'up' &&
+            rightCollision === false &&
+            downCollision === true &&
+            leftCollision === true &&
+            borderCheck === 'right-border'
+        ) {
+            console.log('hey');
             return 'right-down-left';
         } else if (
             shipDirection === 'up' &&
