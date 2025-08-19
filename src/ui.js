@@ -45,7 +45,8 @@ function checkVertHits(board, current, up, down) {
 
 function checkHorizHits(board, current, forward, back) {
 	if (
-		(current < 99 && board[forward].style.backgroundColor === 'rgb(104, 28, 7)') ||
+		(current < 99 &&
+			board[forward].style.backgroundColor === 'rgb(104, 28, 7)') ||
 		(current > 0 && board[back].style.backgroundColor === 'rgb(104, 28, 7)')
 	) {
 		return true;

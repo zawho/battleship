@@ -1,5 +1,5 @@
-import { getShipName, rotateShip } from "./rotate-btn";
-import startGame from "./start-btn";
+import { getShipName, rotateShip } from './rotate-btn';
+import startGame from './start-btn';
 
 function cancelPlacement() {
 	const board = document.querySelector('.setup-board');
@@ -18,8 +18,10 @@ function cancelPlacement() {
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
-		if (boardArr[i].className.slice(0, -11) === shipName &&
-			boardArr[i].style.pointerEvents === 'none') {
+		if (
+			boardArr[i].className.slice(0, -11) === shipName &&
+			boardArr[i].style.pointerEvents === 'none'
+		) {
 			boardArr[i].style.pointerEvents = 'auto';
 		}
 
@@ -28,7 +30,6 @@ function cancelPlacement() {
 			boardArr[i].style.borderWidth = '1px';
 			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 		}
-
 	}
 
 	for (let [key, value] of Object.entries(board.allShips)) {
@@ -97,7 +98,7 @@ function resetShipHelper(length, newShip) {
 
 function removeAlert() {
 	const setupDiv = document.querySelector('.setup-div');
-	
+
 	const setupArr = setupDiv.childNodes;
 
 	if (setupArr[setupArr.length - 1].className === 'setup-alert') {
@@ -145,14 +146,13 @@ function resetAll() {
 	}
 
 	for (let i = 0; i < boardArr.length; i++) {
-
 		if (boardArr[i].style.pointerEvents === 'none') {
 			boardArr[i].style.pointerEvents = 'auto';
 		}
 
-			boardArr[i].className = 'setup-space';
-			boardArr[i].style.borderWidth = '1px';
-			boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
+		boardArr[i].className = 'setup-space';
+		boardArr[i].style.borderWidth = '1px';
+		boardArr[i].style.backgroundColor = 'rgb(16, 45, 43)';
 	}
 
 	removeAlert();
@@ -272,7 +272,6 @@ function preventPlacementHelper(spaceIndex, shipLength, shipArr, shipSpace) {
 }
 
 function allowDrag(event) {
-	
 	const targetID = parseInt(event.target.id);
 	const data = event.dataTransfer.getData('text/plain');
 	const spaceIndex = parseInt(data.at(-10));

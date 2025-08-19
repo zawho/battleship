@@ -38,16 +38,17 @@ button {
 	gap: 5px;
 }
 
-.title-div{
+.title-div {
 	font-size: 4em;
-	color: rgb(104, 28, 7); 
+	color: rgb(104, 28, 7);
 }
 
 .board-div {
 	display: none;
 }
 
-.title-div, .setup-div {
+.title-div,
+.setup-div {
 	justify-items: center;
 }
 
@@ -133,8 +134,8 @@ button {
 	border: 1px solid rgb(127, 125, 125);
 }
 
-.setup-alert{
-	color: rgb(104, 28, 7); 
+.setup-alert {
+	color: rgb(104, 28, 7);
 	font-size: 2em;
 }
 
